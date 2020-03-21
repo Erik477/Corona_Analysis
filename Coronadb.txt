@@ -1,0 +1,18 @@
+use Corona;
+drop table if exists Corona;
+CREATE TABLE Corona
+(
+	epoch bigint not Null,
+    country VARCHAR(50),
+    cases INT,
+    todayCases int,
+    deaths int,
+    todayDeaths int,
+    recovered int,
+    active int,
+    critical int,
+	casesPerOneMillion int,
+    primary key(epoch)
+);
+
+select * from Corona;
