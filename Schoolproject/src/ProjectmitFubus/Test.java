@@ -1,5 +1,5 @@
 package ProjectmitFubus;
 
-public class test {
+public class Test {
 
 }
