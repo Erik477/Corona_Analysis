@@ -22,16 +22,17 @@ public class jdbc {
 		con.close();
 	}
 	
-	public void getInfected() throws SQLException
+	public int getInfected() throws SQLException
 	{
 		String sql = "Select cases from Corona where country = 'Austria' ";
 		Statement stmt  = con.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 		rs.next();
 		int infected = rs.getInt("cases");
-		System.out.println(infected + " sind in österreich infiziert");
+		System.out.println(infected + " Menschen sind in österreich infiziert");
 		
 		rs.close();
 		stmt.close();
+		return infected;
 	}
 }
