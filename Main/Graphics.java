@@ -14,7 +14,7 @@ public class Graphics extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void runGraphics() {
+	public void runGraphics() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

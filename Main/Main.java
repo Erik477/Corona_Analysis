@@ -7,6 +7,8 @@ public class Main {
 		
 		Graphics graphics = new Graphics();
 		graphics.runGraphics();
+		
+		System.out.println("lul");
 	}
 
 }
