@@ -43,19 +43,9 @@ public class Window {
 		frame.setBackground(Color.DARK_GRAY);
 		frame.setBounds(100, 100, 930, 786);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		frame.pack();
 		frame.getContentPane().setLayout(null);
-		
-		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(198, 226, 191, -40);
-		frame.getContentPane().add(btnNewButton_1);
-		
-		JList list = new JList();
-		list.setBounds(343, 530, 363, -216);
-		frame.getContentPane().add(list);
-		
-		JButton btnNewButton = new JButton("New button");
-		frame.getContentPane().add(btnNewButton);
-		btnNewButton.setBounds(343, 252, 334, 129);
+		frame.setVisible(true);
 	}
 }
