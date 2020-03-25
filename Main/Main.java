@@ -1,10 +1,18 @@
 package Main;
 
-public class Main {
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class Main  {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	
+		StartGraphics sg = new StartGraphics();
+		sg.launch(StartGraphics.class, args);
 	}
+
+	
+
+	
 
 }
