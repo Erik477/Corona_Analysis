@@ -16,28 +16,37 @@ public class StartGraphics extends Application{
 	Button closeButton;
 	Stage window;
 
+	private int WIDTH = 700, HEIGHT = 450;
 	@Override
-	public void start(Stage primaryStage) throws Exception {
+	public  void start(Stage primaryStage) throws Exception {
 		
 		window = primaryStage;
 		window.setTitle("COVID-19 Analysis by Erik and Fubus");
 		
 		startButton = new Button("START");
+		startButton.setMinSize(200, 50);
+		startButton.setLayoutX(WIDTH /2 - 100);
+		startButton.setLayoutY(HEIGHT - 260);
+		
+		
+		
 		
 		closeButton = new Button("CLOSE");
 		closeButton.setOnAction(e -> new CloseAlertBox().display("CLOSE", "Are you sure you want to quit?"));
-		
+		closeButton.setMinSize(200, 50 );
+		closeButton.setLayoutX(WIDTH/2 - 100 );
+		closeButton.setLayoutY(HEIGHT - 200);
 		
 		//Hintergrundbild
 		
-		Image image = new Image("startup_wallpaper.jpg", 500, 500, false, false);
+		Image image = new Image("file:coronavirus.jpg");
 		ImageView mv = new ImageView(image);
 		
 		
 		
-		StackPane layout = new StackPane();
-		layout.getChildren().addAll(mv, startButton, closeButton);
-		Scene scene = new Scene(layout, 500,500);
+		Group layout = new Group();
+		layout.getChildren().addAll( mv,startButton, closeButton);
+		Scene scene = new Scene(layout, 700,450);
 		
 		
 		window.setScene(scene);
