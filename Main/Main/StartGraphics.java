@@ -1,9 +1,13 @@
 package Main;
 
+import java.util.ArrayList;
+
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -15,27 +19,53 @@ public class StartGraphics extends Application{
 	Button startButton;
 	Button closeButton;
 	Stage window;
-
+	
 	private int WIDTH = 700, HEIGHT = 450;
+	
+	
 	@Override
 	public  void start(Stage primaryStage) throws Exception {
 		
+		Graphics graphics = new Graphics();
+		
 		window = primaryStage;
+		window.setOnCloseRequest(e-> {
+			e.consume();
+			closeProgram();
+		});
 		window.setTitle("COVID-19 Analysis by Erik and Fubus");
 		
 		startButton = new Button("START");
 		startButton.setMinSize(200, 50);
 		startButton.setLayoutX(WIDTH /2 - 100);
 		startButton.setLayoutY(HEIGHT - 260);
-		
+		startButton.setOnAction(e ->{ 
+			try {
+				graphics.start();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			window.close();
+		});
 		
 		
 		
 		closeButton = new Button("CLOSE");
-		closeButton.setOnAction(e -> new CloseAlertBox().display("CLOSE", "Are you sure you want to quit?"));
 		closeButton.setMinSize(200, 50 );
 		closeButton.setLayoutX(WIDTH/2 - 100 );
 		closeButton.setLayoutY(HEIGHT - 200);
+		
+		closeButton.setOnAction(e-> {
+		boolean result = ConfirmBox.display("Close?", "Are you sure you want to exit?");
+			
+			if(result)
+			{
+				window.close();
+			}
+		});
+		
+		
 		
 		//Hintergrundbild
 		
@@ -53,5 +83,14 @@ public class StartGraphics extends Application{
 		window.setResizable(false);
 		window.sizeToScene();   //verhindert das kein Rand durch .setResizable entsteht
 		window.show();
+	}
+	
+	private void closeProgram()
+	{
+		Boolean answer = ConfirmBox.display("Title", "You wanna exit");
+		if(answer)
+		{
+		window.close();
+		}
 	}
 }
