@@ -9,7 +9,6 @@ public class Main {
 
 		StartGraphics sg = new StartGraphics();
 		Graphics mg = new Graphics();
-		Mysql mq = new Mysql();
 		
 		
 				sg.launch(StartGraphics.class, args);

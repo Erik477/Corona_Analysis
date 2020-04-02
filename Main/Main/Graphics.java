@@ -28,8 +28,9 @@ public class Graphics {
 	final int listViewRowHeight = 20;
 
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	double width = screenSize.getWidth();
-	double height = screenSize.getHeight();
+	
+	
+	
 	
 	public void start() throws Exception {
 
@@ -39,14 +40,9 @@ public class Graphics {
 		ArrayList<String> country = mq.getCountry();
 
 		window.setTitle("Main");
-
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		double width = screenSize.getWidth();
-		double height = screenSize.getHeight();
-
 		BorderPane borderPane = new BorderPane();
 
-		Image image = new Image("file:startup_wallpaper.jpg");
+		//Image image = new Image("file:startup_wallpaper.jpg");
 		// ImageView mv = new ImageView(image);
 
 		Button b = new Button("Submit");
@@ -56,29 +52,16 @@ public class Graphics {
 		
 
 		VBox left = new VBox(10);
-		listview = new ListView<>();
-		listview.minHeight(500);
-		listview.setPrefHeight((int) height);
-		listview.setPrefWidth(300);
 		
-		for (int i = 0; i < country.size(); i++) {
-			String e = country.get(i);
-			listview.getItems().add(e);
-		}
-	
-		listview.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-		    @Override
-		    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-		        // Your action here
-		        countr = newValue;
-		    }
-		});
+		
+		
+		ListViewObj list = new ListViewObj(mq);
 		Label label = new Label(countr);
 		label.setStyle("-fx-background: #2261c7;");
 		GridPane.setConstraints(label, 500, 500);
 		label.setPadding(new Insets(10, 10, 10, 10));
 
-		left.getChildren().addAll(listview, b);
+		left.getChildren().addAll(list, b);
 
 		borderPane.setTop(label);
 		borderPane.setLeft(left);
@@ -108,4 +91,31 @@ public class Graphics {
 		System.out.println(countr);
 
 	}
+	
+	
+	
+	
+	
+	double width = screenSize.getWidth();
+	public double getWidth() {
+		return width;
+	}
+
+	public void setWidth(double width) {
+		this.width = width;
+	}
+
+	public double getHeight() {
+		return height;
+	}
+
+	public void setHeight(double height) {
+		this.height = height;
+	}
+
+	public int getListViewRowHeight() {
+		return listViewRowHeight;
+	}
+
+	double height = screenSize.getHeight();
 }
