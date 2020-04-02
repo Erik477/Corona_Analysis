@@ -25,7 +25,7 @@ public ArrayList<String> getCountry() throws SQLException{
 	
 	ArrayList<String> countr = new ArrayList<>();
 	
-	String sql = "select country from Corona limit 200;";
+	String sql = "select country, cases from Corona limit 200;";
 	
 	 PreparedStatement stmt = con.prepareStatement(sql);
 	 
@@ -34,9 +34,10 @@ public ArrayList<String> getCountry() throws SQLException{
 		while (rs.next())
 		{
 			String Name = rs.getString("Country");
-			
-			String s =  new String(Name);
-			countr.add(s);
+			int confirmed = rs.getInt("cases");
+			String confirmedCases = String.valueOf(confirmed);
+			String format = String.format("%-30s \t %s",Name,confirmedCases);
+			countr.add(format);
 		}
 		stmt.close();
 		rs.close();

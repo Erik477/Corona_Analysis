@@ -4,15 +4,11 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -31,6 +27,8 @@ public class Graphics {
 	
 	
 	
+	double width = screenSize.getWidth();
+	double height = screenSize.getHeight();
 	
 	public void start() throws Exception {
 
@@ -45,9 +43,9 @@ public class Graphics {
 		//Image image = new Image("file:startup_wallpaper.jpg");
 		// ImageView mv = new ImageView(image);
 
-		Button b = new Button("Submit");
+		
 
-		b.setOnAction(e -> Clicked());
+		
 
 		
 
@@ -61,7 +59,7 @@ public class Graphics {
 		GridPane.setConstraints(label, 500, 500);
 		label.setPadding(new Insets(10, 10, 10, 10));
 
-		left.getChildren().addAll(list, b);
+		left.getChildren().addAll(list);
 
 		borderPane.setTop(label);
 		borderPane.setLeft(left);
@@ -70,10 +68,10 @@ public class Graphics {
 
 		borderPane.setStyle("-fx-background: #241918;");
 
-		Scene scene = new Scene(borderPane);
+		Scene scene = new Scene(borderPane, (int) width, (int) height -40);
 		
 		
-		window.setFullScreen(true);
+		
 		window.setResizable(false);
 		window.setScene(scene);
 		window.show();
@@ -96,7 +94,6 @@ public class Graphics {
 	
 	
 	
-	double width = screenSize.getWidth();
 	public double getWidth() {
 		return width;
 	}
@@ -117,5 +114,4 @@ public class Graphics {
 		return listViewRowHeight;
 	}
 
-	double height = screenSize.getHeight();
 }
