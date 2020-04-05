@@ -20,12 +20,8 @@ public class ListViewObj extends ListView {
 
 	public ListViewObj(Mysql mq) throws SQLException {
 		this.mq = mq;
-		initalize(mq);
-		
-		
-	
+		initalize(mq);	
 	}
-
 	
 	public void initalize(Mysql mq) throws SQLException
 	{

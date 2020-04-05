@@ -16,16 +16,14 @@ private Connection con;
 public Mysql() throws ClassNotFoundException, SQLException {
 
 	Class.forName("com.mysql.cj.jdbc.Driver");
-	 con = DriverManager.getConnection(
-			 "jdbc:mysql://localhost/Corona?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-				"root", "12345");
+	 con = DriverManager.getConnection("jdbc:mysql://192.168.0.176:3306/Corona?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root", "3r!k");
 	 
 }
 public ArrayList<String> getCountry() throws SQLException{
 	
 	ArrayList<String> countr = new ArrayList<>();
 	
-	String sql = "select country, cases from Corona limit 200;";
+	String sql = "select country, cases from Corona limit 188;";
 	
 	 PreparedStatement stmt = con.prepareStatement(sql);
 	 
