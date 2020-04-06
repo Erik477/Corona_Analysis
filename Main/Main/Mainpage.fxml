@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -27,26 +28,26 @@
                     <MenuItem mnemonicParsing="false" text="About" />
                   </items>
                 </Menu>
+                  <Menu mnemonicParsing="false" text="Exit">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                  </Menu>
               </menus>
             </MenuBar>
             <HBox spacing="10.0">
-               <children>
-                  <TextField promptText="USERNAME" />
-                  <TextField layoutX="10.0" layoutY="10.0" promptText="PASSWORD" />
-                  <Region HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" text="LOGIN" />
-                  <Button layoutX="308.0" layoutY="10.0" mnemonicParsing="false" text="Settings" />
-               </children>
                <VBox.margin>
                   <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                </VBox.margin>
+               <children>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Label text="Label" />
+                  <Region HBox.hgrow="ALWAYS" />
+               </children>
             </HBox>
          </children>
       </VBox>
    </top>
-   <left>
-      <TreeView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </left>
    <center>
       <TextArea prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
@@ -60,4 +61,7 @@
          </padding>
       </HBox>
    </bottom>
+   <left>
+      <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </left>
 </fx:root>
