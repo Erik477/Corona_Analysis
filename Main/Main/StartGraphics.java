@@ -26,7 +26,7 @@ public class StartGraphics extends Application{
 	@Override
 	public  void start(Stage primaryStage) throws Exception {
 		
-		Graphics graphics = new Graphics();
+		ScenebuilderMain graphics = new ScenebuilderMain();
 		
 		window = primaryStage;
 		window.setOnCloseRequest(e-> {

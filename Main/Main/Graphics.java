@@ -3,7 +3,6 @@ package Main;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
-
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -42,17 +41,9 @@ public class Graphics {
 
 		//Image image = new Image("file:startup_wallpaper.jpg");
 		// ImageView mv = new ImageView(image);
-
-		
-
-		
-
-		
-
 		VBox left = new VBox(10);
 		
-		
-		
+
 		ListViewObj list = new ListViewObj(mq);
 		Label label = new Label(countr);
 		label.setStyle("-fx-background: #2261c7;");
@@ -88,11 +79,7 @@ public class Graphics {
 
 		System.out.println(countr);
 
-	}
-	
-	
-	
-	
+	}	
 	
 	public double getWidth() {
 		return width;
