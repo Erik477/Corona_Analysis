@@ -16,17 +16,17 @@ import javafx.stage.Stage;
 public class StartGraphics extends Application{
 
 	
-	Button startButton;
-	Button closeButton;
-	Stage window;
-	
+	private Button startButton;
+	private Button closeButton;
+	private Stage window;
+	private ScenebuilderMain graphics;
 	private int WIDTH = 700, HEIGHT = 450;
 	
 	
 	@Override
 	public  void start(Stage primaryStage) throws Exception {
 		
-		ScenebuilderMain graphics = new ScenebuilderMain();
+		 graphics = new ScenebuilderMain();
 		
 		window = primaryStage;
 		window.setOnCloseRequest(e-> {

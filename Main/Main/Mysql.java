@@ -19,7 +19,6 @@ public Mysql() throws ClassNotFoundException, SQLException {
 	 con = DriverManager.getConnection(
 			"jdbc:mysql://localhost/Corona?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
 			"root", "12345");
-	 
 }
 public ArrayList<String> getCountry() throws SQLException{
 	

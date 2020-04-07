@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
 		StartGraphics sg = new StartGraphics();
-		ScenebuilderMain sb = new ScenebuilderMain();
+		Graphics mg = new Graphics();
 		
 		
 				sg.launch(StartGraphics.class, args);
