@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 public class ScenebuilderMain {
 	
 
@@ -15,8 +16,9 @@ public class ScenebuilderMain {
 			window = new Stage();
 			Parent root = FXMLLoader.load(getClass().getResource("Mainpage.fxml"));
 			window.setTitle("Hello There");
-			window.setFullScreen(true);
+			window.setFullScreen(false);
 			window.setScene(new Scene(root));
+			window.setResizable(true);
 			window.show();
 		}
 

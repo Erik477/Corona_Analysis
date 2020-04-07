@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
    <top>
       <VBox style="-fx-background-color: #41464f;" BorderPane.alignment="CENTER">
          <children>
@@ -32,29 +33,26 @@
          </children>
       </VBox>
    </top>
-   <bottom>
-      <HBox BorderPane.alignment="CENTER">
-         <children>
-            <Label text="Label" />
-         </children>
-         <padding>
-            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-         </padding>
-      </HBox>
-   </bottom>
    <left>
-      <ListView fx:id="countryList" prefHeight="330.0" prefWidth="162.0" style="-fx-background-color: #41464f;" BorderPane.alignment="CENTER" />
+      <ListView fx:id="countryList" prefWidth="266.0" style="-fx-background-color: #41464f;" BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <FlowPane prefHeight="830.0" prefWidth="441.0" BorderPane.alignment="CENTER">
          <children>
-            <SplitPane dividerPositions="0.5" layoutX="-3.0" layoutY="14.0" prefHeight="142.0" prefWidth="206.0">
-               <items>
-                  <TextArea prefHeight="182.0" prefWidth="99.0" style="-fx-background-color: #41464f;" text="Total Deaths" />
-                  <TextArea prefHeight="141.0" prefWidth="109.0" style="-fx-background-color: #41464f;" text="Total Recovered" />
-               </items>
-            </SplitPane>
+            <VBox prefHeight="359.0" prefWidth="442.0" />
+            <VBox prefHeight="494.0" prefWidth="442.0">
+               <children>
+                  <LineChart prefHeight="553.0" prefWidth="442.0" style="-fx-border-color: #41464f; -fx-background-color: #41464f;">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+               </children>
+            </VBox>
          </children>
-      </AnchorPane>
+      </FlowPane>
    </right>
 </BorderPane>
