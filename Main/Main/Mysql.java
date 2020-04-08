@@ -18,8 +18,9 @@ private Connection con;
 public ArrayList<String> getCountry() throws SQLException{
 	
 	ArrayList<String> countr = new ArrayList<>();
+	countr.add("World");
 	
-	String sql = "select country, cases from Corona limit 188;";
+	String sql = "select country, cases from Corona limit 187;";
 	
 	 PreparedStatement stmt = con.prepareStatement(sql);
 	 
@@ -33,6 +34,7 @@ public ArrayList<String> getCountry() throws SQLException{
 			String format = String.format("%-30s \t %s",Name,confirmedCases);
 			countr.add(format);
 		}
+		
 		stmt.close();
 		rs.close();
 		//return countr;

@@ -35,6 +35,7 @@ public class Graphics {
 
 		mq = new Mysql();
 		ArrayList<String> country = mq.getCountry();
+		country.add("World");
 
 		window.setTitle("Main");
 		BorderPane borderPane = new BorderPane();
