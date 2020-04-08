@@ -27,9 +27,12 @@ public class ListViewObj extends ListView {
 	{
 		graphics = new Graphics();
 		ArrayList<String> country = mq.getCountry();
+		country.add("World");
+		
 		for (int i = 0; i < country.size(); i++) {
 			String e = country.get(i);
 			getItems().add(e);
+		
 			setPrefHeight(graphics.getHeight());
 			
 			getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
