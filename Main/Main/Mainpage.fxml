@@ -52,9 +52,17 @@
                       <NumberAxis side="LEFT" />
                     </yAxis>
                   </LineChart>
-                  <ListView fx:id="Data" prefHeight="200.0" prefWidth="200.0" />
                </children>
             </VBox>
+            <Button mnemonicParsing="false" text="Info" />
+            <Button mnemonicParsing="false" text="Cases" />
+            <Button mnemonicParsing="false" text="todayCases" />
+            <Button mnemonicParsing="false" text="Deaths" />
+            <Button mnemonicParsing="false" text="todayDeaths" />
+            <Button mnemonicParsing="false" text="Recovered" />
+            <Button mnemonicParsing="false" text="Active" />
+            <Button mnemonicParsing="false" text="Critical" />
+            <Button mnemonicParsing="false" text="CasesPerOneMillion" />
          </children>
       </FlowPane>
    </right>

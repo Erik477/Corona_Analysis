@@ -12,7 +12,7 @@ import javafx.scene.control.ListView;
 public class Controller implements Initializable {
 
 	Mysql mq;
-	ListView<String> Data;
+	
 
 	ObservableList list = FXCollections.observableArrayList();
 	@FXML
@@ -22,9 +22,6 @@ public class Controller implements Initializable {
 	@Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
 
-		Data = new ListView<>();
-		
-		Data.getItems().addAll("Info","Cases", "todayCases", "Deaths", "todayDeaths", "recovered", "critical","CasesPerOneMillion");		
 		
 		try {
 			addList();
