@@ -52,7 +52,7 @@
                       <NumberAxis side="LEFT" />
                     </yAxis>
                   </LineChart>
-                  <ListView fx:id="Data" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #41464f;" />
+                  <ListView fx:id="Data" prefHeight="200.0" prefWidth="200.0" />
                </children>
             </VBox>
          </children>
