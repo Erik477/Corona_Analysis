@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 
 public class Controller implements Initializable {
 
@@ -40,7 +41,11 @@ public class Controller implements Initializable {
 	public void addList() throws ClassNotFoundException, SQLException {
 		mq = new Mysql();
 
+
 		
+
+		countryList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
 
 		list.removeAll(list);
 
