@@ -23,8 +23,9 @@ public class Controller implements Initializable{
 	ObservableList list = FXCollections.observableArrayList();
 	@FXML
 	private ListView<String> countryList;
+	private ListView<String> Data;
 	
-	Label Data = new Label();
+	
 
 	public void loginButtonClicked() {
 

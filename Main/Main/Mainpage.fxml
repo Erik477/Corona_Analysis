@@ -33,7 +33,7 @@
                      <font>
                         <Font size="22.0" />
                      </font></Label>
-                  <Region HBox.hgrow="ALWAYS" />
+                  <Region style="-fx-background-color: #41464f;" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </children>
@@ -52,7 +52,7 @@
                       <NumberAxis side="LEFT" />
                     </yAxis>
                   </LineChart>
-                  <Label fx:id="Data" text="Label" />
+                  <ListView fx:id="Data" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #41464f;" />
                </children>
             </VBox>
          </children>
@@ -81,6 +81,6 @@
       <ListView fx:id="countryList" minWidth="50.0" style="-fx-background-color: #41464f;" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <Region prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: ;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
