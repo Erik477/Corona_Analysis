@@ -51,7 +51,7 @@ public ArrayList<String> getCountry() throws SQLException {
 	while (rs.next()) {
 		Name = rs.getString("Country");
 		confirmed = rs.getInt("cases");
-		format = String.format("%-6d \t %s", confirmed, Name);
+		format = String.format("%-6d \t %-30s", confirmed, Name);
 		countr.add(format);
 	}
 

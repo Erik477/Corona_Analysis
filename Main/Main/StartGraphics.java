@@ -1,34 +1,38 @@
 package Main;
 
-import java.util.ArrayList;
+import java.awt.Font;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class StartGraphics extends Application{
 
 	
 	private Button startButton;
 	private Button closeButton;
+	private Button exitButton, minimizeButton;
 	private Stage window;
 	private ScenebuilderMain graphics;
 	private int WIDTH = 700, HEIGHT = 450;
-	
+	private int minButtonTopX = 10, maxButtonTopX = 40, prefButtonTopX = 20;
+	private int minButtonTopY = 10, maxButtonTopY = 40, prefButtonTopY = 20;
 	
 	@Override
 	public  void start(Stage primaryStage) throws Exception {
 		
 		 graphics = new ScenebuilderMain();
 		
-		window = primaryStage;
+		window = new Stage(StageStyle.UNDECORATED);
+		
 		window.setOnCloseRequest(e-> {
 			e.consume();
 			closeProgram();
@@ -67,6 +71,33 @@ public class StartGraphics extends Application{
 		
 		
 		
+		exitButton = new Button("X");
+		
+		exitButton.setPrefSize(20, 20);
+		exitButton.setStyle("-fx-background-color: transparent;");
+		exitButton.setTextFill(Color.WHITE);
+		exitButton.setTranslateX(WIDTH -prefButtonTopX *2);
+		exitButton.setOnAction(e ->{
+		boolean result = ConfirmBox.display("Close?", "Are you sure you want to exit?");
+			
+			if(result)
+			{
+				window.close();
+			}
+		});
+		
+		minimizeButton = new Button("_");
+		minimizeButton.setPrefSize(20,20);
+		minimizeButton.setStyle("-fx-background-color: transparent;");
+		minimizeButton.setTextFill(Color.WHITE);
+		minimizeButton.setTranslateY(0);
+		minimizeButton.setTranslateX(WIDTH -prefButtonTopX *2 - 30);
+		
+		VBox topBar = new VBox();
+		topBar.setAlignment(Pos.TOP_RIGHT);
+		topBar.getChildren().addAll(exitButton, minimizeButton);
+				
+		
 		//Hintergrundbild
 		
 		Image image = new Image("file:coronavirus.jpg");
@@ -75,7 +106,7 @@ public class StartGraphics extends Application{
 		
 		
 		Group layout = new Group();
-		layout.getChildren().addAll( mv,startButton, closeButton);
+		layout.getChildren().addAll( mv,startButton, closeButton, topBar);
 		Scene scene = new Scene(layout, 700,450);
 		
 		
