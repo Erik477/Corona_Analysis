@@ -85,7 +85,7 @@ public class StartGraphics extends Application{
 				window.close();
 			}
 		});
-		
+		System.out.println();
 		minimizeButton = new Button("_");
 		minimizeButton.setPrefSize(20,20);
 		minimizeButton.setStyle("-fx-background-color: transparent;");
