@@ -40,8 +40,8 @@ public ArrayList<String> getCountry() throws SQLException {
 		confirmed = confirmed + rs.getInt("cases");
 	}
 	Name = "World";
-	confirmedCases = Integer.toString(confirmed);
-	format = String.format("%-30s \t %s", Name, confirmedCases);
+	
+	format = String.format("%-7d \t %s", confirmed, Name);
 	String sql = "select country, cases from Corona limit 187;";
 	countr.add(format);
 	stmt = con.prepareStatement(sql);
@@ -51,8 +51,8 @@ public ArrayList<String> getCountry() throws SQLException {
 	while (rs.next()) {
 		Name = rs.getString("Country");
 		confirmed = rs.getInt("cases");
-		confirmedCases = String.valueOf(confirmed);
-		format = String.format("%-30s \t %s", Name, confirmedCases);
+		
+		format = String.format("%-6d \t %s", confirmed, Name);
 		countr.add(format);
 	}
 

@@ -26,7 +26,7 @@
                </VBox.margin>
                <children>
                   <Region style="-fx-background-color: #41464f;" HBox.hgrow="ALWAYS" />
-                  <Label style="-fx-background-color: #41464f;" text="COVID-19 Analysis by Erik nand Fubus" textFill="#df0f0f">
+                  <Label style="-fx-background-color: #41464f;" text="COVID-19 Analysis by Erik and Fubus" textFill="#df0f0f">
                      <font>
                         <Font size="22.0" />
                      </font></Label>
@@ -84,7 +84,7 @@
             </SplitPane>
             <FlowPane layoutX="18.0" layoutY="1.0" prefHeight="51.0" prefWidth="532.0">
                <children>
-                  <Button mnemonicParsing="false" text="todayCases" />
+                  <Button fx:id="todayCases" mnemonicParsing="false" text="todayCases" />
                   <Button mnemonicParsing="false" text="CasesPerOneMillion" />
                   <Button mnemonicParsing="false" text="Recovered" />
                   <Button mnemonicParsing="false" text="Critical" />
