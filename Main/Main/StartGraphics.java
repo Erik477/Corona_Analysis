@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -90,7 +91,7 @@ public class StartGraphics extends Application{
 		minimizeButton.setStyle("-fx-background-color: transparent;");
 		minimizeButton.setTextFill(Color.WHITE);
 		minimizeButton.setTranslateY(0);
-		minimizeButton.setTranslateX(WIDTH -prefButtonTopX *2 - 30);
+		minimizeButton.setTranslateX(WIDTH -prefButtonTopX *2 + 30);
 		
 		fullscreenButton = new Button("+");
 		fullscreenButton.setPrefSize(20, 20);
@@ -99,7 +100,7 @@ public class StartGraphics extends Application{
 		fullscreenButton.setTranslateX(0);
 		fullscreenButton.setTranslateY(WIDTH -prefButtonTopX *2 -60);
 		
-		VBox topBar = new VBox();
+		HBox topBar = new HBox(90);
 		topBar.setAlignment(Pos.TOP_RIGHT);
 		topBar.getChildren().addAll(exitButton, minimizeButton, fullscreenButton);
 				
