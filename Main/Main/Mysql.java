@@ -15,11 +15,10 @@ private Connection con;
 
 public Mysql() throws ClassNotFoundException, SQLException {
 
-	Class.forName("com.mysql.jdbc.Driver");
+	Class.forName("com.mysql.cj.jdbc.Driver");
 	 con = DriverManager.getConnection(
-			"jdbc:mysql://localhost/Corona?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-			"root", "12345");
-
+			"jdbc:mysql://192.168.0.176:3306/Corona?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+			"root", "3r!k");
 }
 
 public ArrayList<String> getCountry() throws SQLException {

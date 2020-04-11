@@ -19,7 +19,7 @@ public class StartGraphics extends Application{
 	
 	private Button startButton;
 	private Button closeButton;
-	private Button exitButton, minimizeButton;
+	private Button exitButton, minimizeButton , fullscreenButton;
 	private Stage window;
 	private ScenebuilderMain graphics;
 	private int WIDTH = 700, HEIGHT = 450;
@@ -71,8 +71,7 @@ public class StartGraphics extends Application{
 		
 		
 		
-		exitButton = new Button("X");
-		
+		exitButton = new Button("X");		
 		exitButton.setPrefSize(20, 20);
 		exitButton.setStyle("-fx-background-color: transparent;");
 		exitButton.setTextFill(Color.WHITE);
@@ -93,9 +92,16 @@ public class StartGraphics extends Application{
 		minimizeButton.setTranslateY(0);
 		minimizeButton.setTranslateX(WIDTH -prefButtonTopX *2 - 30);
 		
+		fullscreenButton = new Button("^");
+		fullscreenButton.setPrefSize(20, 20);
+		fullscreenButton.setStyle("-fx-background-color: transparent;");
+		fullscreenButton.setTextFill(Color.WHITE);
+		fullscreenButton.setTranslateX(0);
+		fullscreenButton.setTranslateY(WIDTH -prefButtonTopX *2 -60);
+		
 		VBox topBar = new VBox();
 		topBar.setAlignment(Pos.TOP_RIGHT);
-		topBar.getChildren().addAll(exitButton, minimizeButton);
+		topBar.getChildren().addAll(exitButton, minimizeButton, fullscreenButton);
 				
 		
 		//Hintergrundbild
