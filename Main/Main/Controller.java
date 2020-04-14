@@ -57,5 +57,28 @@ public class Controller implements Initializable {
 		countryList.getItems().addAll(list);
 
 	}
-
+	public void Deathclicked() throws ClassNotFoundException, SQLException {
+	System.out.println("Death");	
+	}
+	public void todaydeathclicked() throws ClassNotFoundException, SQLException {
+		System.out.println("todayDeath");
+	}
+	public void Casesclicked() throws ClassNotFoundException, SQLException {
+		System.out.println("cases");
+	}
+	public void todaycaseshclicked() throws ClassNotFoundException, SQLException {
+		System.out.println("todaycases");
+	}
+	public void Criticalclicked() throws ClassNotFoundException, SQLException {
+		System.out.println("critical");
+	}
+	public void recoveredclicked() throws ClassNotFoundException, SQLException {
+		System.out.println("recovered");
+	}
+	public void Activeclicked() throws ClassNotFoundException, SQLException {
+		System.out.println("active");
+	}
+	public void CasesperoneMillionclicked() throws ClassNotFoundException, SQLException {
+		System.out.println("million");
+	}
 }

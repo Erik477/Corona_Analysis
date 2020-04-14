@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -16,7 +22,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="900.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
+<BorderPane prefHeight="900.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
    <top>
       <VBox style="-fx-background-color: #41464f;" BorderPane.alignment="CENTER">
          <children>
@@ -84,13 +90,13 @@
             </SplitPane>
             <FlowPane layoutX="18.0" layoutY="1.0" prefHeight="51.0" prefWidth="532.0">
                <children>
-                  <Button fx:id="todayCases" mnemonicParsing="false" text="todayCases" />
-                  <Button mnemonicParsing="false" text="CasesPerOneMillion" />
-                  <Button mnemonicParsing="false" text="Recovered" />
-                  <Button mnemonicParsing="false" text="Critical" />
-                  <Button mnemonicParsing="false" text="Active" />
-                  <Button mnemonicParsing="false" text="todayDeaths" />
-                  <Button mnemonicParsing="false" text="Deaths" />
+                  <Button fx:id="todayCases" mnemonicParsing="false" onAction="#todaycaseshclicked" text="todayCases" />
+                  <Button mnemonicParsing="false" onAction="#CasesperoneMillionclicked" text="CasesPerOneMillion" />
+                  <Button mnemonicParsing="false" onAction="#recoveredclicked" text="Recovered" />
+                  <Button mnemonicParsing="false" onAction="#Criticalclicked" text="Critical" />
+                  <Button mnemonicParsing="false" onAction="#Activeclicked" text="Active" />
+                  <Button mnemonicParsing="false" onAction="#todaydeathclicked" text="todayDeaths" />
+                  <Button mnemonicParsing="false" onAction="#Deathclicked" text="Deaths" />
                </children>
             </FlowPane>
          </children>

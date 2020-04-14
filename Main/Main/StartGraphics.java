@@ -20,7 +20,7 @@ public class StartGraphics extends Application{
 	
 	private Button startButton;
 	private Button closeButton;
-	private Button exitButton, minimizeButton , fullscreenButton;
+	private Button exitButton;
 	private Stage window;
 	private ScenebuilderMain graphics;
 	private int WIDTH = 700, HEIGHT = 450;
@@ -86,23 +86,23 @@ public class StartGraphics extends Application{
 			}
 		});
 		
-		minimizeButton = new Button("_");
-		minimizeButton.setPrefSize(20,20);
-		minimizeButton.setStyle("-fx-background-color: transparent;");
-		minimizeButton.setTextFill(Color.WHITE);
-		minimizeButton.setTranslateY(0);
-		minimizeButton.setTranslateX(WIDTH -prefButtonTopX *2 + 30);
-		
-		fullscreenButton = new Button("+");
-		fullscreenButton.setPrefSize(20, 20);
-		fullscreenButton.setStyle("-fx-background-color: transparent;");
-		fullscreenButton.setTextFill(Color.WHITE);
-		fullscreenButton.setTranslateX(0);
-		fullscreenButton.setTranslateY(WIDTH -prefButtonTopX *2 -60);
+//		minimizeButton = new Button("_");
+//		minimizeButton.setPrefSize(20,20);
+//		minimizeButton.setStyle("-fx-background-color: transparent;");
+//		minimizeButton.setTextFill(Color.WHITE);
+//		minimizeButton.setTranslateY(0);
+//		minimizeButton.setTranslateX(WIDTH -prefButtonTopX *2 + 30);
+//		
+//		fullscreenButton = new Button("+");
+//		fullscreenButton.setPrefSize(20, 20);
+//		fullscreenButton.setStyle("-fx-background-color: transparent;");
+//		fullscreenButton.setTextFill(Color.WHITE);
+//		fullscreenButton.setTranslateX(0);
+//		fullscreenButton.setTranslateY(WIDTH -prefButtonTopX *2 -60);
 		
 		HBox topBar = new HBox(90);
 		topBar.setAlignment(Pos.TOP_RIGHT);
-		topBar.getChildren().addAll(exitButton, minimizeButton, fullscreenButton);
+		topBar.getChildren().addAll(exitButton);
 				
 		
 		//Hintergrundbild
