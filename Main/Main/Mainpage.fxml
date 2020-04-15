@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.chart.*?>
@@ -64,9 +65,6 @@
    <left>
       <ListView fx:id="countryList" minWidth="50.0" style="-fx-background-color: #41464f;" BorderPane.alignment="CENTER" />
    </left>
-   <center>
-      <Region prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: ;" BorderPane.alignment="CENTER" />
-   </center>
    <right>
       <AnchorPane prefHeight="927.0" prefWidth="478.0" BorderPane.alignment="CENTER">
          <children>
@@ -102,4 +100,15 @@
          </children>
       </AnchorPane>
    </right>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <ImageView fitHeight="748.0" fitWidth="999.0">
+               <image>
+                  <Image url="@../../../../Documents/@School/Schule/Programmierprojekt/Weltkarte.jpg" />
+               </image>
+            </ImageView>
+         </content>
+      </ScrollPane>
+   </center>
 </BorderPane>
