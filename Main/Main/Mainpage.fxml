@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -23,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="900.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
+<BorderPane prefHeight="900.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
    <top>
       <VBox style="-fx-background-color: #41464f;" BorderPane.alignment="CENTER">
          <children>
@@ -70,7 +63,7 @@
          <children>
             <VBox layoutY="54.0" prefHeight="450.0" prefWidth="551.0">
                <children>
-                  <LineChart prefHeight="450.0" prefWidth="574.0">
+                  <LineChart fx:id="lineChart" prefHeight="450.0" prefWidth="574.0">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -88,7 +81,7 @@
             </SplitPane>
             <FlowPane layoutX="18.0" layoutY="1.0" prefHeight="51.0" prefWidth="532.0">
                <children>
-                  <Button fx:id="todayCases" mnemonicParsing="false" onAction="#todaycaseshclicked" text="todayCases" />
+                  <Button mnemonicParsing="false" onAction="#casesChart" text="Cases" />
                   <Button mnemonicParsing="false" onAction="#CasesperoneMillionclicked" text="CasesPerOneMillion" />
                   <Button mnemonicParsing="false" onAction="#recoveredclicked" text="Recovered" />
                   <Button mnemonicParsing="false" onAction="#Criticalclicked" text="Critical" />

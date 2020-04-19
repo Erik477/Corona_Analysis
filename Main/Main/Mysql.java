@@ -68,6 +68,43 @@ public ArrayList<String> getCountry() throws SQLException {
 
 }
 
+public ArrayList<Long> getDate() throws SQLException{
+	
+	ArrayList<Long> date = new ArrayList<Long>();
+	String sql = "select * from Corona where country = 'Austria' order by epoch;";
+	PreparedStatement stmt = con.prepareStatement(sql);
+	ResultSet rs = stmt.executeQuery();
+	
+	long epoch;
+	while(rs.next())
+	{
+		epoch = rs.getLong("epoch");
+		date.add(epoch);
+	}
+	stmt.close();
+	rs.close();
+	return date;
+}
+
+public ArrayList<Integer> getCases() throws SQLException{
+	
+	ArrayList<Integer> cases = new ArrayList<Integer>();
+	String sql = "select * from Corona where country = 'Austria' order by epoch;";
+	PreparedStatement stmt = con.prepareStatement(sql);
+	ResultSet rs = stmt.executeQuery();
+	
+	int casess= 0;
+	while(rs.next())
+	{
+		casess = rs.getInt("cases");
+		cases.add(casess);
+	}
+	stmt.close();
+	rs.close();
+	return cases;
+}
+
+
 
 public void close() throws SQLException {
 	// TODO Auto-generated method stub
