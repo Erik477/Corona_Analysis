@@ -100,15 +100,4 @@
          </children>
       </AnchorPane>
    </right>
-   <center>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <content>
-            <ImageView fitHeight="622.0" fitWidth="1001.0">
-               <image>
-                  <Image url="@../../../../../Documents/@School/Schule/Programmierprojekt/Weltkarte.jpg" />
-               </image>
-            </ImageView>
-         </content>
-      </ScrollPane>
-   </center>
 </BorderPane>
