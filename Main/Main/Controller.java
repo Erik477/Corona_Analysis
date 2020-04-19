@@ -1,6 +1,7 @@
 package Main;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -80,5 +81,12 @@ public class Controller implements Initializable {
 	}
 	public void CasesperoneMillionclicked() throws ClassNotFoundException, SQLException {
 		System.out.println("million");
+	}
+	public String getDate() {
+		
+		long date = 1587307063;		
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");		
+		String convertedDate = sdf.format(new java.util.Date (date*1000));
+		return convertedDate;
 	}
 }

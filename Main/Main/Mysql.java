@@ -68,12 +68,6 @@ public ArrayList<String> getCountry() throws SQLException {
 
 }
 
-public String getDate() {
-	long date = 1587307063;		
-	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");		
-	String convertedDate = sdf.format(new java.util.Date (date*1000));
-	return convertedDate;
-}
 
 public void close() throws SQLException {
 	// TODO Auto-generated method stub
