@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 
@@ -20,6 +20,7 @@ public Mysql() throws ClassNotFoundException, SQLException {
 			"jdbc:mysql://192.168.0.176:3306/Corona?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
 			"root", "3r!k");
 }
+
 
 public ArrayList<String> getCountry() throws SQLException {
 
@@ -50,7 +51,12 @@ public ArrayList<String> getCountry() throws SQLException {
 	while (rs.next()) {
 		Name = rs.getString("Country");
 		confirmed = rs.getInt("cases");
+		if(confirmed < 10)
+		{
+			format = String.format("%-6d     \t %-30s", confirmed, Name);
+		}else {
 		format = String.format("%-6d \t %-30s", confirmed, Name);
+		}
 		countr.add(format);
 	}
 
@@ -62,6 +68,12 @@ public ArrayList<String> getCountry() throws SQLException {
 
 }
 
+public String getDate() {
+	long date = 1587307063;		
+	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");		
+	String convertedDate = sdf.format(new java.util.Date (date*1000));
+	return convertedDate;
+}
 
 public void close() throws SQLException {
 	// TODO Auto-generated method stub
