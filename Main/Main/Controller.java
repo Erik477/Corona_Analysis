@@ -28,17 +28,22 @@ public class Controller implements Initializable {
 	private ListView<String> countryList;
 
 	@FXML
-	private Button todayCases;
+	private Button Cases, todayCases, casesPerOneMillion, Recovered, Critical, Active, todayDeaths, Deaths;
 
+	private ArrayList<Button> chartButtons;
 	@FXML
 	private LineChart<String, Number> lineChart;
+
+	String value = "";
+
 	@Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
 
 		try {
 			addList();
 			todayCasesButton();
-			
+			infoChart();
+
 		} catch (ClassNotFoundException | SQLException e) {
 
 			e.printStackTrace();
@@ -46,11 +51,34 @@ public class Controller implements Initializable {
 
 	}
 
-	public void todayCasesButton()
-	{
+	public void addButtonsToList() {
+
+		Cases = new Button("Cases");
+		todayCases = new Button("todayCases");
+		casesPerOneMillion = new Button("casesPerOneMillion");
+		Recovered = new Button("Recovered");
+		Critical = new Button("Critical");
+		Active = new Button("Active");
+		todayDeaths = new Button("todayDeaths");
+		Deaths = new Button("Deaths");
+
+		chartButtons = new ArrayList<Button>();
+		chartButtons.add(todayCases);
+		chartButtons.add(Cases);
+		chartButtons.add(casesPerOneMillion);
+		chartButtons.add(Recovered);
+		chartButtons.add(Critical);
+		chartButtons.add(Active);
+		chartButtons.add(todayDeaths);
+		chartButtons.add(Deaths);
+
+	}
+
+	public void todayCasesButton() {
 		todayCases = new Button();
 		todayCases.setStyle("-fx-background-color: transparent;");
 	}
+
 	public void addList() throws ClassNotFoundException, SQLException {
 		mq = new Mysql();
 
@@ -67,63 +95,53 @@ public class Controller implements Initializable {
 		countryList.getItems().addAll(list);
 
 	}
-	public void Deathclicked() throws ClassNotFoundException, SQLException {
-	System.out.println("Death");	
-	}
-	public void todaydeathclicked() throws ClassNotFoundException, SQLException {
-		System.out.println("todayDeath");
-	}
-	public void Casesclicked() throws ClassNotFoundException, SQLException {
-		System.out.println("cases");
-	}
-	public void todaycaseshclicked() throws ClassNotFoundException, SQLException {
-		System.out.println("todaycases");
-	}
-	public void Criticalclicked() throws ClassNotFoundException, SQLException {
-		System.out.println("critical");
-	}
-	public void recoveredclicked() throws ClassNotFoundException, SQLException {
-		System.out.println("recovered");
-	}
-	public void Activeclicked() throws ClassNotFoundException, SQLException {
-		System.out.println("active");
-	}
-	public void CasesperoneMillionclicked() throws ClassNotFoundException, SQLException {
-		System.out.println("million");
-	}
-	
+
 	public String convertDate(long epoch) {
-				
+
 		Date date = new Date(epoch);
 		DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
 		String formatted = format.format(date);
-		format.setTimeZone(TimeZone.getTimeZone("Asia/Colombo"));//your zone
+		format.setTimeZone(TimeZone.getTimeZone("Asia/Colombo"));// your zone
 		formatted = format.format(date);
-		System.out.println(formatted); 
+		System.out.println(formatted);
 		return formatted;
 	}
-	public void casesChart(ActionEvent event) throws SQLException
-	{
+
+	public void infoChart() throws SQLException {
 		lineChart.setAnimated(false);
-		lineChart.getData().clear();
-		XYChart.Series<String, Number> series = new XYChart.Series<String,Number>();
 		
+		lineChart.getData().clear();
+		XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
+
 		ArrayList<Long> date = mq.getDate();
 		ArrayList<String> dateX = new ArrayList<String>();
-		
-		ArrayList<Integer> cases = mq.getCases();
-		
-		
+
+		addButtonsToList();
+
+		chartButtons = new ArrayList<Button>();
+	
+		for (Button b : chartButtons) {
+
+			b.setOnAction(e -> {
+
+				value = b.getText();
+				System.out.println(value);
+
+			});
+
+		}
+		ArrayList<Integer> cases = mq.getInfo("todayDeaths");
+
 		for (int i = 0; i < date.size(); i++) {
 			long epoch = date.get(i);
 			String convert = convertDate(epoch);
 			System.out.println(convert);
 			dateX.add(convert);
 		}
-		
+
 		for (int i = 0; i < cases.size(); i++) {
-			
+
 			series.getData().add(new XYChart.Data<String, Number>(dateX.get(i), cases.get(i)));
 		}
 //		series.getData().add(new XYChart.Data<String, Number>("Lol", 10));

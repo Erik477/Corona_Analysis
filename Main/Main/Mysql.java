@@ -17,8 +17,8 @@ public Mysql() throws ClassNotFoundException, SQLException {
 
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	 con = DriverManager.getConnection(
-			"jdbc:mysql://192.168.0.176:3306/Corona?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-			"root", "3r!k");
+			 "jdbc:mysql://localhost/Corona?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+				"root", "12345");
 }
 
 
@@ -86,18 +86,18 @@ public ArrayList<Long> getDate() throws SQLException{
 	return date;
 }
 
-public ArrayList<Integer> getCases() throws SQLException{
+public ArrayList<Integer> getInfo(String input) throws SQLException{
 	
 	ArrayList<Integer> cases = new ArrayList<Integer>();
 	String sql = "select * from Corona where country = 'Austria' order by epoch;";
 	PreparedStatement stmt = con.prepareStatement(sql);
 	ResultSet rs = stmt.executeQuery();
 	
-	int casess= 0;
+	int info = 0;
 	while(rs.next())
 	{
-		casess = rs.getInt("cases");
-		cases.add(casess);
+		info = rs.getInt(input.toLowerCase());
+		cases.add(info);
 	}
 	stmt.close();
 	rs.close();

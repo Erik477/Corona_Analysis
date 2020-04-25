@@ -81,13 +81,14 @@
             </SplitPane>
             <FlowPane layoutX="18.0" layoutY="1.0" prefHeight="51.0" prefWidth="532.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#casesChart" text="Cases" />
-                  <Button mnemonicParsing="false" onAction="#CasesperoneMillionclicked" text="CasesPerOneMillion" />
-                  <Button mnemonicParsing="false" onAction="#recoveredclicked" text="Recovered" />
-                  <Button mnemonicParsing="false" onAction="#Criticalclicked" text="Critical" />
-                  <Button mnemonicParsing="false" onAction="#Activeclicked" text="Active" />
-                  <Button mnemonicParsing="false" onAction="#todaydeathclicked" text="todayDeaths" />
-                  <Button mnemonicParsing="false" onAction="#Deathclicked" text="Deaths" />
+                  <Button fx:id="Cases" mnemonicParsing="false" text="Cases" />
+                  <Button fx:id="casesPerOneMillion" mnemonicParsing="false" text="CasesPerOneMillion" />
+                  <Button fx:id="Recovered" mnemonicParsing="false" text="Recovered" />
+                  <Button fx:id="Critical" mnemonicParsing="false" text="Critical" />
+                  <Button fx:id="Active" mnemonicParsing="false" text="Active" />
+                  <Button fx:id="todayDeaths" mnemonicParsing="false" text="todayDeaths" />
+                  <Button fx:id="todayCases" mnemonicParsing="false" text="todayCases" />
+                  <Button fx:id="Deaths" mnemonicParsing="false" text="Deaths" />
                </children>
             </FlowPane>
          </children>
