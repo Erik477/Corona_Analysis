@@ -131,7 +131,7 @@ public class Controller implements Initializable {
 			});
 
 		}
-		ArrayList<Integer> cases = mq.getInfo("todayDeaths");
+		ArrayList<Integer> cases = mq.getInfo("todayDeaths");//müssma halt no an string rein machn der sich ja nach button ändert
 
 		for (int i = 0; i < date.size(); i++) {
 			long epoch = date.get(i);
