@@ -46,7 +46,7 @@ public class Controller implements Initializable {
 
 				value = "Cases";
 				System.out.println(value);
-				System.out.println("Helo");
+
 				try {
 					infoChart(value);
 				} catch (SQLException e1) {
@@ -58,8 +58,8 @@ public class Controller implements Initializable {
 			Deaths.setOnAction(e -> {
 
 				value = "Deaths";
-				System.out.println(value);
-				System.out.println("Helo");
+				System.out.println(value+"Button");
+
 				try {
 					infoChart(value);
 				} catch (SQLException e1) {
@@ -71,8 +71,8 @@ public class Controller implements Initializable {
 			casesPerOneMillion.setOnAction(e -> {
 
 				value = "casesPerOneMillion";
-				System.out.println(value);
-				System.out.println("Helo");
+				System.out.println(value+"Button");
+
 				try {
 					infoChart(value);
 				} catch (SQLException e1) {
@@ -81,8 +81,42 @@ public class Controller implements Initializable {
 				}
 
 			});
+			Recovered.setOnAction(e -> {
 
+				value = "Recovered";
+				System.out.println(value+"Button");
+				try {
+					infoChart(value);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
+			});
+			Active.setOnAction(e -> {
+
+				value = "Active";
+				System.out.println(value+"Button");
+				try {
+					infoChart(value);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+			});
+			Critical.setOnAction(e -> {
+
+				value = "Critical";
+				System.out.println(value+"Button");
+				try {
+					infoChart(value);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+			});
 			
 
 		} catch (ClassNotFoundException | SQLException e) {
@@ -154,10 +188,10 @@ public class Controller implements Initializable {
 		
 		addButtonsToList();
 
-		
+		System.out.println(value);
 
 		ArrayList<Integer> cases = mq.getInfo(value);	//müssma halt no an string rein machn der sich ja nach button ändert
-		System.out.println(value);
+
 
 		for (int i = 0; i < date.size(); i++) {
 			long epoch = date.get(i);
