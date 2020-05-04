@@ -69,7 +69,7 @@
          <children>
             <VBox layoutY="54.0" prefHeight="450.0" prefWidth="551.0">
                <children>
-                  <LineChart fx:id="lineChart" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" prefHeight="450.0" prefWidth="574.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                  <LineChart fx:id="lineChart" alternativeRowFillVisible="false" prefHeight="450.0" prefWidth="574.0">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -92,8 +92,6 @@
                   <Button fx:id="Recovered" mnemonicParsing="false" text="Recovered" />
                   <Button fx:id="Critical" mnemonicParsing="false" text="Critical" />
                   <Button fx:id="Active" mnemonicParsing="false" text="Active" />
-                  <Button fx:id="todayDeaths" mnemonicParsing="false" text="todayDeaths" />
-                  <Button fx:id="todayCases" mnemonicParsing="false" text="todayCases" />
                   <Button fx:id="Deaths" mnemonicParsing="false" text="Deaths" />
                </children>
             </FlowPane>

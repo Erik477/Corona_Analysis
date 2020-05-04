@@ -26,10 +26,8 @@ public class Controller implements Initializable {
 	ObservableList list = FXCollections.observableArrayList();
 	@FXML
 	private ListView<String> countryList;
-
 	@FXML
-	private Button Cases, todayCases, casesPerOneMillion, Recovered, Critical, Active, todayDeaths, Deaths;
-
+	private Button Cases, casesPerOneMillion, Recovered, Critical, Active, Deaths;
 	private ArrayList<Button> chartButtons;
 	@FXML
 	private LineChart<String, Number> lineChart;
@@ -41,8 +39,51 @@ public class Controller implements Initializable {
 
 		try {
 			addList();
-			todayCasesButton();
-			infoChart();
+			
+		//	addButtonsToList();
+			
+			Cases.setOnAction(e -> {
+
+				value = "Cases";
+				System.out.println(value);
+				System.out.println("Helo");
+				try {
+					infoChart(value);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+			});
+			Deaths.setOnAction(e -> {
+
+				value = "Deaths";
+				System.out.println(value);
+				System.out.println("Helo");
+				try {
+					infoChart(value);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+			});
+			casesPerOneMillion.setOnAction(e -> {
+
+				value = "casesPerOneMillion";
+				System.out.println(value);
+				System.out.println("Helo");
+				try {
+					infoChart(value);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+			});
+
+
+			
 
 		} catch (ClassNotFoundException | SQLException e) {
 
@@ -54,30 +95,22 @@ public class Controller implements Initializable {
 	public void addButtonsToList() {
 
 		Cases = new Button("Cases");
-		todayCases = new Button("todayCases");
 		casesPerOneMillion = new Button("casesPerOneMillion");
 		Recovered = new Button("Recovered");
 		Critical = new Button("Critical");
 		Active = new Button("Active");
-		todayDeaths = new Button("todayDeaths");
 		Deaths = new Button("Deaths");
 
-		chartButtons = new ArrayList<Button>();
-		chartButtons.add(todayCases);
+
 		chartButtons.add(Cases);
 		chartButtons.add(casesPerOneMillion);
 		chartButtons.add(Recovered);
 		chartButtons.add(Critical);
 		chartButtons.add(Active);
-		chartButtons.add(todayDeaths);
 		chartButtons.add(Deaths);
 
 	}
 
-	public void todayCasesButton() {
-		todayCases = new Button();
-		todayCases.setStyle("-fx-background-color: transparent;");
-	}
 
 	public void addList() throws ClassNotFoundException, SQLException {
 		mq = new Mysql();
@@ -108,7 +141,7 @@ public class Controller implements Initializable {
 		return formatted;
 	}
 
-	public void infoChart() throws SQLException {
+	public void infoChart(String value) throws SQLException {
 		lineChart.setAnimated(false);
 		
 		lineChart.getData().clear();
@@ -116,29 +149,25 @@ public class Controller implements Initializable {
 
 		ArrayList<Long> date = mq.getDate();
 		ArrayList<String> dateX = new ArrayList<String>();
-
+		
+		chartButtons = new ArrayList<Button>();
+		
 		addButtonsToList();
 
-		chartButtons = new ArrayList<Button>();
-	
-		for (Button b : chartButtons) {
+		
 
-			b.setOnAction(e -> {
-
-				value = b.getText();
-				System.out.println(value);
-
-			});
-
-		}
-		ArrayList<Integer> cases = mq.getInfo("todayDeaths");//müssma halt no an string rein machn der sich ja nach button ändert
+		ArrayList<Integer> cases = mq.getInfo(value);	//müssma halt no an string rein machn der sich ja nach button ändert
+		System.out.println(value);
 
 		for (int i = 0; i < date.size(); i++) {
 			long epoch = date.get(i);
 			String convert = convertDate(epoch);
 			System.out.println(convert);
+			
 			dateX.add(convert);
 		}
+		
+		System.out.println(cases);
 
 		for (int i = 0; i < cases.size(); i++) {
 
@@ -151,6 +180,5 @@ public class Controller implements Initializable {
 //		series.getData().add(new XYChart.Data<String, Number>("Loleeee", 500));
 
 		lineChart.getData().add(series);
-
-	}
 }
+	}
