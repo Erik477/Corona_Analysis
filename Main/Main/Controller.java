@@ -223,11 +223,7 @@ public class Controller implements Initializable {
 
 			series.getData().add(new XYChart.Data<String, Number>(dateX.get(i), info.get(i)));
 		}
-//		series.getData().add(new XYChart.Data<String, Number>("Lol", 10));
-//		series.getData().add(new XYChart.Data<String, Number>("Lole", 55));
-//		series.getData().add(new XYChart.Data<String, Number>("Lolee", 55));
-//		series.getData().add(new XYChart.Data<String, Number>("Loleee", 1500));
-//		series.getData().add(new XYChart.Data<String, Number>("Loleeee", 500));
+
 
 		lineChart.getData().add(series);
 	}
