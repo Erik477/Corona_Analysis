@@ -9,6 +9,9 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mysql-connector"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="mysql-connector-java-8.0.18.jar"/>
+=======
+>>>>>>> branch 'master' of https://github.com/Erik477/School
 	<classpathentry kind="output" path="bin"/>
 </classpath>
