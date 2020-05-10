@@ -36,17 +36,17 @@ public class Controller implements Initializable {
 
 	@FXML
 	private Button submit;
-	
+
 	String value = "";
 	String country = "";
 	String output = "world";
+
 	@Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
 
 		try {
 			addList();
 			submit.setOnAction(e -> submitClicked());
-			
 
 			lineChart.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
@@ -59,8 +59,8 @@ public class Controller implements Initializable {
 			Cases.setOnAction(e -> {
 
 				value = "Cases";
-				
-				System.out.println(value + " " +  output);
+
+				System.out.println(value + " " + output);
 
 				try {
 					infoChart(value);
@@ -73,7 +73,7 @@ public class Controller implements Initializable {
 			Deaths.setOnAction(e -> {
 
 				value = "Deaths";
-				System.out.println(value + " " +  output);
+				System.out.println(value + " " + output);
 
 				try {
 					infoChart(value);
@@ -86,7 +86,7 @@ public class Controller implements Initializable {
 			casesPerOneMillion.setOnAction(e -> {
 
 				value = "casesPerOneMillion";
-				System.out.println(value + " " +  output);
+				System.out.println(value + " " + output);
 
 				try {
 					infoChart(value);
@@ -99,7 +99,7 @@ public class Controller implements Initializable {
 			Recovered.setOnAction(e -> {
 
 				value = "Recovered";
-				System.out.println(value + " " +  output);
+				System.out.println(value + " " + output);
 				try {
 					infoChart(value);
 				} catch (SQLException e1) {
@@ -132,8 +132,6 @@ public class Controller implements Initializable {
 				}
 
 			});
-			
-			
 
 		} catch (ClassNotFoundException | SQLException e) {
 
@@ -175,7 +173,6 @@ public class Controller implements Initializable {
 
 		countryList.getItems().addAll(list);
 
-
 	}
 
 	public String convertDate(long epoch) {
@@ -205,8 +202,9 @@ public class Controller implements Initializable {
 
 		System.out.println(value);
 
-		ArrayList<Integer> info = mq.getInfo(value, output); // müssma halt no an string rein machn der sich ja nach button
-														// ändert
+		ArrayList<Integer> info = mq.getInfo(value, output); // müssma halt no an string rein machn der sich ja nach
+																// button
+		// ändert
 
 		for (int i = 0; i < date.size(); i++) {
 			long epoch = date.get(i);
@@ -224,24 +222,21 @@ public class Controller implements Initializable {
 			series.getData().add(new XYChart.Data<String, Number>(dateX.get(i), info.get(i)));
 		}
 
-
 		lineChart.getData().add(series);
 	}
-	
-	public void submitClicked()
-	{
+
+	public void submitClicked() {
 		String output1 = "";
 		String output2 = "";
 		ObservableList<String> countries;
 		countries = countryList.getSelectionModel().getSelectedItems();
-		
-		for(String s: countries)
-		{
-			output1 =s;
+
+		for (String s : countries) {
+			output1 = s;
 		}
-		output2 = output1.replaceAll("\\d","");
-		output = output2.replaceAll("\\s+","");
+		output2 = output1.replaceAll("\\d", "");
+		output = output2.replaceAll("\\s+", "");
 		System.out.println(output);
-		
+
 	}
 }
