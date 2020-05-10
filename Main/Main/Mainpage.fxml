@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -63,7 +64,7 @@
          <children>
             <VBox layoutY="54.0" prefHeight="450.0" prefWidth="551.0">
                <children>
-                  <LineChart fx:id="lineChart" prefHeight="450.0" prefWidth="574.0">
+                  <LineChart fx:id="lineChart" alternativeRowFillVisible="false" prefHeight="450.0" prefWidth="574.0">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -86,12 +87,17 @@
                   <Button fx:id="Recovered" mnemonicParsing="false" text="Recovered" />
                   <Button fx:id="Critical" mnemonicParsing="false" text="Critical" />
                   <Button fx:id="Active" mnemonicParsing="false" text="Active" />
-                  <Button fx:id="todayDeaths" mnemonicParsing="false" text="todayDeaths" />
-                  <Button fx:id="todayCases" mnemonicParsing="false" text="todayCases" />
                   <Button fx:id="Deaths" mnemonicParsing="false" text="Deaths" />
                </children>
             </FlowPane>
          </children>
       </AnchorPane>
    </right>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="submit" layoutX="22.0" layoutY="20.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="79.0" text="Submit" />
+         </children>
+      </Pane>
+   </center>
 </BorderPane>
