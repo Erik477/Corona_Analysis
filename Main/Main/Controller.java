@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.TimeZone;
 
+import com.sun.javafx.geom.Rectangle;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -178,7 +180,7 @@ public class Controller implements Initializable {
 	public String convertDate(long epoch) {
 
 		Date date = new Date(epoch);
-		DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 		format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
 		String formatted = format.format(date);
 		format.setTimeZone(TimeZone.getTimeZone("Asia/Colombo"));// your zone
@@ -205,6 +207,8 @@ public class Controller implements Initializable {
 		ArrayList<Integer> info = mq.getInfo(value, output); // müssma halt no an string rein machn der sich ja nach
 																// button
 		// ändert
+
+		lineChart.setCreateSymbols(false);
 
 		for (int i = 0; i < date.size(); i++) {
 			long epoch = date.get(i);
