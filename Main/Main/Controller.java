@@ -11,6 +11,7 @@ import java.util.TimeZone;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
@@ -18,6 +19,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.input.MouseEvent;
 
 public class Controller implements Initializable {
 
@@ -32,20 +34,33 @@ public class Controller implements Initializable {
 	@FXML
 	private LineChart<String, Number> lineChart;
 
+	@FXML
+	private Button submit;
+
 	String value = "";
+	String country = "";
+	String output = "world";
 
 	@Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
 
 		try {
 			addList();
-			
-		//	addButtonsToList();
-			
+			submit.setOnAction(e -> submitClicked());
+
+			lineChart.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+				@Override
+				public void handle(MouseEvent event) {
+
+				}
+
+			});
 			Cases.setOnAction(e -> {
 
 				value = "Cases";
-				System.out.println(value);
+
+				System.out.println(value + " " + output);
 
 				try {
 					infoChart(value);
@@ -58,7 +73,7 @@ public class Controller implements Initializable {
 			Deaths.setOnAction(e -> {
 
 				value = "Deaths";
-				System.out.println(value+"Button");
+				System.out.println(value + " " + output);
 
 				try {
 					infoChart(value);
@@ -71,7 +86,7 @@ public class Controller implements Initializable {
 			casesPerOneMillion.setOnAction(e -> {
 
 				value = "casesPerOneMillion";
-				System.out.println(value+"Button");
+				System.out.println(value + " " + output);
 
 				try {
 					infoChart(value);
@@ -84,7 +99,7 @@ public class Controller implements Initializable {
 			Recovered.setOnAction(e -> {
 
 				value = "Recovered";
-				System.out.println(value+"Button");
+				System.out.println(value + " " + output);
 				try {
 					infoChart(value);
 				} catch (SQLException e1) {
@@ -96,7 +111,7 @@ public class Controller implements Initializable {
 			Active.setOnAction(e -> {
 
 				value = "Active";
-				System.out.println(value+"Button");
+				System.out.println(value + "Button");
 				try {
 					infoChart(value);
 				} catch (SQLException e1) {
@@ -108,7 +123,7 @@ public class Controller implements Initializable {
 			Critical.setOnAction(e -> {
 
 				value = "Critical";
-				System.out.println(value+"Button");
+				System.out.println(value + "Button");
 				try {
 					infoChart(value);
 				} catch (SQLException e1) {
@@ -117,7 +132,6 @@ public class Controller implements Initializable {
 				}
 
 			});
-			
 
 		} catch (ClassNotFoundException | SQLException e) {
 
@@ -135,7 +149,6 @@ public class Controller implements Initializable {
 		Active = new Button("Active");
 		Deaths = new Button("Deaths");
 
-
 		chartButtons.add(Cases);
 		chartButtons.add(casesPerOneMillion);
 		chartButtons.add(Recovered);
@@ -144,7 +157,6 @@ public class Controller implements Initializable {
 		chartButtons.add(Deaths);
 
 	}
-
 
 	public void addList() throws ClassNotFoundException, SQLException {
 		mq = new Mysql();
@@ -177,42 +189,54 @@ public class Controller implements Initializable {
 
 	public void infoChart(String value) throws SQLException {
 		lineChart.setAnimated(false);
-		
+
 		lineChart.getData().clear();
 		XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
 
 		ArrayList<Long> date = mq.getDate();
 		ArrayList<String> dateX = new ArrayList<String>();
-		
+
 		chartButtons = new ArrayList<Button>();
-		
+
 		addButtonsToList();
 
 		System.out.println(value);
 
-		ArrayList<Integer> cases = mq.getInfo(value);	//müssma halt no an string rein machn der sich ja nach button ändert
-
+		ArrayList<Integer> info = mq.getInfo(value, output); // müssma halt no an string rein machn der sich ja nach
+																// button
+		// ändert
 
 		for (int i = 0; i < date.size(); i++) {
 			long epoch = date.get(i);
 			String convert = convertDate(epoch);
 			System.out.println(convert);
-			
+
 			dateX.add(convert);
 		}
-		
-		System.out.println(cases);
 
-		for (int i = 0; i < cases.size(); i++) {
+		lineChart.setTitle(value);
+		System.out.println(info);
 
-			series.getData().add(new XYChart.Data<String, Number>(dateX.get(i), cases.get(i)));
+		for (int i = 0; i < info.size(); i++) {
+
+			series.getData().add(new XYChart.Data<String, Number>(dateX.get(i), info.get(i)));
 		}
-//		series.getData().add(new XYChart.Data<String, Number>("Lol", 10));
-//		series.getData().add(new XYChart.Data<String, Number>("Lole", 55));
-//		series.getData().add(new XYChart.Data<String, Number>("Lolee", 55));
-//		series.getData().add(new XYChart.Data<String, Number>("Loleee", 1500));
-//		series.getData().add(new XYChart.Data<String, Number>("Loleeee", 500));
 
 		lineChart.getData().add(series);
-}
 	}
+
+	public void submitClicked() {
+		String output1 = "";
+		String output2 = "";
+		ObservableList<String> countries;
+		countries = countryList.getSelectionModel().getSelectedItems();
+
+		for (String s : countries) {
+			output1 = s;
+		}
+		output2 = output1.replaceAll("\\d", "");
+		output = output2.replaceAll("\\s+", "");
+		System.out.println(output);
+
+	}
+}

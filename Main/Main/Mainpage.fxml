@@ -18,6 +18,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -98,4 +99,11 @@
          </children>
       </AnchorPane>
    </right>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="submit" layoutX="22.0" layoutY="20.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="79.0" text="Submit" />
+         </children>
+      </Pane>
+   </center>
 </BorderPane>

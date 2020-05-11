@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import javafx.collections.ObservableList;
+
 
 public class Mysql{
 	
@@ -86,10 +88,10 @@ public ArrayList<Long> getDate() throws SQLException{
 	return date;
 }
 
-public ArrayList<Integer> getInfo(String input) throws SQLException{
+public ArrayList<Integer> getInfo(String input, String output) throws SQLException{
 	
 	ArrayList<Integer> cases = new ArrayList<Integer>();
-	String sql = "select * from Corona where country = 'Austria' order by epoch;";
+	String sql = "select * from Corona where country = '"+ output +"' order by epoch;";
 	PreparedStatement stmt = con.prepareStatement(sql);
 	ResultSet rs = stmt.executeQuery();
 	
