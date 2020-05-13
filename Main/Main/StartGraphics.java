@@ -107,7 +107,7 @@ public class StartGraphics extends Application{
 		
 		//Hintergrundbild
 		
-		Image image = new Image("file:coronavirus.jpg");
+		Image image = new Image("file:Images/coronavirus.jpg");
 		ImageView mv = new ImageView(image);
 		
 		
