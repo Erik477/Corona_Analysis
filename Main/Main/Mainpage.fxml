@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -23,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="900.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
+<BorderPane prefHeight="900.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
    <top>
       <VBox style="-fx-background-color: #41464f;" BorderPane.alignment="CENTER">
          <children>
@@ -44,7 +38,7 @@
       </VBox>
    </top>
    <bottom>
-      <HBox BorderPane.alignment="CENTER">
+      <HBox style="-fx-background-color: #41464f;" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" text="FAQ" />
             <Region />
@@ -66,11 +60,11 @@
       <ListView fx:id="countryList" minWidth="50.0" style="-fx-background-color: #41464f;" BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <AnchorPane prefHeight="927.0" prefWidth="478.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="927.0" prefWidth="478.0" style="-fx-border-color: #dbe03f;" BorderPane.alignment="CENTER">
          <children>
             <VBox layoutY="54.0" prefHeight="450.0" prefWidth="551.0">
                <children>
-                  <LineChart fx:id="lineChart" alternativeRowFillVisible="false" prefHeight="450.0" prefWidth="574.0">
+                  <LineChart fx:id="lineChart" alternativeRowFillVisible="false" prefHeight="450.0" prefWidth="574.0" style="-fx-background-color: #41464f;" stylesheets="@../../../../Desktop/Projekt/StylesheetChart.css">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -82,8 +76,8 @@
             </VBox>
             <SplitPane dividerPositions="0.29797979797979796" layoutX="24.0" layoutY="505.0" prefHeight="422.0" prefWidth="470.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="457.0" prefWidth="342.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="421.0" prefWidth="178.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="421.0" prefWidth="246.0" />
               </items>
             </SplitPane>
             <FlowPane layoutX="18.0" layoutY="1.0" prefHeight="51.0" prefWidth="532.0">
@@ -100,7 +94,7 @@
       </AnchorPane>
    </right>
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #41464f; -fx-border-color: #dbe03f;" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="submit" layoutX="22.0" layoutY="20.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="79.0" text="Submit" />
          </children>
