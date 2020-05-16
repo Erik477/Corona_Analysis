@@ -1,0 +1,7 @@
+.countryList .list-cell:odd {
+    -fx-background-color: red;
+}
+
+.countryList .list-cell:even {
+    -fx-background-color: red;
+}

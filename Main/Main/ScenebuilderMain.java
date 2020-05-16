@@ -15,6 +15,7 @@ public class ScenebuilderMain {
 			
 			window = new Stage();
 			Parent root = FXMLLoader.load(getClass().getResource("Mainpage.fxml"));
+			root.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
 			window.setTitle("Hello There");
 			window.setFullScreen(false);
 			window.setScene(new Scene(root));
