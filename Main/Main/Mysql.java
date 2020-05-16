@@ -18,12 +18,12 @@ private Connection con;
 public Mysql() throws ClassNotFoundException, SQLException {
 
 	Class.forName("com.mysql.cj.jdbc.Driver");
-	 con = DriverManager.getConnection(
-			"jdbc:mysql://192.168.0.176:3306/Corona?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-			"root", "3r!k");
+	
+	con = DriverManager.getConnection(
+			"jdbc:mysql://localhost/Corona?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+			"root", "12345");
+
 }
-
-
 public ArrayList<String> getCountry() throws SQLException {
 
 	ArrayList<String> countr = new ArrayList<>();
@@ -34,7 +34,7 @@ public ArrayList<String> getCountry() throws SQLException {
 	String format;
 	String confirmedCases;
 	int confirmed = 0;
-	String sql1 = "select cases  from Corona limit 187";
+	String sql1 = "select * from Corona order by epoch desc LIMIT 187";
 	stmt = con.prepareStatement(sql1);
 	rs = stmt.executeQuery();
 	while(rs.next())
