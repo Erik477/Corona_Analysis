@@ -10,6 +10,17 @@ import java.util.ArrayList;
 
 import javafx.collections.ObservableList;
 
+/**
+ * Hier wird die Msql connection erstellt und die daten geholt.
+ * @author Erik
+ * 
+ */
+
+
+
+
+
+
 
 public class Mysql{
 	
