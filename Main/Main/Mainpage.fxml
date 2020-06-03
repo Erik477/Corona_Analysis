@@ -48,7 +48,7 @@
          <children>
             <Button mnemonicParsing="false" text="FAQ" />
             <Region />
-            <Button mnemonicParsing="false" text="About" />
+            <Button fx:id="About" mnemonicParsing="false" text="About" />
             <Region />
             <Button mnemonicParsing="false" text="Help" />
             <Region />
@@ -58,7 +58,7 @@
             <Region />
             <Button mnemonicParsing="false" text="Work for us" />
             <Region />
-            <Button mnemonicParsing="false" text="Claim" />
+            <Button fx:id="Claim" mnemonicParsing="false" text="Claim" />
          </children>
       </HBox>
    </bottom>

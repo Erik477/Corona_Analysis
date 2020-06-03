@@ -42,6 +42,9 @@ public class Controller implements Initializable {
 	String value = "";
 	String country = "";
 	String output = "world";
+	
+	private Button About;
+	private Button Claim;
 
 	@Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
@@ -134,6 +137,13 @@ public class Controller implements Initializable {
 				}
 
 			});
+//			
+//			Claim.setOnAction(e -> {
+//				System.out.println("Someone claimed");
+//			});
+//			About.setOnAction(e -> {
+//				System.out.println("Someone wants to know all about us");
+//			});
 
 		} catch (ClassNotFoundException | SQLException e) {
 

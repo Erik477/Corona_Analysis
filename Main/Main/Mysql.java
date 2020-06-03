@@ -18,12 +18,9 @@ private Connection con;
 public Mysql() throws ClassNotFoundException, SQLException {
 
 	Class.forName("com.mysql.cj.jdbc.Driver");
-	 con = DriverManager.getConnection(
-			"jdbc:mysql://192.168.0.176:3306/Corona?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-			"root", "3r!k");
+	 con = DriverManager.getConnection("jdbc:mysql://localhost/coronedb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root", "admin");
+
 }
-
-
 public ArrayList<String> getCountry() throws SQLException {
 
 	ArrayList<String> countr = new ArrayList<>();
@@ -34,7 +31,7 @@ public ArrayList<String> getCountry() throws SQLException {
 	String format;
 	String confirmedCases;
 	int confirmed = 0;
-	String sql1 = "select cases  from Corona limit 187";
+	String sql1 = "select * from coronadata order by epoch desc LIMIT 187";
 	stmt = con.prepareStatement(sql1);
 	rs = stmt.executeQuery();
 	while(rs.next())
@@ -44,7 +41,7 @@ public ArrayList<String> getCountry() throws SQLException {
 	Name = "World";
 	
 	format = String.format("%-7d \t %s", confirmed, Name);
-	String sql = "select country, cases from Corona limit 187;";
+	String sql = "select country, cases from coronadata limit 187;";
 	countr.add(format);
 	stmt = con.prepareStatement(sql);
 
@@ -73,7 +70,7 @@ public ArrayList<String> getCountry() throws SQLException {
 public ArrayList<Long> getDate() throws SQLException{
 	
 	ArrayList<Long> date = new ArrayList<Long>();
-	String sql = "select * from Corona where country = 'Austria' order by epoch;";
+	String sql = "select * from coronadata where country = 'Austria' order by epoch;";
 	PreparedStatement stmt = con.prepareStatement(sql);
 	ResultSet rs = stmt.executeQuery();
 	
@@ -91,7 +88,7 @@ public ArrayList<Long> getDate() throws SQLException{
 public ArrayList<Integer> getInfo(String input, String output) throws SQLException{
 	
 	ArrayList<Integer> cases = new ArrayList<Integer>();
-	String sql = "select * from Corona where country = '"+ output +"' order by epoch;";
+	String sql = "select * from coronadata where country = '"+ output +"' order by epoch;";
 	PreparedStatement stmt = con.prepareStatement(sql);
 	ResultSet rs = stmt.executeQuery();
 	
@@ -112,4 +109,5 @@ public void close() throws SQLException {
 	// TODO Auto-generated method stub
 	con.close();
 }
+
 }
