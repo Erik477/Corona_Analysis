@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.input.MouseEvent;
@@ -42,10 +43,18 @@ public class Controller implements Initializable {
 	String value = "";
 	String country = "";
 	String output = "world";
+	
+	Label Countrydata = new Label();
+	
+	private Button About;
+	private Button Claim;
 
 	@Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
 
+	Countrydata.setText("Helo am I going");
+		
+		
 		try {
 			addList();
 			submit.setOnAction(e -> submitClicked());
@@ -134,6 +143,13 @@ public class Controller implements Initializable {
 				}
 
 			});
+//			
+//			Claim.setOnAction(e -> {
+//				System.out.println("Someone claimed");
+//			});
+//			About.setOnAction(e -> {
+//				System.out.println("Someone wants to know all about us");
+//			});
 
 		} catch (ClassNotFoundException | SQLException e) {
 

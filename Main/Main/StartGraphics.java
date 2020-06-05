@@ -93,7 +93,7 @@ public class StartGraphics extends Application{
 //		minimizeButton.setTranslateY(0);
 //		minimizeButton.setTranslateX(WIDTH -prefButtonTopX *2 + 30);
 //		
-//		fullscreenButton = new Button("+");
+
 //		fullscreenButton.setPrefSize(20, 20);
 //		fullscreenButton.setStyle("-fx-background-color: transparent;");
 //		fullscreenButton.setTextFill(Color.WHITE);
@@ -107,7 +107,7 @@ public class StartGraphics extends Application{
 		
 		//Hintergrundbild
 		
-		Image image = new Image("file:coronavirus.jpg");
+		Image image = new Image("file:Images/coronavirus.jpg");
 		ImageView mv = new ImageView(image);
 		
 		
