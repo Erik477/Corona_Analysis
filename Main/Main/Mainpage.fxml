@@ -80,12 +80,7 @@
                   </LineChart>
                </children>
             </VBox>
-            <SplitPane dividerPositions="0.29797979797979796" layoutX="24.0" layoutY="505.0" prefHeight="422.0" prefWidth="470.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="457.0" prefWidth="342.0" />
-              </items>
-            </SplitPane>
+            <Label fx:id="Countrydata" layoutX="2.0" layoutY="490.0" prefHeight="335.0" prefWidth="542.0" text="Label" />
             <FlowPane layoutX="18.0" layoutY="1.0" prefHeight="51.0" prefWidth="532.0">
                <children>
                   <Button fx:id="Cases" mnemonicParsing="false" text="Cases" />
