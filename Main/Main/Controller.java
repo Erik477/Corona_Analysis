@@ -44,6 +44,7 @@ public class Controller implements Initializable {
 	String country = "";
 	String output = "world";
 	
+	@FXML
 	Label Countrydata = new Label();
 	
 	private Button About;
@@ -52,8 +53,10 @@ public class Controller implements Initializable {
 	@Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
 
-	Countrydata.setText("Helo am I going");
+	Countrydata.setText("Hello are you seeing me");
+	System.out.println("i should be there");
 		
+	//About.setOnAction(e -> System.out.println("someone is gay"));
 		
 		try {
 			addList();
