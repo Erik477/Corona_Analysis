@@ -154,7 +154,7 @@ public ArrayList<Integer> getInfo(String input, String output) throws SQLExcepti
 
 
 public void close() throws SQLException {
-	// TODO Auto-generated method stub
+	
 	con.close();
 }
 
