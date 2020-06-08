@@ -48,7 +48,7 @@ public class StartGraphics extends Application{
 			try {
 				graphics.start();
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
+				
 				e1.printStackTrace();
 			}
 			window.close();

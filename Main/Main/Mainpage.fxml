@@ -7,7 +7,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
@@ -38,7 +37,7 @@
       </VBox>
    </top>
    <bottom>
-      <HBox style="-fx-background-color: #41464f;" BorderPane.alignment="CENTER">
+      <HBox BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" text="FAQ" />
             <Region />
@@ -71,8 +70,8 @@
                   </LineChart>
                </children>
             </VBox>
-            <Label fx:id="Countrydata" layoutX="2.0" layoutY="490.0" prefHeight="335.0" prefWidth="542.0" style="-fx-background-color: #41464f;" />
-            <FlowPane layoutX="18.0" layoutY="1.0" prefHeight="51.0" prefWidth="532.0" style="-fx-background-color: #41464f;">
+            <Label fx:id="Countrydata" layoutX="2.0" layoutY="490.0" prefHeight="335.0" prefWidth="542.0" text="Label" />
+            <FlowPane layoutX="18.0" layoutY="1.0" prefHeight="51.0" prefWidth="532.0">
                <children>
                   <Button fx:id="Cases" mnemonicParsing="false" text="Cases" />
                   <Button fx:id="casesPerOneMillion" mnemonicParsing="false" text="CasesPerOneMillion" />
@@ -86,21 +85,17 @@
       </AnchorPane>
    </right>
    <center>
-      <Pane prefHeight="826.0" prefWidth="986.0" style="-fx-background-color: #41464f;" BorderPane.alignment="CENTER">
+      <Pane prefHeight="826.0" prefWidth="936.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="submit" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="79.0" text="Submit" />
+            <Button fx:id="submit" layoutX="22.0" layoutY="20.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="79.0" text="Submit" />
          </children>
       </Pane>
    </center>
    <left>
-      <FlowPane prefHeight="826.0" prefWidth="302.0" BorderPane.alignment="CENTER">
+      <FlowPane prefHeight="826.0" prefWidth="317.0" style="-fx-background-color: #41464f;" BorderPane.alignment="CENTER">
          <children>
-            <TextField editable="false" prefHeight="154.0" prefWidth="304.0" style="-fx-background-color: #41464f;">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </TextField>
-            <ListView fx:id="countryList" prefHeight="671.0" prefWidth="304.0" />
+            <Pane prefHeight="200.0" prefWidth="319.0" />
+            <ListView fx:id="countryList" prefHeight="626.0" prefWidth="318.0" style="-fx-background-color: #41464f;" />
          </children>
       </FlowPane>
    </left>

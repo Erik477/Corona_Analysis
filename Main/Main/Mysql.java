@@ -29,10 +29,51 @@ private Connection con;
 public Mysql() throws ClassNotFoundException, SQLException {
 
 	Class.forName("com.mysql.cj.jdbc.Driver");
+
 	 con = DriverManager.getConnection(
 				"jdbc:mysql://localhost/coronadata?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
 				"root", "12345");
+
+
+
 }
+
+public ArrayList<String> getCountrydata() throws SQLException {
+	
+	ArrayList<String> Data = new ArrayList<>();
+	PreparedStatement stmt;
+	ResultSet rs;
+	
+	String Country;
+	String Region;
+	int Population;
+	int Area;
+	int PopDensity;
+	int Coastline;
+	int Migration;
+	int InfantMortality;
+	int GDP;
+	int Literacy;
+	int confirmed = 0;
+	
+	String sql1 = "select * from countrydata";
+	stmt = con.prepareStatement(sql1);
+	rs = stmt.executeQuery();
+	while(rs.next())
+	{
+		confirmed = confirmed + rs.getInt("cases");
+	}
+	
+
+	stmt.close();
+	rs.close();
+	// return countr;
+	System.out.println(Data);
+	
+	return Data;
+	
+}
+
 public ArrayList<String> getCountry() throws SQLException {
 
 	ArrayList<String> countr = new ArrayList<>();
@@ -118,7 +159,7 @@ public ArrayList<Integer> getInfo(String input, String output) throws SQLExcepti
 
 
 public void close() throws SQLException {
-	// TODO Auto-generated method stub
+	
 	con.close();
 }
 

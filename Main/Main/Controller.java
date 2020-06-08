@@ -43,8 +43,7 @@ public class Controller implements Initializable {
 	String value = "";
 	String country = "";
 	String output = "world";
-	
-	Label Countrydata = new Label();
+
 	
 	private Button About;
 	private Button Claim;
@@ -52,8 +51,12 @@ public class Controller implements Initializable {
 	@Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
 
-	Countrydata.setText("Helo am I going");
+
+	
+	System.out.println("i should be there");
 		
+	//About.setOnAction(e -> System.out.println("someone is gay"));
+
 		
 		try {
 			addList();
@@ -76,7 +79,7 @@ public class Controller implements Initializable {
 				try {
 					infoChart(value);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
+					
 					e1.printStackTrace();
 				}
 
@@ -89,7 +92,7 @@ public class Controller implements Initializable {
 				try {
 					infoChart(value);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
+					
 					e1.printStackTrace();
 				}
 
@@ -102,7 +105,7 @@ public class Controller implements Initializable {
 				try {
 					infoChart(value);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
+					
 					e1.printStackTrace();
 				}
 
@@ -114,7 +117,7 @@ public class Controller implements Initializable {
 				try {
 					infoChart(value);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
+					
 					e1.printStackTrace();
 				}
 
@@ -126,7 +129,7 @@ public class Controller implements Initializable {
 				try {
 					infoChart(value);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
+				
 					e1.printStackTrace();
 				}
 
@@ -138,7 +141,7 @@ public class Controller implements Initializable {
 				try {
 					infoChart(value);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
+				
 					e1.printStackTrace();
 				}
 
