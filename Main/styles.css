@@ -1,0 +1,94 @@
+
+/*Buttons*/
+.button {
+    -fx-background-color: 
+        linear-gradient(#f2f2f2, #d6d6d6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+        linear-gradient(#dddddd 0%, #f6f6f6 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+
+/*LineChart */
+.chart {
+    -fx-padding: 10px;
+    -fx-background-color:  #41464f;
+    -fx-legend-visible: false;
+}
+
+.chart-content {
+    -fx-padding: 30px;    
+}
+
+.chart-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 1.6em;
+}
+
+.axis-label {
+    -fx-text-fill: #ffffff;
+}
+
+.chart-plot-background {
+    -fx-background-color:transparent;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke:#505050;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: #505050;
+}
+
+.chart-alternative-row-fill {
+    -fx-fill:transparent;
+    -fx-stroke: transparent;
+}
+
+.default-color0.chart-series-line {
+    -fx-stroke: #0000ff;
+}
+
+.default-color0.chart-line-symbol {
+    -fx-background-color: #0000ff, white;
+}
+
+
+/*Listview*/
+
+.list-view > .virtual-flow > .scroll-bar,
+.list-view > .virtual-flow > .scroll-bar .decrement-arrow,
+.list-view > .virtual-flow > .scroll-bar .increment-arrow,
+.list-view > .virtual-flow > .scroll-bar .decrement-button,
+.list-view > .virtual-flow > .scroll-bar .increment-button {
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+}
+
+
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+       -fx-background-color: linear-gradient(#328BDB 0%, #207BCF 25%, #1973C9 75%, #0A65BF 100%);
+       -fx-text-fill: #f22d0a;
+       -fx-font-weight: bold;
+}
+
+.list-cell:filled:hover {
+       -fx-cell-hover-color: #0faad9;
+       -fx-text-fill: #f22d0a;
+       -fx-font-weight: bold;
+}
+.list-cell:odd {
+    -fx-text-fill: #f22d0a ;
+    -fx-font-weight: bold;
+    -fx-background-color:  #41464f;
+}
+.list-cell:even {
+    -fx-text-fill: #f22d0a ;
+    -fx-font-weight: bold;
+    -fx-background-color:  #41464f;
+}
