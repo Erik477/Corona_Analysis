@@ -31,8 +31,8 @@ public Mysql() throws ClassNotFoundException, SQLException {
 	Class.forName("com.mysql.cj.jdbc.Driver");
 
 	 con = DriverManager.getConnection(
-				"jdbc:mysql://localhost/coronadata?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-				"root", "12345");
+				"jdbc:mysql://localhost/coronedb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+				"root", "admin");
 
 
 
