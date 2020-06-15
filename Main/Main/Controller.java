@@ -1,5 +1,6 @@
 package Main;
 
+
 import java.sql.Date;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -22,13 +23,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.TextFlow;
+
 
 public class Controller implements Initializable {
 
 	private Mysql mq;
 
-	ObservableList list = FXCollections.observableArrayList();
+	private ObservableList list = FXCollections.observableArrayList();
+
+	// -----------------------------------------------
 	@FXML
 	private ListView<String> countryList;
 	@FXML
@@ -40,135 +47,46 @@ public class Controller implements Initializable {
 	@FXML
 	private Button submit;
 
-	String value = "";
-	String country = "";
-	String output = "world";
+	@FXML
+	private TextField totalConfirmed;
+	@FXML
+	private TextField totalConfirmedNumber;
 
-	
+	// -----------------------------------------------
+	private String value = "";
+	private String country = "";
+	private String output = "world";
+
 	private Button About;
 	private Button Claim;
 
+	
 	@Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
 
-
-	
-	System.out.println("i should be there");
-		
-	//About.setOnAction(e -> System.out.println("someone is gay"));
-
-		
+		System.out.println("i should be there");
 		try {
-			addList();
-			submit.setOnAction(e -> submitClicked());
+			addList(); // fügt die ListView mit Ländernamen und infiziertenzahlen ein
+			chartButtons = new ArrayList<>();
+			addButtonsToList(); // fügt die Buttons zur ArrayList hinu
+			addTextContent();
+			for (Button b : chartButtons) {
+				b.setOnAction(e -> {
 
-			lineChart.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
-				@Override
-				public void handle(MouseEvent event) {
-
-				}
-
-			});
-			Cases.setOnAction(e -> {
-
-				value = "Cases";
-
-				System.out.println(value + " " + output);
-
-				try {
-					infoChart(value);
-				} catch (SQLException e1) {
-					
-					e1.printStackTrace();
-				}
-
-			});
-			Deaths.setOnAction(e -> {
-
-				value = "Deaths";
-				System.out.println(value + " " + output);
-
-				try {
-					infoChart(value);
-				} catch (SQLException e1) {
-					
-					e1.printStackTrace();
-				}
-
-			});
-			casesPerOneMillion.setOnAction(e -> {
-
-				value = "casesPerOneMillion";
-				System.out.println(value + " " + output);
-
-				try {
-					infoChart(value);
-				} catch (SQLException e1) {
-					
-					e1.printStackTrace();
-				}
-
-			});
-			Recovered.setOnAction(e -> {
-
-				value = "Recovered";
-				System.out.println(value + " " + output);
-				try {
-					infoChart(value);
-				} catch (SQLException e1) {
-					
-					e1.printStackTrace();
-				}
-
-			});
-			Active.setOnAction(e -> {
-
-				value = "Active";
-				System.out.println(value + "Button");
-				try {
-					infoChart(value);
-				} catch (SQLException e1) {
-				
-					e1.printStackTrace();
-				}
-
-			});
-			Critical.setOnAction(e -> {
-
-				value = "Critical";
-				System.out.println(value + "Button");
-				try {
-					infoChart(value);
-				} catch (SQLException e1) {
-				
-					e1.printStackTrace();
-				}
-
-			});
-//			
-//			Claim.setOnAction(e -> {
-//				System.out.println("Someone claimed");
-//			});
-//			About.setOnAction(e -> {
-//				System.out.println("Someone wants to know all about us");
-//			});
-
-		} catch (ClassNotFoundException | SQLException e) {
-
+					value = b.getText(); // übergeben des Button Texts für den Graphen
+					try {
+						infoChart(value); // zeichnen vom Graphen 'value'
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+				});
+			}
+		} catch (Throwable e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public void addButtonsToList() {
-
-		Cases = new Button("Cases");
-		casesPerOneMillion = new Button("casesPerOneMillion");
-		Recovered = new Button("Recovered");
-		Critical = new Button("Critical");
-		Active = new Button("Active");
-		Deaths = new Button("Deaths");
 
 		chartButtons.add(Cases);
 		chartButtons.add(casesPerOneMillion);
@@ -196,13 +114,13 @@ public class Controller implements Initializable {
 
 	}
 
-	public String convertDate(long epoch) {
+	public String convertDate(long epoch) { // konvertieren der epoch zahl in ein gültiges Zeitformat
 
 		Date date = new Date(epoch);
 		DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 		format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
 		String formatted = format.format(date);
-		format.setTimeZone(TimeZone.getTimeZone("Asia/Colombo"));// your zone
+		format.setTimeZone(TimeZone.getTimeZone("Europe/Vienna"));// your zone
 		formatted = format.format(date);
 		System.out.println(formatted);
 		return formatted;
@@ -218,8 +136,6 @@ public class Controller implements Initializable {
 		ArrayList<String> dateX = new ArrayList<String>();
 
 		chartButtons = new ArrayList<Button>();
-
-		addButtonsToList();
 
 		System.out.println(value);
 
@@ -248,7 +164,8 @@ public class Controller implements Initializable {
 		lineChart.getData().add(series);
 	}
 
-	public void submitClicked() {
+	public void countryClicked() { // Methode die aufgerufen wird wenn ein Column in der Länderliste angeklickt
+									// wird --> Name vom Land wird für den Graphen übertragen
 		String output1 = "";
 		String output2 = "";
 		ObservableList<String> countries;
@@ -261,5 +178,11 @@ public class Controller implements Initializable {
 		output = output2.replaceAll("\\s+", "");
 		System.out.println(output);
 
+	}
+
+	public void addTextContent() {
+
+		totalConfirmed = new TextField("Total Confirmed");
+		
 	}
 }

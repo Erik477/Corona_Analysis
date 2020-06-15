@@ -86,20 +86,6 @@ public class StartGraphics extends Application{
 			}
 		});
 		
-//		minimizeButton = new Button("_");
-//		minimizeButton.setPrefSize(20,20);
-//		minimizeButton.setStyle("-fx-background-color: transparent;");
-//		minimizeButton.setTextFill(Color.WHITE);
-//		minimizeButton.setTranslateY(0);
-//		minimizeButton.setTranslateX(WIDTH -prefButtonTopX *2 + 30);
-//		
-
-//		fullscreenButton.setPrefSize(20, 20);
-//		fullscreenButton.setStyle("-fx-background-color: transparent;");
-//		fullscreenButton.setTextFill(Color.WHITE);
-//		fullscreenButton.setTranslateX(0);
-//		fullscreenButton.setTranslateY(WIDTH -prefButtonTopX *2 -60);
-		
 		HBox topBar = new HBox(90);
 		topBar.setAlignment(Pos.TOP_RIGHT);
 		topBar.getChildren().addAll(exitButton);
@@ -107,7 +93,7 @@ public class StartGraphics extends Application{
 		
 		//Hintergrundbild
 		
-		Image image = new Image("file:Images/coronavirus.jpg");
+		Image image = new Image("file:Images/worldpic.jpg");
 		ImageView mv = new ImageView(image);
 		
 		
@@ -116,7 +102,10 @@ public class StartGraphics extends Application{
 		layout.getChildren().addAll( mv,startButton, closeButton, topBar);
 		Scene scene = new Scene(layout, 700,450);
 		
+		scene.getStylesheets().add(getClass().getResource("/styles.css").toString());
 		
+		Image icon = new Image(getClass().getResourceAsStream("labs.png"));
+		window.getIcons().add(icon);
 		window.setScene(scene);
 		window.setResizable(false);
 		window.sizeToScene();   //verhindert das kein Rand durch .setResizable entsteht
