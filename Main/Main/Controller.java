@@ -52,12 +52,17 @@ public class Controller implements Initializable {
 	@FXML
 	private TextField totalConfirmedNumber;
 
+<<<<<<< HEAD
 	// -----------------------------------------------
 	private String value = "";
 	private String country = "";
 	private String output = "world";
 
+=======
+	@FXML
+>>>>>>> branch 'master' of https://github.com/Erik477/School
 	private Button About;
+	@FXML
 	private Button Claim;
 
 	
@@ -85,6 +90,10 @@ public class Controller implements Initializable {
 			e.printStackTrace();
 		}
 	}
+	
+	public void addcountrydata() {
+		
+		}
 
 	public void addButtonsToList() {
 
@@ -139,9 +148,8 @@ public class Controller implements Initializable {
 
 		System.out.println(value);
 
-		ArrayList<Integer> info = mq.getInfo(value, output); // müssma halt no an string rein machn der sich ja nach
-																// button
-		// ändert
+		ArrayList<Integer> info = mq.getInfo(value, output); 
+																
 
 		lineChart.setCreateSymbols(false);
 

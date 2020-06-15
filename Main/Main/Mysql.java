@@ -25,13 +25,77 @@ public class Mysql {
 
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
+<<<<<<< HEAD
 		con = DriverManager.getConnection(
 				"jdbc:mysql://localhost/coronadata?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
 				"root", "12345");
 
+=======
+
+
+public class Mysql{
+	
+private Connection con;
+
+public Mysql() throws ClassNotFoundException, SQLException {
+
+	Class.forName("com.mysql.cj.jdbc.Driver");
+
+	 con = DriverManager.getConnection(
+				"jdbc:mysql://localhost/coronedb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+				"root", "admin");
+
+}
+
+
+public ArrayList<String> getCountrydata() throws SQLException {
+	
+	ArrayList<String> Data = new ArrayList<>();
+	PreparedStatement stmt;
+	ResultSet rs;
+	
+	String Country;
+	String Region;
+	int Population;
+	int Area;
+	int PopDensity;
+	int Coastline;
+	int Migration;
+	int InfantMortality;
+	int GDP;
+	int Literacy;
+	
+	String sql1 = "select * from countrydata";
+	stmt = con.prepareStatement(sql1);
+	rs = stmt.executeQuery();
+	while(rs.next())
+	{
+		Country=rs.getString("Country");
+		Region=rs.getString("Region");
+		Population=rs.getInt("Population");
+		Area=rs.getInt("Area");
+		PopDensity=rs.getInt("PopDensity");
+		Coastline=rs.getInt("Coastline");
+		Migration=rs.getInt("Migration");
+		InfantMortality=rs.getInt("InfantMortality");
+		GDP=rs.getInt("GDP");
+		Literacy=rs.getInt("Literacy");
+>>>>>>> branch 'master' of https://github.com/Erik477/School
 	}
 
+<<<<<<< HEAD
 	public ArrayList<String> getCountrydata() throws SQLException {                  // noch in Alpha Version :D
+=======
+	stmt.close();
+	rs.close();
+	// return countr;
+	System.out.println("Countrydata is coming");
+	System.out.println(Data);
+	
+	return Data;
+	
+}
+>>>>>>> branch 'master' of https://github.com/Erik477/School
 
 		ArrayList<String> Data = new ArrayList<>();
 		PreparedStatement stmt;
