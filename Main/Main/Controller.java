@@ -44,8 +44,9 @@ public class Controller implements Initializable {
 	String country = "";
 	String output = "world";
 
-	
+	@FXML
 	private Button About;
+	@FXML
 	private Button Claim;
 
 	@Override

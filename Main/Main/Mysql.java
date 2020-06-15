@@ -53,14 +53,22 @@ public ArrayList<String> getCountrydata() throws SQLException {
 	int InfantMortality;
 	int GDP;
 	int Literacy;
-	int confirmed = 0;
 	
 	String sql1 = "select * from countrydata";
 	stmt = con.prepareStatement(sql1);
 	rs = stmt.executeQuery();
 	while(rs.next())
 	{
-		confirmed = confirmed + rs.getInt("cases");
+		Country=rs.getString("Country");
+		Region=rs.getString("Region");
+		Population=rs.getInt("Population");
+		Area=rs.getInt("Area");
+		PopDensity=rs.getInt("PopDensity");
+		Coastline=rs.getInt("Coastline");
+		Migration=rs.getInt("Migration");
+		InfantMortality=rs.getInt("InfantMortality");
+		GDP=rs.getInt("GDP");
+		Literacy=rs.getInt("Literacy");
 	}
 	
 
