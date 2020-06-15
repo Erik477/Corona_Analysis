@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry exported="true" kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Javafx"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Mysql"/>
 	<classpathentry kind="src" path="Main"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
@@ -10,6 +9,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mysql-connector"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Mysql"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

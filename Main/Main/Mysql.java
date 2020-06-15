@@ -34,9 +34,8 @@ public Mysql() throws ClassNotFoundException, SQLException {
 				"jdbc:mysql://localhost/coronedb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
 				"root", "admin");
 
-
-
 }
+
 
 public ArrayList<String> getCountrydata() throws SQLException {
 	
@@ -68,6 +67,7 @@ public ArrayList<String> getCountrydata() throws SQLException {
 	stmt.close();
 	rs.close();
 	// return countr;
+	System.out.println("Countrydata is coming");
 	System.out.println(Data);
 	
 	return Data;
