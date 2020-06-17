@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * @version 0.5
+ * @version 0.75
  * @since 18.03.2020
  * @author Erik
  *

@@ -26,11 +26,11 @@ public class Mysql {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
 		con = DriverManager.getConnection(
-				"jdbc:mysql://localhost/coronadata?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-				"root", "12345");
+				"jdbc:mysql://localhost/coronedb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+				"root", "admin");
 
 
-
+	}
 
 public ArrayList<String> getCountrydata() throws SQLException {
 	
@@ -65,6 +65,7 @@ public ArrayList<String> getCountrydata() throws SQLException {
 		GDP=rs.getInt("GDP");
 		Literacy=rs.getInt("Literacy");
 	}
+	return Data;
 }
 
 	public ArrayList<String> getCountry() throws SQLException {

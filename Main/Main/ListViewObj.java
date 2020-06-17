@@ -16,7 +16,7 @@ public class ListViewObj extends ListView {
 	final int ROW_HEIGHT = 24;
 	final ObservableList items = FXCollections.observableArrayList("1", "2", "3");
 	final ListView list = new ListView(items);
-	private Graphics graphics;
+	//private Graphics graphics;
 
 	public ListViewObj(Mysql mq) throws SQLException {
 		this.mq = mq;
@@ -25,7 +25,7 @@ public class ListViewObj extends ListView {
 	
 	public void initalize(Mysql mq) throws SQLException
 	{
-		graphics = new Graphics();
+		//graphics = new Graphics();
 		ArrayList<String> country = mq.getCountry();
 		country.add("World");
 		
@@ -33,7 +33,7 @@ public class ListViewObj extends ListView {
 			String e = country.get(i);
 			getItems().add(e);
 		
-			setPrefHeight(graphics.getHeight());
+			//setPrefHeight(graphics.getHeight());
 			
 			getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 			    @Override
