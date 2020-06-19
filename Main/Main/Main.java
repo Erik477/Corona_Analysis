@@ -1,13 +1,26 @@
 package Main;
 
+
 import javafx.application.Application;
 
 public class Main {
 
-	public static void main(String[] args) {
 
-		StartGraphicsMain sg = new StartGraphicsMain();
-		sg.launch(StartGraphicsMain.class, args);
+
+
+/**
+ * @version 0.75
+ * @since 18.03.2020
+ * @author Erik
+ *
+ */
+
+public class Main {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+
+		StartGraphics sg = new StartGraphics();
+
+		sg.launch(StartGraphics.class, args);
 	}
 
 }
