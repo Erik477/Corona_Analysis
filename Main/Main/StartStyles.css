@@ -1,0 +1,9 @@
+
+FontAwesomeIcon:hover{
+	-fx-cursor: hand
+}
+
+.button{
+	 -fx-background-color: #096a75;
+	 -fx-text-fill: #fff;
+}

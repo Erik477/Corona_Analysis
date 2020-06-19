@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="900.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.MainController">
+   <top>
+      <VBox style="-fx-background-color: #292929;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox spacing="10.0" style="-fx-border-color: #41464f;">
+               <VBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </VBox.margin>
+               <children>
+                  <Region style="-fx-background-color: #292929;" HBox.hgrow="ALWAYS" />
+                  <Label style="-fx-background-color: #292929 #292929;" text="COVID-19 Analysis by Erik and Fubus" textFill="#df0f0f">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Region style="-fx-background-color: #292929;" HBox.hgrow="ALWAYS" />
+                  <FontAwesomeIconView fill="#48dbfb" glyphName="MINUS" size="20" />
+                  <FontAwesomeIconView fill="#ee5253" glyphName="CLOSE" size="20">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+      <HBox prefHeight="37.0" prefWidth="1800.0" style="-fx-background-color: #454545; -fx-border-color: #e1eb2f;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" text="FAQ" />
+            <Region />
+            <Button fx:id="About" mnemonicParsing="false" text="About" />
+            <Region />
+            <Button mnemonicParsing="false" text="Help" />
+            <Region />
+            <Button mnemonicParsing="false" text="Privacy Policy" />
+            <Region />
+            <Button mnemonicParsing="false" text="Contact us" />
+            <Region />
+            <Button mnemonicParsing="false" text="Work for us" />
+            <Region />
+            <Button fx:id="Claim" mnemonicParsing="false" text="Claim" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <Pane focusTraversable="true" prefHeight="814.0" prefWidth="918.0" style="-fx-background-color: #454545; -fx-border-color: #e1eb2f;" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <FlowPane prefHeight="802.0" prefWidth="322.0" style="-fx-background-color: #41464f; -fx-border-color: #e1eb2f;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="320.0">
+               <children>
+                  <Label fx:id="totalConfirmed" prefHeight="113.0" prefWidth="320.0" style="-fx-background-color: #454545;" textAlignment="CENTER" />
+                  <Label fx:id="totalConfirmedNumber" prefHeight="114.0" prefWidth="320.0" style="-fx-background-color: #454545;" textAlignment="CENTER" />
+               </children>
+            </VBox>
+            <ListView fx:id="countryList" onMouseClicked="#countryClicked" prefHeight="612.0" prefWidth="321.0" style="-fx-background-color: #454545; -fx-border-color: #e1eb2f;" />
+         </children>
+      </FlowPane>
+   </left>
+   <right>
+      <FlowPane prefHeight="826.0" prefWidth="445.0" style="-fx-background-color: #454545; -fx-border-color: #e1eb2f;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="Cases" mnemonicParsing="false" text="Cases" />
+            <Button fx:id="casesPerOneMillion" mnemonicParsing="false" text="CasesPerOneMillion" />
+            <Button fx:id="Recovered" mnemonicParsing="false" text="Recovered" />
+            <Button fx:id="Critical" mnemonicParsing="false" text="Critical" />
+            <Button fx:id="Active" mnemonicParsing="false" text="Active" />
+            <Button fx:id="Deaths" mnemonicParsing="false" text="Deaths" />
+            <LineChart fx:id="lineChart" alternativeRowFillVisible="false" prefHeight="450.0" prefWidth="574.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" tickLabelFill="#e1eb2f" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" tickLabelFill="#e1eb2f" />
+              </yAxis>
+            </LineChart>
+         </children>
+      </FlowPane>
+   </right>
+</BorderPane>

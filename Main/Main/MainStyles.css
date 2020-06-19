@@ -1,0 +1,118 @@
+
+/*Buttons*/
+.button {
+    -fx-background-color: 
+        linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
+        linear-gradient(#020b02, #3a3a3a),
+        linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),
+        linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%),
+        linear-gradient(#777777 0%, #606060 50%, #505250 51%, #2a2b2a 100%);
+    -fx-background-insets: 0,1,4,5,6;
+    -fx-background-radius: 9,8,5,4,3;
+    -fx-padding: 10 20 10 20;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);
+}
+
+
+/*LineChart */
+.chart {
+    -fx-padding: 10.0px;
+    -fx-background-color:   #454545;
+    -fx-legend-visible: false;
+}
+
+.chart-content {
+    -fx-padding: 30.0px;    
+}
+
+.chart-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 1.6em;
+}
+
+.axis-label {
+    -fx-text-fill: #ffffff;
+}
+
+.chart-plot-background {
+    -fx-background-color:transparent;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke:#505050;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: #505050;
+}
+
+.chart-alternative-row-fill {
+    -fx-fill:transparent;
+    -fx-stroke: transparent;
+}
+
+.default-color0.chart-series-line {
+    -fx-stroke: #0000ff;
+}
+
+.default-color0.chart-line-symbol {
+    -fx-background-color: #0000ff, white;
+}
+.axis-label {
+   -fx-text-fill: #462300; 
+}
+
+
+/*Listview*/
+
+.list-view > .virtual-flow > .scroll-bar,
+.list-view > .virtual-flow > .scroll-bar .decrement-arrow,
+.list-view > .virtual-flow > .scroll-bar .increment-arrow,
+.list-view > .virtual-flow > .scroll-bar .decrement-button,
+.list-view > .virtual-flow > .scroll-bar .increment-button {
+    -fx-pref-width: 0.0;
+    -fx-pref-height: 0.0;
+}
+
+
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+       -fx-background-color: linear-gradient(#328BDB 0.0%, #207BCF 25.0%, #1973C9 75.0%, #0A65BF 100.0%);
+       -fx-text-fill: #f22d0a;
+       -fx-font-weight: bold;
+}
+
+.list-cell:filled:hover {
+       -fx-cell-hover-color: #0faad9;
+       -fx-text-fill: #f22d0a;
+       -fx-font-weight: bold;
+}
+.list-cell:odd {
+    -fx-text-fill: #f22d0a ;
+    -fx-font-weight: bold;
+    -fx-background-color:    #454545;
+}
+.list-cell:even {
+    -fx-text-fill: #f22d0a ;
+    -fx-font-weight: bold;
+    -fx-background-color:   #454545;
+}
+
+
+
+
+
+/* Label */
+
+.label  {
+    
+     -fx-text-fill: #f22d0a;
+     -fx-font-weight: bold;
+     -fx-font-size: 20.0pt ;
+     -fx-text-alignment: center;
+}
+
