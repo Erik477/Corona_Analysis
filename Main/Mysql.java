@@ -30,8 +30,8 @@ public class Mysql {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
 		con = DriverManager.getConnection(
-				"jdbc:mysql://localhost/coronedata?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-				"root", "admin");
+				"jdbc:mysql://localhost/coronadata?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+				"root", "12345");
 
 
 	}
