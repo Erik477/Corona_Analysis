@@ -30,8 +30,8 @@ public class StartGraphicsMain extends Application {
 	public void start(Stage primaryStage) throws Exception {
 
 		window = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("StartWindow.fxml"));
-		 scene = new Scene(root);
+		Parent root = FXMLLoader.load(getClass().getResource("/StartWindow.fxml"));
+		scene = new Scene(root);
 
 		scene.getStylesheets().add(getClass().getResource("StartStyles.css").toString());
 		
