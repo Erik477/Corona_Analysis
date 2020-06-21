@@ -1,6 +1,7 @@
 package Main;
 
 import java.awt.Font;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -35,7 +36,7 @@ public class StartGraphicsMain extends Application {
 		scene.getStylesheets().add(getClass().getResource("StartStyles.css").toString());
 		
 
-		Image icon = new Image(getClass().getResourceAsStream("labs.png"));
+		Image icon = new Image(getClass().getResourceAsStream("logo.jpg"));
 		window.getIcons().add(icon);
 		window.setTitle("COVID 19");
 		window.setFullScreen(false);
@@ -61,9 +62,20 @@ public class StartGraphicsMain extends Application {
 		this.scene = scene;
 	}
 
-	public void close()
+	public void close() throws IOException
 	{
-		window.close();
+		ConfirmExitBox exitBox = new ConfirmExitBox();
+		boolean result = exitBox.display();
+		
+		if(result)
+		{
+			window.close();
+		}
 	}
+	public void minimize()
+	{
+		window.hide();
+	}
+	
 
 }

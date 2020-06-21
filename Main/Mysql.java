@@ -81,17 +81,9 @@ public ArrayList<String> getCountrydata() throws SQLException {
 		String format;
 		String confirmedCases;
 		int confirmed = 0;
-		String sql1 = "select * from coronadata order by epoch desc LIMIT 187";
-		stmt = con.prepareStatement(sql1);
-		rs = stmt.executeQuery();
-		while (rs.next()) {
-			confirmed = confirmed + rs.getInt("cases");
-		}
-		Name = "World";
-
-		format = String.format("%-7d \t %s", confirmed, Name);
+		
 		String sql = "select country, cases from coronadata limit 187;";
-		countr.add(format);
+		
 		stmt = con.prepareStatement(sql);
 		rs = stmt.executeQuery();
 		while (rs.next()) {

@@ -14,12 +14,12 @@
    <top>
       <HBox alignment="TOP_RIGHT" prefHeight="21.0" prefWidth="773.0" style="-fx-background-color: #292929;" BorderPane.alignment="CENTER">
          <children>
-            <FontAwesomeIconView fill="#48dbfb" glyphName="MINUS" size="20">
+            <FontAwesomeIconView fill="#48dbfb" glyphName="MINUS" onMouseClicked="#minimizeApplication" size="20">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </FontAwesomeIconView>
-            <FontAwesomeIconView fill="#ee5253" glyphName="CLOSE" size="20">
+            <FontAwesomeIconView fill="#ee5253" glyphName="CLOSE" onMouseClicked="#closeApplication" size="20">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="7.0" top="5.0" />
                </HBox.margin></FontAwesomeIconView>
@@ -38,7 +38,7 @@
                   <Font size="21.0" />
                </font>
             </Button>
-            <Button layoutX="285.0" layoutY="218.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="204.0" text="Close">
+            <Button fx:id="closeButton" layoutX="285.0" layoutY="218.0" mnemonicParsing="false" onMouseClicked="#closeApplication" prefHeight="52.0" prefWidth="204.0" text="Close">
                <font>
                   <Font name="Gadugi" size="21.0" />
                </font>

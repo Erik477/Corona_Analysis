@@ -56,14 +56,14 @@
 }
 
 .default-color0.chart-series-line {
-    -fx-stroke: #0000ff;
+    -fx-stroke: #ed2849;
 }
 
 .default-color0.chart-line-symbol {
-    -fx-background-color: #0000ff, white;
+    -fx-background-color: #ed2849, white;
 }
 .axis-label {
-   -fx-text-fill: #462300; 
+   -fx-text-fill: #ed2849; 
 }
 
 
@@ -88,16 +88,16 @@
 
 .list-cell:filled:hover {
        -fx-cell-hover-color: #0faad9;
-       -fx-text-fill: #f22d0a;
+       -fx-text-fill: white;
        -fx-font-weight: bold;
 }
 .list-cell:odd {
-    -fx-text-fill: #f22d0a ;
+    -fx-text-fill: white ;
     -fx-font-weight: bold;
     -fx-background-color:    #454545;
 }
 .list-cell:even {
-    -fx-text-fill: #f22d0a ;
+    -fx-text-fill: white ;
     -fx-font-weight: bold;
     -fx-background-color:   #454545;
 }
@@ -110,9 +110,15 @@
 
 .label  {
     
-     -fx-text-fill: #f22d0a;
+     -fx-text-fill: white;
      -fx-font-weight: bold;
      -fx-font-size: 20.0pt ;
-     -fx-text-alignment: center;
+     -fx-text-alignment: center
+}
+#headline {
+	 -fx-text-fill: white;
+     -fx-font-weight: bold;
+     -fx-font-size: 20.0pt ;
+     -fx-text-alignment: center
 }
 

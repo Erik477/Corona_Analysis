@@ -21,17 +21,21 @@ public class StartGraphicsController implements Initializable {
 	private Button minimize;
 	
 	private ConfirmBox confirmBox;
-	private StartGraphicsMain startScreen;
-	private ScenebuilderMain mainScreen;
+	private StartGraphicsMain startScreen = new StartGraphicsMain();
+	private ScenebuilderMain mainScreen = new ScenebuilderMain();
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
 
 	public void startApplication() throws Exception {
-		
-		mainScreen = new ScenebuilderMain();
-		
 		mainScreen.start();
 
+	}
+	
+	public void closeApplication() throws Exception{
+		startScreen.close();
+	}
+	public void minimizeApplication() {
+		
 	}
 }

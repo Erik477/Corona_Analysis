@@ -1,5 +1,7 @@
 package Main;
 
+import com.sun.org.apache.bcel.internal.generic.RETURN;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -44,21 +46,24 @@ public class ScenebuilderMain {
 		public void start() throws Exception {
 			// TODO Auto-generated method stub
 			
-			window = new Stage();
+			window = new Stage(StageStyle.UNDECORATED);
 			Parent root = FXMLLoader.load(getClass().getResource("Mainpage.fxml"));
 			Scene scene = new Scene(root);
 
 			scene.getStylesheets().add(getClass().getResource("MainStyles.css").toString());
 			
-			Image icon = new Image(getClass().getResourceAsStream("labs.png"));
+			Image icon = new Image(getClass().getResourceAsStream("logo.jpg"));
 			window.getIcons().add(icon);
 			window.setTitle("Hello There");
 			window.setFullScreen(false);
 			window.setScene(scene);
 			
 			window.setResizable(true);
+			
 			window.show();
 		}
+		
+		
 
-					}
+			}
 
