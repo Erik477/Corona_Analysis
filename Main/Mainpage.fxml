@@ -46,35 +46,18 @@
    <bottom>
       <HBox prefHeight="37.0" prefWidth="1800.0" style="-fx-background-color: #454545; -fx-border-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="FAQ">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></Button>
+
+            <Button mnemonicParsing="false" text="FAQ" />
             <Region />
-            <Button fx:id="About" mnemonicParsing="false" text="About">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></Button>
+            <Button fx:id="About" mnemonicParsing="false" text="About" />
             <Region />
-            <Button mnemonicParsing="false" text="Help">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></Button>
+            <Button mnemonicParsing="false" text="Help" />
             <Region />
-            <Button mnemonicParsing="false" text="Privacy Policy">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></Button>
+            <Button mnemonicParsing="false" text="Privacy Policy" />
             <Region />
-            <Button mnemonicParsing="false" text="Contact us">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></Button>
+            <Button mnemonicParsing="false" text="Contact us" />
             <Region />
-            <Button mnemonicParsing="false" text="Work for us">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></Button>
+            <Button mnemonicParsing="false" text="Work for us" />
             <Region />
             <Button fx:id="Claim" mnemonicParsing="false" text="Claim" />
          </children>
@@ -88,8 +71,8 @@
          <children>
             <VBox prefHeight="191.0" prefWidth="320.0">
                <children>
-                  <Label fx:id="totalConfirmed" prefHeight="113.0" prefWidth="320.0" style="-fx-background-color: #454545;" textAlignment="RIGHT" />
-                  <Label fx:id="totalConfirmedNumber" prefHeight="100.0" prefWidth="324.0" style="-fx-background-color: #454545;" textAlignment="RIGHT" textFill="#ed2849" />
+                  <Label fx:id="totalConfirmed" prefHeight="113.0" prefWidth="320.0" style="-fx-background-color: #454545;" textAlignment="CENTER" />
+                  <Label fx:id="totalConfirmedNumber" prefHeight="100.0" prefWidth="324.0" style="-fx-background-color: #454545;" textAlignment="CENTER" textFill="#ed2849" />
                </children>
             </VBox>
             <ListView fx:id="countryList" onMouseClicked="#countryClicked" prefHeight="612.0" prefWidth="321.0" style="-fx-background-color: #454545;" />
@@ -100,30 +83,12 @@
       <FlowPane prefHeight="826.0" prefWidth="445.0" style="-fx-background-color: #454545; -fx-border-color: black;" BorderPane.alignment="CENTER">
 
          <children>
-            <Button fx:id="Cases" mnemonicParsing="false" text="Cases">
-               <FlowPane.margin>
-                  <Insets right="5.0" />
-               </FlowPane.margin></Button>
-            <Button fx:id="casesPerOneMillion" mnemonicParsing="false" text="CasesPerOneMillion">
-               <FlowPane.margin>
-                  <Insets right="5.0" />
-               </FlowPane.margin></Button>
-            <Button fx:id="Recovered" mnemonicParsing="false" text="Recovered">
-               <FlowPane.margin>
-                  <Insets right="5.0" />
-               </FlowPane.margin></Button>
-            <Button fx:id="Critical" mnemonicParsing="false" text="Critical">
-               <FlowPane.margin>
-                  <Insets right="5.0" />
-               </FlowPane.margin></Button>
-            <Button fx:id="Active" mnemonicParsing="false" text="Active">
-               <FlowPane.margin>
-                  <Insets right="5.0" />
-               </FlowPane.margin></Button>
-            <Button fx:id="Deaths" mnemonicParsing="false" text="Deaths">
-               <FlowPane.margin>
-                  <Insets right="5.0" />
-               </FlowPane.margin></Button>
+            <Button fx:id="Cases" mnemonicParsing="false" text="Cases" />
+            <Button fx:id="casesPerOneMillion" mnemonicParsing="false" text="CasesPerOneMillion" />
+            <Button fx:id="Recovered" mnemonicParsing="false" text="Recovered" />
+            <Button fx:id="Critical" mnemonicParsing="false" text="Critical" />
+            <Button fx:id="Active" mnemonicParsing="false" text="Active" />
+            <Button fx:id="Deaths" mnemonicParsing="false" text="Deaths" />
             <LineChart fx:id="lineChart" alternativeRowFillVisible="false" prefHeight="450.0" prefWidth="574.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" tickLabelFill="#ed2849" />

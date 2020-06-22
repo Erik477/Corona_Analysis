@@ -18,6 +18,7 @@
             <Font size="18.0" />
          </font>
       </Label>
+
       <Button fx:id="ok" layoutX="14.0" layoutY="116.0" mnemonicParsing="false" onMouseClicked="#okPressed" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-radius: 0; -fx-border-color: white; -fx-border-width: 2;" text="ok" textFill="WHITE">
          <padding>
             <Insets left="10.0" />
@@ -27,6 +28,7 @@
          </font>
       </Button>
       <Button fx:id="cancel" layoutX="201.0" layoutY="116.0" mnemonicParsing="false" onMouseClicked="#cancelPressed" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-radius: 0; -fx-border-color: white; -fx-border-width: 2;" text="cancel" textFill="WHITE">
+
          <padding>
             <Insets right="10.0" />
          </padding>

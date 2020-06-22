@@ -67,5 +67,7 @@ public class StartGraphicsController implements Initializable {
                StartGraphicsMain.getWindow().setY(event.getScreenY() - yOffset);
             }
         });
+
+
 	}
 }

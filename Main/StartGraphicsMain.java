@@ -19,6 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -54,6 +55,9 @@ public class StartGraphicsMain extends Application {
 
 		
 	}
+	
+
+	
 	
 	public static Stage getWindow() {
 		return window;

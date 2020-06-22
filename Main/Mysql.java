@@ -36,41 +36,43 @@ public class Mysql {
 
 	}
 
-	public ArrayList<String> getCountrydata() throws SQLException {
-		
-		ArrayList<String> Data = new ArrayList<>();
-		PreparedStatement stmt;
-		ResultSet rs;
-		
-		String Country;
-		String Region;
-		int Population;
-		int Area;
-		int PopDensity;
-		int Coastline;
-		int Migration;
-		int InfantMortality;
-		int GDP;
-		int Literacy;
-		
-		String sql1 = "select * from countrydata";
-		stmt = con.prepareStatement(sql1);
-		rs = stmt.executeQuery();
-		while(rs.next())
-		{
-			Country=rs.getString("Country");
-			Region=rs.getString("Region");
-			Population=rs.getInt("Population");
-			Area=rs.getInt("Area");
-			PopDensity=rs.getInt("PopDensity");
-			Coastline=rs.getInt("Coastline");
-			Migration=rs.getInt("Migration");
-			InfantMortality=rs.getInt("InfantMortality");
-			GDP=rs.getInt("GDP");
-			Literacy=rs.getInt("Literacy");
-		}
-		return Data;
+
+public ArrayList<String> getCountrydata() throws SQLException {
+	
+	ArrayList<String> Data = new ArrayList<>();
+	PreparedStatement stmt;
+	ResultSet rs;
+	
+	String Country;
+	String Region;
+	int Population;
+	int Area;
+	int PopDensity;
+	int Coastline;
+	int Migration;
+	int InfantMortality;
+	int GDP;
+	int Literacy;
+	
+	String sql1 = "select * from countrydata";
+	stmt = con.prepareStatement(sql1);
+	rs = stmt.executeQuery();
+	while(rs.next())
+	{
+		Country=rs.getString("Country");
+		Region=rs.getString("Region");
+		Population=rs.getInt("Population");
+		Area=rs.getInt("Area");
+		PopDensity=rs.getInt("PopDensity");
+		Coastline=rs.getInt("Coastline");
+		Migration=rs.getInt("Migration");
+		InfantMortality=rs.getInt("InfantMortality");
+		GDP=rs.getInt("GDP");
+		Literacy=rs.getInt("Literacy");
 	}
+	return Data;
+}
+
 
 	public ArrayList<String> getCountry() throws SQLException {
 
