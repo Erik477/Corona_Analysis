@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="public" author="true" classpath="D:\@School\Schule\SWP\eclipse\javafx-sdk-11.0.2\lib\javafx.swing.jar;D:\@School\Schule\SWP\eclipse\javafx-sdk-11.0.2\lib\javafx.web.jar;D:\@School\Schule\SWP\eclipse\javafx-sdk-11.0.2\lib\javafx.fxml.jar;D:\@School\Schule\SWP\eclipse\javafx-sdk-11.0.2\lib\javafx.graphics.jar;D:\@School\Schule\SWP\eclipse\javafx-sdk-11.0.2\lib\javafx.base.jar;D:\@School\Schule\SWP\eclipse\javafx-sdk-11.0.2\lib\javafx.media.jar;D:\@School\Schule\SWP\eclipse\javafx-sdk-11.0.2\lib\javafx.controls.jar;D:\@School\Schule\SWP\eclipse\mysql-connector-java-8.0.18.jar;D:\@School\Schule\SWP\eclipse\javafx-sdk-11.0.2\lib\javafx-swt.jar" destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="Main" source="1.8" sourcepath="Main" splitindex="true" use="true" version="true"/>
+    </target>
+</project>

@@ -1,0 +1,116 @@
+
+/*Buttons*/
+.button {
+    -fx-background-color: #454545;
+    -fx-border-color: white;
+    -fx-border-width: 1;
+    -fx-text-fill: white ;
+        
+}
+
+
+/*LineChart */
+.chart {
+    -fx-padding: 10.0px;
+    -fx-background-color:   #454545;
+    -fx-legend-visible: false;
+}
+
+.chart-content {
+    -fx-padding: 30.0px;    
+}
+
+.chart-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 1.6em;
+}
+
+.axis-label {
+    -fx-text-fill: #ffffff;
+}
+
+.chart-plot-background {
+    -fx-background-color:transparent;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke:#505050;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: #505050;
+}
+
+.chart-alternative-row-fill {
+    -fx-fill:transparent;
+    -fx-stroke: transparent;
+}
+
+.default-color0.chart-series-line {
+    -fx-stroke: #ed2849;
+}
+
+.default-color0.chart-line-symbol {
+    -fx-background-color: #ed2849, white;
+}
+.axis-label {
+   -fx-text-fill: #ed2849; 
+}
+
+
+/*Listview*/
+
+.list-view > .virtual-flow > .scroll-bar,
+.list-view > .virtual-flow > .scroll-bar .decrement-arrow,
+.list-view > .virtual-flow > .scroll-bar .increment-arrow,
+.list-view > .virtual-flow > .scroll-bar .decrement-button,
+.list-view > .virtual-flow > .scroll-bar .increment-button {
+    -fx-pref-width: 0.0;
+    -fx-pref-height: 0.0;
+}
+
+
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+       -fx-background-color: #eba134;
+       -fx-text-fill: #eba134;
+       -fx-font-weight: bold;
+}
+
+.list-cell:filled:hover {
+       -fx-cell-hover-color: #eba134;
+       -fx-text-fill: white;
+       -fx-font-weight: bold;
+}
+.list-cell:odd {
+    -fx-text-fill: white ;
+    -fx-font-weight: bold;
+    -fx-background-color:    #454545;
+}
+.list-cell:even {
+    -fx-text-fill: white ;
+    -fx-font-weight: bold;
+    -fx-background-color:   #454545;
+}
+
+
+
+
+
+/* Label */
+
+.label  {
+    
+     -fx-text-fill: white;
+     -fx-font-weight: bold;
+     -fx-font-size: 20.0pt ;
+     -fx-text-alignment: right;
+     
+     }
+#headline {
+	 -fx-text-fill: white;
+     -fx-font-weight: bold;
+     -fx-font-size: 20.0pt ;
+     -fx-text-alignment: center;
+}
+
