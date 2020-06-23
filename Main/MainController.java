@@ -58,9 +58,17 @@ public class MainController implements Initializable {
 	private Label totalConfirmed;
 	@FXML
 	private Label totalConfirmedNumber;
-	@FXML
-	private Label headline;
+	
+	@FXML private Label CasesHeadField;
+	@FXML private Label DeathsHeadField;
+	@FXML private Label ActiveHeadField;
+	@FXML private Label RecoveredHeadField;
 
+	
+	@FXML private Label CasesNumberField;
+	@FXML private Label DeathsNumberField;
+	@FXML private Label ActiveNumberField;
+	@FXML private Label RecoveredNumberField;
 	// -----------------------------------------------
 	private String value = "";
 	private String output = "world";
@@ -71,7 +79,7 @@ public class MainController implements Initializable {
 	private double yOffset = 0;
 	//-----------------------------------------------------
 	@FXML
-	private BorderPane bp = new BorderPane();
+	private BorderPane bp;
 	//-------------------------------------------------------
 
 	private ScenebuilderMain gui = new ScenebuilderMain();
@@ -145,7 +153,7 @@ public class MainController implements Initializable {
 		ArrayList<Long> date = mq.getDate(output);
 		ArrayList<String> dateX = new ArrayList<String>();
 		chartButtons = new ArrayList<Button>();
-		ArrayList<Integer> info = mq.getInfo(value, output);
+		ArrayList<Integer> info = mq.getInfoList(value, output);
 		lineChart.setCreateSymbols(false);
 
 		for (int i = 0; i < date.size(); i++) {
@@ -183,24 +191,43 @@ public class MainController implements Initializable {
 	public void addTextContent() throws SQLException {
 
 		totalConfirmed.setText("Total Confirmed");
-
+		CasesHeadField.setText("Cases");
+		DeathsHeadField.setText("Deaths");
+		ActiveHeadField.setText("Active Cases");
+		RecoveredHeadField.setText("Recovered");
+		
+		
 		int totalConfirmed = mq.totalInfo("cases");
 		totalConfirmedNumber.setText(Integer.toString(totalConfirmed));
+		
+		if(output.equals("world"))
+		{
+			CasesNumberField.setText(Integer.toString(mq.totalInfo("cases")));
+			DeathsNumberField.setText(Integer.toString(mq.totalInfo("deaths")));
+			RecoveredNumberField.setText(Integer.toString(mq.totalInfo("recovered")));
+			ActiveNumberField.setText(Integer.toString(mq.totalInfo("active")));
+		}else {
+			addButtons();
+			CasesNumberField.setText(Integer.toString(mq.getInfo("cases", output)));
+		}
 	}
+
+	
+
 
 	public void close() throws IOException {
 		ConfirmExitBox exitBox = new ConfirmExitBox();
 		boolean result = exitBox.display();
 
 		if (result) {
-			gui.getWindow().close();
+
+			ScenebuilderMain.getWindow().close();
 		}
 	}
 
 	public void minimize() {
-		gui.getWindow().hide();
+		ScenebuilderMain.getWindow().hide();
 	}
-	
 	public void onMousePressedBorderPane()
 	{
 		bp.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -216,12 +243,13 @@ public class MainController implements Initializable {
 		bp.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-               gui.getWindow().setX(event.getScreenX() - xOffset);
-               gui.getWindow().setY(event.getScreenY() - yOffset);
+               StartGraphicsMain.getWindow().setX(event.getScreenX() - xOffset);
+               StartGraphicsMain.getWindow().setY(event.getScreenY() - yOffset);
             }
         });
+
+
 	}
 	 
 	
-
 }

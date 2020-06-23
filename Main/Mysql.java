@@ -36,6 +36,7 @@ public class Mysql {
 
 	}
 
+
 public ArrayList<String> getCountrydata() throws SQLException {
 	
 	ArrayList<String> Data = new ArrayList<>();
@@ -71,6 +72,7 @@ public ArrayList<String> getCountrydata() throws SQLException {
 	}
 	return Data;
 }
+
 
 	public ArrayList<String> getCountry() throws SQLException {
 
@@ -122,7 +124,7 @@ public ArrayList<String> getCountrydata() throws SQLException {
 		return date;
 	}
 
-	public ArrayList<Integer> getInfo(String input, String output) throws SQLException {
+	public ArrayList<Integer> getInfoList(String input, String output) throws SQLException {          //für den Graphen
 
 		ArrayList<Integer> infoList = new ArrayList<Integer>();
 		String sql = "select * from coronadata where country = '" + output + "' order by epoch;";
@@ -137,6 +139,22 @@ public ArrayList<String> getCountrydata() throws SQLException {
 		stmt.close();
 		rs.close();
 		return infoList;
+	}
+	public int getInfo(String input, String output) throws SQLException {            //für die einzelnen TextFelder
+
+		
+		String sql = "select * from coronadata where country = '" + output + "' order by epoch;";
+		PreparedStatement stmt = con.prepareStatement(sql);
+		ResultSet rs = stmt.executeQuery();
+
+		int info = 0;
+		while (rs.next()) {
+			info = rs.getInt(input.toLowerCase());
+			
+		}
+		stmt.close();
+		rs.close();
+		return info;
 	}
 
 	public String convertDate(long epoch) { // konvertieren der epoch zahl in ein gültiges Zeitformat

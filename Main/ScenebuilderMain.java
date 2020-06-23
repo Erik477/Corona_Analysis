@@ -23,13 +23,15 @@ import javafx.stage.Stage;
 public class ScenebuilderMain {
 	
 
-	private Stage window;
-	public Stage getWindow() {
+
+	private static Stage window;
+	public static Stage getWindow() {
 		return window;
 	}
 
 	public void setWindow(Stage window) {
 		this.window = window;
+
 	}
 
 	public Scene getScene() {

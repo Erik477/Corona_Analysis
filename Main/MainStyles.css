@@ -1,20 +1,12 @@
 
 /*Buttons*/
 .button {
-    -fx-background-color: 
-        linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
-        linear-gradient(#020b02, #3a3a3a),
-        linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),
-        linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%),
-        linear-gradient(#777777 0%, #606060 50%, #505250 51%, #2a2b2a 100%);
-    -fx-background-insets: 0,1,4,5,6;
-    -fx-background-radius: 9,8,5,4,3;
-    -fx-padding: 10 20 10 20;
-    -fx-font-family: "Helvetica";
-    -fx-font-size: 12px;
-    -fx-font-weight: bold;
-    -fx-text-fill: white;
-    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);
+<<<<<<< HEAD
+    -fx-background-color: #454545;
+    -fx-border-color: white;
+    -fx-border-width: 1;
+    -fx-text-fill: white ;
+        
 }
 
 
@@ -81,14 +73,14 @@
 
 
 .list-cell:filled:selected:focused, .list-cell:filled:selected {
-       -fx-background-color: linear-gradient(#328BDB 0.0%, #207BCF 25.0%, #1973C9 75.0%, #0A65BF 100.0%);
-       -fx-text-fill: #f22d0a;
+       -fx-background-color: #f0f2bf;
+       -fx-text-fill: black;
        -fx-font-weight: bold;
 }
 
 .list-cell:filled:hover {
-       -fx-cell-hover-color: #0faad9;
-       -fx-text-fill: white;
+       -fx-cell-hover-color: #f0f2bf;
+       -fx-text-fill: black;
        -fx-font-weight: bold;
 }
 .list-cell:odd {
@@ -108,17 +100,54 @@
 
 /* Label */
 
+/*-----------ÜberschriftenFelder-----------------------------*/
+
+#totalConfirmed {
+	 -fx-text-fill: #ed2849;
+     -fx-font-weight: bold;
+     -fx-font-size: 20.0pt ;
+     -fx-text-alignment: center;
+}
+#ActiveHeadField {
+	
+	-fx-text-fill: #ed2849;
+     -fx-font-weight: normal;
+     -fx-font-size: 15.0pt ;
+     -fx-text-alignment: center;
+
+	}
+#DeathsHeadField {
+	
+	-fx-text-fill: #ed2849;
+     -fx-font-weight: normal;
+     -fx-font-size: 15.0pt ;
+     -fx-text-alignment: center;
+
+	}
+#RecoveredHeadField {
+	
+	-fx-text-fill: #ed2849;
+     -fx-font-weight: normal;
+     -fx-font-size: 15.0pt ;
+     -fx-text-alignment: center;
+
+	}
+#CasesHeadField {
+	
+	-fx-text-fill: #ed2849;
+     -fx-font-weight: normal;
+     -fx-font-size: 15.0pt ;
+     -fx-text-alignment: center;
+
+	}
+	
+/*-----------Felder mit Zahlenwerte-----------------------------*/
+
 .label  {
     
-     -fx-text-fill: white;
+     -fx-text-fill: #f0f2bf;
      -fx-font-weight: bold;
      -fx-font-size: 20.0pt ;
-     -fx-text-alignment: center
-}
-#headline {
-	 -fx-text-fill: white;
-     -fx-font-weight: bold;
-     -fx-font-size: 20.0pt ;
-     -fx-text-alignment: center
-}
-
+     -fx-text-alignment: right;
+     
+     }

@@ -19,17 +19,24 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class StartGraphicsMain extends Application {
 
-	private Stage window;
-	private Scene scene;
+	private static Stage window;
+	private static Scene scene;
+	
+	public StartGraphicsMain() {
+		
+	}
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-
 		window = new Stage();
+
 		Parent root = FXMLLoader.load(getClass().getResource("StartWindow.fxml"));
 		scene = new Scene(root);
 
@@ -42,14 +49,17 @@ public class StartGraphicsMain extends Application {
 		window.setFullScreen(false);
 		window.setScene(scene);
 		window.initStyle(StageStyle.TRANSPARENT);
-
+		
 		window.setResizable(true);
 		window.show();
 
 		
 	}
 	
-	public Stage getWindow() {
+
+	
+	
+	public static Stage getWindow() {
 		return window;
 	}
 	public void setWindow(Stage window) {
