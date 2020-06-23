@@ -225,6 +225,21 @@ public class MainController implements Initializable {
 		}
 	}
 
+	
+	public void onMouseDraggedBorderPane()
+	{
+		bp.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+               ScenebuilderMain.getWindow().setX(event.getScreenX() - xOffset);
+               ScenebuilderMain.getWindow().setY(event.getScreenY() - yOffset);
+
+			ScenebuilderMain.getWindow().close();
+		}
+		});
+		
+	}
+
 	public void minimize() {
 		ScenebuilderMain.getWindow().hide();
 	}
@@ -238,18 +253,9 @@ public class MainController implements Initializable {
 	         }
 	     });
 	}
-	public void onMouseDraggedBorderPane()
-	{
-		bp.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-               StartGraphicsMain.getWindow().setX(event.getScreenX() - xOffset);
-               StartGraphicsMain.getWindow().setY(event.getScreenY() - yOffset);
-            }
-        });
 
+	
 
-	}
 	 
 	
 }

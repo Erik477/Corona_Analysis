@@ -47,19 +47,40 @@
       <HBox prefHeight="37.0" prefWidth="1800.0" style="-fx-background-color: #454545; -fx-border-color: black;" BorderPane.alignment="CENTER">
          <children>
 
-            <Button mnemonicParsing="false" text="FAQ" />
+            <Button mnemonicParsing="false" text="FAQ">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
             <Region />
-            <Button fx:id="About" mnemonicParsing="false" text="About" />
+            <Button fx:id="About" mnemonicParsing="false" text="About">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
             <Region />
-            <Button mnemonicParsing="false" text="Help" />
+            <Button mnemonicParsing="false" text="Help">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
             <Region />
-            <Button mnemonicParsing="false" text="Privacy Policy" />
+            <Button mnemonicParsing="false" text="Privacy Policy">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
             <Region />
-            <Button mnemonicParsing="false" text="Contact us" />
+            <Button mnemonicParsing="false" text="Contact us">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
             <Region />
-            <Button mnemonicParsing="false" text="Work for us" />
+            <Button mnemonicParsing="false" text="Work for us">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
             <Region />
-            <Button fx:id="Claim" mnemonicParsing="false" text="Claim" />
+            <Button fx:id="Claim" mnemonicParsing="false" text="Claim">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
          </children>
       </HBox>
    </bottom>
@@ -152,12 +173,30 @@
       <FlowPane prefHeight="826.0" prefWidth="445.0" style="-fx-background-color: #454545; -fx-border-color: black;" BorderPane.alignment="CENTER">
 
          <children>
-            <Button fx:id="Cases" mnemonicParsing="false" text="Cases" />
-            <Button fx:id="casesPerOneMillion" mnemonicParsing="false" text="CasesPerOneMillion" />
-            <Button fx:id="Recovered" mnemonicParsing="false" text="Recovered" />
-            <Button fx:id="Critical" mnemonicParsing="false" text="Critical" />
-            <Button fx:id="Active" mnemonicParsing="false" text="Active" />
-            <Button fx:id="Deaths" mnemonicParsing="false" text="Deaths" />
+            <Button fx:id="Cases" mnemonicParsing="false" text="Cases">
+               <FlowPane.margin>
+                  <Insets right="5.0" />
+               </FlowPane.margin></Button>
+            <Button fx:id="casesPerOneMillion" mnemonicParsing="false" text="CasesPerOneMillion">
+               <FlowPane.margin>
+                  <Insets right="5.0" />
+               </FlowPane.margin></Button>
+            <Button fx:id="Recovered" mnemonicParsing="false" text="Recovered">
+               <FlowPane.margin>
+                  <Insets right="5.0" />
+               </FlowPane.margin></Button>
+            <Button fx:id="Critical" mnemonicParsing="false" text="Critical">
+               <FlowPane.margin>
+                  <Insets right="5.0" />
+               </FlowPane.margin></Button>
+            <Button fx:id="Active" mnemonicParsing="false" text="Active">
+               <FlowPane.margin>
+                  <Insets right="5.0" />
+               </FlowPane.margin></Button>
+            <Button fx:id="Deaths" mnemonicParsing="false" text="Deaths">
+               <FlowPane.margin>
+                  <Insets right="5.0" />
+               </FlowPane.margin></Button>
             <LineChart fx:id="lineChart" alternativeRowFillVisible="false" prefHeight="450.0" prefWidth="574.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" tickLabelFill="#ed2849" />
