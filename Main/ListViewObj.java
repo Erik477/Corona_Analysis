@@ -44,6 +44,7 @@ public class ListViewObj extends ListView {
 			    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 			        // Your action here
 			        countr = newValue;
+			       
 			    }
 			});
 			

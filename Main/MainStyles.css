@@ -1,7 +1,7 @@
 
 /*Buttons*/
 .button {
-<<<<<<< HEAD
+
     -fx-background-color: #454545;
     -fx-border-color: white;
     -fx-border-width: 1;
@@ -73,14 +73,14 @@
 
 
 .list-cell:filled:selected:focused, .list-cell:filled:selected {
-       -fx-background-color: #eba134;
-       -fx-text-fill: #eba134;
+       -fx-background-color: #f0f2bf;
+       -fx-text-fill: black;
        -fx-font-weight: bold;
 }
 
 .list-cell:filled:hover {
-       -fx-cell-hover-color: #eba134;
-       -fx-text-fill: white;
+       -fx-cell-hover-color: #f0f2bf;
+       -fx-text-fill: black;
        -fx-font-weight: bold;
 }
 .list-cell:odd {
@@ -100,17 +100,60 @@
 
 /* Label */
 
+/*-----------ÜberschriftenFelder-----------------------------*/
+
+#totalConfirmed {
+	 -fx-text-fill: #ed2849;
+     -fx-font-weight: bold;
+     -fx-font-size: 20.0pt ;
+     -fx-text-alignment: center;
+}
+#ActiveHeadField {
+	
+	-fx-text-fill: #ed2849;
+     -fx-font-weight: normal;
+     -fx-font-size: 15.0pt ;
+     -fx-text-alignment: center;
+
+	}
+#DeathsHeadField {
+	
+	-fx-text-fill: #ed2849;
+     -fx-font-weight: normal;
+     -fx-font-size: 15.0pt ;
+     -fx-text-alignment: center;
+
+	}
+#RecoveredHeadField {
+	
+	-fx-text-fill: #ed2849;
+     -fx-font-weight: normal;
+     -fx-font-size: 15.0pt ;
+     -fx-text-alignment: center;
+
+	}
+#CasesHeadField {
+	
+	-fx-text-fill: #ed2849;
+     -fx-font-weight: normal;
+     -fx-font-size: 15.0pt ;
+     -fx-text-alignment: center;
+
+	}
+#headline {
+	-fx-text-fill: #ed2849;
+     -fx-font-weight: normal;
+     -fx-font-size: 20.0pt ;
+     -fx-text-alignment: center;
+}
+	
+/*-----------Felder mit Zahlenwerte-----------------------------*/
+
 .label  {
     
-     -fx-text-fill: white;
+     -fx-text-fill: #f0f2bf;
      -fx-font-weight: bold;
      -fx-font-size: 20.0pt ;
      -fx-text-alignment: right;
      
      }
-#headline {
-	 -fx-text-fill: white;
-     -fx-font-weight: bold;
-     -fx-font-size: 20.0pt ;
-     -fx-text-alignment: center;
-}

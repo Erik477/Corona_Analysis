@@ -60,7 +60,7 @@ public class ScenebuilderMain {
 			window.setFullScreen(false);
 			window.setScene(scene);
 			
-			window.setResizable(true);
+			window.setResizable(false);
 			
 			window.show();
 		}

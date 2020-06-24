@@ -26,6 +26,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -58,23 +60,41 @@ public class MainController implements Initializable {
 	private Label totalConfirmed;
 	@FXML
 	private Label totalConfirmedNumber;
-	@FXML
-	private Label headline;
 
+	@FXML
+	private Label CasesHeadField;
+	@FXML
+	private Label DeathsHeadField;
+	@FXML
+	private Label ActiveHeadField;
+	@FXML
+	private Label RecoveredHeadField;
+
+	@FXML
+	private Label CasesNumberField;
+	@FXML
+	private Label DeathsNumberField;
+	@FXML
+	private Label ActiveNumberField;
+	@FXML
+	private Label RecoveredNumberField;
 	// -----------------------------------------------
-	private String value = "";
+	private String value = "cases";
 	private String output = "world";
 
 	// --------------------------------------------------
-	
+
 	private double xOffset = 0;
 	private double yOffset = 0;
-	//-----------------------------------------------------
+	// -----------------------------------------------------
 	@FXML
-	private BorderPane bp = new BorderPane();
-	//-------------------------------------------------------
+	private BorderPane bp;
+	// -------------------------------------------------------
 
 	private ScenebuilderMain gui = new ScenebuilderMain();
+	// --------------------------------------------------------
+	@FXML
+	private ImageView ig;
 
 	@Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
@@ -83,9 +103,7 @@ public class MainController implements Initializable {
 		try {
 			addList(); // fügt die ListView mit Ländernamen und infiziertenzahlen ein
 			addButtons(); // fügt die Buttons zur ArrayList hinu
-			addTextContent();
-			
-			
+
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -145,7 +163,8 @@ public class MainController implements Initializable {
 		ArrayList<Long> date = mq.getDate(output);
 		ArrayList<String> dateX = new ArrayList<String>();
 		chartButtons = new ArrayList<Button>();
-		ArrayList<Integer> info = mq.getInfo(value, output);
+		ArrayList<Integer> info = mq.getInfoList(value, output);
+
 		lineChart.setCreateSymbols(false);
 
 		for (int i = 0; i < date.size(); i++) {
@@ -164,8 +183,10 @@ public class MainController implements Initializable {
 		lineChart.getData().add(series);
 	}
 
-	public void countryClicked() { // Methode die aufgerufen wird wenn ein Column in der Länderliste angeklickt
-									// wird --> Name vom Land wird für den Graphen übertragen
+	public void countryClicked() throws SQLException { // Methode die aufgerufen wird wenn ein Column in der Länderliste
+														// angeklickt
+		// wird --> Name vom Land wird für den Graphen übertragen
+
 		String output1 = "";
 		String output2 = "";
 		ObservableList<String> countries;
@@ -176,16 +197,38 @@ public class MainController implements Initializable {
 		}
 		output2 = output1.replaceAll("\\d", "");
 		output = output2.replaceAll("\\s+", "");
+
 		System.out.println(output);
 
+		addTextContent();
+		addImages();
+		
 	}
 
 	public void addTextContent() throws SQLException {
 
 		totalConfirmed.setText("Total Confirmed");
 
+		CasesHeadField.setText("Cases");
+		DeathsHeadField.setText("Deaths");
+		ActiveHeadField.setText("Active Cases");
+		RecoveredHeadField.setText("Recovered");
+
 		int totalConfirmed = mq.totalInfo("cases");
 		totalConfirmedNumber.setText(Integer.toString(totalConfirmed));
+
+		if (output.equals("world")) {
+			CasesNumberField.setText(Integer.toString(mq.totalInfo("cases")));
+			DeathsNumberField.setText(Integer.toString(mq.totalInfo("deaths")));
+			RecoveredNumberField.setText(Integer.toString(mq.totalInfo("recovered")));
+			ActiveNumberField.setText(Integer.toString(mq.totalInfo("active")));
+		} else {
+
+			CasesNumberField.setText(Integer.toString(mq.getInfo("cases", output)));
+			DeathsNumberField.setText(Integer.toString(mq.getInfo("deaths", output)));
+			RecoveredNumberField.setText(Integer.toString(mq.getInfo("recovered", output)));
+			ActiveNumberField.setText(Integer.toString(mq.getInfo("active", output)));
+		}
 	}
 
 	public void close() throws IOException {
@@ -198,36 +241,46 @@ public class MainController implements Initializable {
 		}
 	}
 
-	
-	public void onMouseDraggedBorderPane()
-	{
-		bp.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-               ScenebuilderMain.getWindow().setX(event.getScreenX() - xOffset);
-               ScenebuilderMain.getWindow().setY(event.getScreenY() - yOffset);
+	public void onMouseDraggedBorderPane() {
+//		bp.setOnMouseDragged(new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent event) {
+//               ScenebuilderMain.getWindow().setX(event.getScreenX() - xOffset);
+//               ScenebuilderMain.getWindow().setY(event.getScreenY() - yOffset);
+//
+//			ScenebuilderMain.getWindow().close();
+//		}
+//		});
 
-			ScenebuilderMain.getWindow().close();
-		}
-		
 	}
 
 	public void minimize() {
-		gui.getWindow().hide();
+		ScenebuilderMain.getWindow().hide();
 	}
-	
-	public void onMousePressedBorderPane()
-	{
-		bp.setOnMousePressed(new EventHandler<MouseEvent>() {
-	         @Override
-	         public void handle(MouseEvent event) {
-	             xOffset = event.getSceneX();
-	             yOffset = event.getSceneY();
-	         }
-	     });
+
+	public void onMousePressedBorderPane() {
+//		bp.setOnMousePressed(new EventHandler<MouseEvent>() {
+//	         @Override
+//	         public void handle(MouseEvent event) {
+//	             xOffset = event.getSceneX();
+//	             yOffset = event.getSceneY();
+//	         }
+//	     });
 	}
-	
-	 
-	
+
+	public void addImages() throws SQLException {
+
+		Image img;
+		if(output.equals("world"))
+		{
+		 img = new Image("/Images/world.png");
+		
+		}else {
+		 img = new Image("/Images/" + output + ".png");
+
+		}
+		ig.setImage(img);
+		ig.setSmooth(true);
+	}
 
 }
