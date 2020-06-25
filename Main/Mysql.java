@@ -50,7 +50,9 @@ public class Mysql {
 		String confirmedCases;
 		int confirmed = 0;
 		
-		String sql = "select country, cases from coronadata limit 187;";
+		String sql = "SELECT * FROM coronadata INNER JOIN (SELECT country, Max(cases) AS Maxscore FROM coronadata\r\n" + 
+				"		GROUP BY\r\n" + 
+				"			country) topscore ON coronadata.country = topscore.country and topscore.maxscore = coronadata.cases group by topscore.country order by cases desc;";
 		
 		stmt = con.prepareStatement(sql);
 		rs = stmt.executeQuery();
@@ -75,7 +77,7 @@ public class Mysql {
 	public ArrayList<Long> getDate(String output) throws SQLException {
 
 		ArrayList<Long> date = new ArrayList<Long>();
-		String sql = "select * from coronadata where country = '"+ output+ "'  order by epoch;";
+		String sql = "select * from coronadata where country = '" + output + "' order by epoch";
 		PreparedStatement stmt = con.prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
 
@@ -92,7 +94,7 @@ public class Mysql {
 	public ArrayList<Integer> getInfoList(String input, String output) throws SQLException {          //für den Graphen
 
 		ArrayList<Integer> infoList = new ArrayList<Integer>();
-		String sql = "select * from coronadata where country = '" + output + "' order by epoch;";
+		String sql = "select * from coronadata where country = '" + output + "' order by epoch";
 		PreparedStatement stmt = con.prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
 
@@ -108,7 +110,9 @@ public class Mysql {
 	public int getInfo(String input, String output) throws SQLException {            //für die einzelnen TextFelder
 
 		
-		String sql = "select * from coronadata where country = '" + output + "' order by epoch;";
+		String sql = "SELECT * FROM coronadata INNER JOIN (SELECT country, Max(cases) AS Maxscore FROM coronadata\r\n" + 
+				"		GROUP BY\r\n" + 
+				"			country) topscore ON coronadata.country = topscore.country and topscore.maxscore = coronadata.cases and topscore.country = '" + output + "' group by topscore.country order by cases desc;";
 		PreparedStatement stmt = con.prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
 
@@ -136,19 +140,56 @@ public class Mysql {
 	
 	public int totalInfo(String textFromLabel) throws SQLException //gibt die Gesamtdaten der Welt fürs befüllen der Felder aller Länder zusammen  
 	{
-		String sql1 = "select * from coronadata order by epoch desc LIMIT 187";
+		String sql = "select * from coronadata where country = 'world'";
+		
 		int data = 0;
 		PreparedStatement stmt;
 		ResultSet rs;
-		stmt = con.prepareStatement(sql1);
+		stmt = con.prepareStatement(sql);
 		rs = stmt.executeQuery();
 		while (rs.next()) {
-			data = data + rs.getInt(textFromLabel);
+			data = rs.getInt(textFromLabel);
 		}
 		
 		return data;
 	}
 
+//	public void insertWorld() throws SQLException
+//	{
+//		String sql = "SELECT * FROM coronadata INNER JOIN (SELECT country, Max(cases) AS Maxscore FROM coronadata\r\n" + 
+//				"		GROUP BY\r\n" + 
+//				"			country) topscore ON coronadata.country = topscore.country and topscore.maxscore = coronadata.cases group by topscore.country order by cases desc;";
+//		
+//		int worldCases = 0;
+//		int worldCasesToday = 0;
+//		int worldDeaths = 0;
+//		int worldDeathsToday = 0;
+//		int worldActive = 0;
+//		int worldCritical = 0;
+//		int worldRecovered = 0;
+//		String country = "World";
+//		PreparedStatement stmt;
+//		ResultSet rs;
+//		stmt = con.prepareStatement(sql);
+//		rs = stmt.executeQuery();
+//		while (rs.next()) {
+//			worldCases = worldCases +rs.getInt("cases");
+//			worldCasesToday = worldCasesToday + rs.getInt("todayCases");
+//			worldDeaths =  worldDeaths +rs.getInt("deaths");
+//			worldDeathsToday = worldDeathsToday +rs.getInt("todayDeaths");
+//			worldActive =  worldActive + rs.getInt("active");
+//			worldCritical = worldCritical + rs.getInt("critical");
+//			worldRecovered = worldRecovered +rs.getInt("recovered");
+//		}
+//		
+//		String sql1 = "insert into coronadata(epoch,country, cases, todayCases, deaths, todayDeaths, recovered, active, critical) values (1585805755819, '" + country + "', '"+ worldCases + "', '" + worldCasesToday + "', '" + worldDeaths + "', '"+worldDeathsToday + "', '" + worldRecovered + "', '" +worldActive + "', '" + worldCritical + "')";
+//	stmt = con.prepareStatement(sql1);
+//	stmt.execute();
+//	stmt.close();
+//	
+//	System.out.println(worldCases);
+//	System.out.println(worldCasesToday);
+//	}
 	public void close() throws SQLException {
 
 		con.close();

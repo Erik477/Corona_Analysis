@@ -101,8 +101,8 @@ public class MainController implements Initializable {
 
 		System.out.println("i should be there");
 		try {
-			addList(); // fügt die ListView mit Ländernamen und infiziertenzahlen ein
 			addButtons(); // fügt die Buttons zur ArrayList hinu
+			addList(); // fügt die ListView mit Ländernamen und infiziertenzahlen ein
 
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -118,7 +118,6 @@ public class MainController implements Initializable {
 		chartButtons.add(Critical);
 		chartButtons.add(Active);
 		chartButtons.add(Deaths);
-
 		for (Button b : chartButtons) {
 			b.setOnAction(e -> {
 
@@ -150,6 +149,7 @@ public class MainController implements Initializable {
 			list.addAll(countries.get(i));
 		}
 
+		// mq.insertWorld();
 		countryList.getItems().addAll(list);
 
 	}
@@ -159,28 +159,32 @@ public class MainController implements Initializable {
 		mq = new Mysql();
 		lineChart.setAnimated(false);
 		lineChart.getData().clear();
-		XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
-		ArrayList<Long> date = mq.getDate(output);
-		ArrayList<String> dateX = new ArrayList<String>();
-		chartButtons = new ArrayList<Button>();
-		ArrayList<Integer> info = mq.getInfoList(value, output);
+		if (!output.equals("world")) {
+			XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
+			ArrayList<Long> date = mq.getDate(output);
+			ArrayList<String> dateX = new ArrayList<String>();
+			chartButtons = new ArrayList<Button>();
+			ArrayList<Integer> info = mq.getInfoList(value, output);
 
-		lineChart.setCreateSymbols(false);
+			lineChart.setCreateSymbols(false);
 
-		for (int i = 0; i < date.size(); i++) {
-			long epoch = date.get(i);
-			String convert = mq.convertDate(epoch);
-			System.out.println(convert);
-			dateX.add(convert);
+			for (int i = 0; i < date.size(); i++) {
+				long epoch = date.get(i);
+				String convert = mq.convertDate(epoch);
+				System.out.println(convert);
+				dateX.add(convert);
+			}
+			lineChart.setTitle(value);
+			System.out.println(info);
+
+			for (int i = 0; i < info.size(); i++) {
+
+				series.getData().add(new XYChart.Data<String, Number>(dateX.get(i), info.get(i)));
+			}
+			lineChart.getData().add(series);
+		} else {
+			lineChart.setTitle("No data available for 'World'");
 		}
-		lineChart.setTitle(value);
-		System.out.println(info);
-
-		for (int i = 0; i < info.size(); i++) {
-
-			series.getData().add(new XYChart.Data<String, Number>(dateX.get(i), info.get(i)));
-		}
-		lineChart.getData().add(series);
 	}
 
 	public void countryClicked() throws SQLException { // Methode die aufgerufen wird wenn ein Column in der Länderliste
@@ -202,7 +206,7 @@ public class MainController implements Initializable {
 
 		addTextContent();
 		addImages();
-		
+
 	}
 
 	public void addTextContent() throws SQLException {
@@ -223,11 +227,20 @@ public class MainController implements Initializable {
 			RecoveredNumberField.setText(Integer.toString(mq.totalInfo("recovered")));
 			ActiveNumberField.setText(Integer.toString(mq.totalInfo("active")));
 		} else {
+			if (CasesNumberField.getText().equals("0") && DeathsNumberField.getText().equals("0")
+					&& RecoveredNumberField.getText().equals("0") && ActiveNumberField.getText().equals("0")) {
+				CasesNumberField.setText("no specific data");
+				DeathsNumberField.setText("no specific data");
+				RecoveredNumberField.setText("no specific data");
+				ActiveNumberField.setText("no specific data");
 
-			CasesNumberField.setText(Integer.toString(mq.getInfo("cases", output)));
-			DeathsNumberField.setText(Integer.toString(mq.getInfo("deaths", output)));
-			RecoveredNumberField.setText(Integer.toString(mq.getInfo("recovered", output)));
-			ActiveNumberField.setText(Integer.toString(mq.getInfo("active", output)));
+			} else {
+
+				CasesNumberField.setText(Integer.toString(mq.getInfo("cases", output)));
+				DeathsNumberField.setText(Integer.toString(mq.getInfo("deaths", output)));
+				RecoveredNumberField.setText(Integer.toString(mq.getInfo("recovered", output)));
+				ActiveNumberField.setText(Integer.toString(mq.getInfo("active", output)));
+			}
 		}
 	}
 
@@ -271,12 +284,11 @@ public class MainController implements Initializable {
 	public void addImages() throws SQLException {
 
 		Image img;
-		if(output.equals("world"))
-		{
-		 img = new Image("/Images/world.png");
-		
-		}else {
-		 img = new Image("/Images/" + output + ".png");
+		if (output.equals("world")) {
+			img = new Image("/Images/world.png");
+
+		} else {
+			img = new Image("/Images/" + output + ".png");
 
 		}
 		ig.setImage(img);
