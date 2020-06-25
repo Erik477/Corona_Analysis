@@ -69,7 +69,6 @@ public class MainController implements Initializable {
 	private Label ActiveHeadField;
 	@FXML
 	private Label RecoveredHeadField;
-
 	@FXML
 	private Label CasesNumberField;
 	@FXML
@@ -78,6 +77,7 @@ public class MainController implements Initializable {
 	private Label ActiveNumberField;
 	@FXML
 	private Label RecoveredNumberField;
+
 	// -----------------------------------------------
 	private String value = "cases";
 	private String output = "world";
@@ -90,6 +90,7 @@ public class MainController implements Initializable {
 	@FXML
 	private BorderPane bp;
 	// -------------------------------------------------------
+	
 
 	private ScenebuilderMain gui = new ScenebuilderMain();
 	// --------------------------------------------------------
@@ -159,12 +160,15 @@ public class MainController implements Initializable {
 		mq = new Mysql();
 		lineChart.setAnimated(false);
 		lineChart.getData().clear();
+
 		if (!output.equals("world")) {
 			XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
 			ArrayList<Long> date = mq.getDate(output);
 			ArrayList<String> dateX = new ArrayList<String>();
 			chartButtons = new ArrayList<Button>();
 			ArrayList<Integer> info = mq.getInfoList(value, output);
+		lineChart.setCreateSymbols(false);
+
 
 			lineChart.setCreateSymbols(false);
 
@@ -264,7 +268,6 @@ public class MainController implements Initializable {
 //			ScenebuilderMain.getWindow().close();
 //		}
 //		});
-
 	}
 
 	public void minimize() {

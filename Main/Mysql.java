@@ -113,6 +113,7 @@ public class Mysql {
 		String sql = "SELECT * FROM coronadata INNER JOIN (SELECT country, Max(cases) AS Maxscore FROM coronadata\r\n" + 
 				"		GROUP BY\r\n" + 
 				"			country) topscore ON coronadata.country = topscore.country and topscore.maxscore = coronadata.cases and topscore.country = '" + output + "' group by topscore.country order by cases desc;";
+
 		PreparedStatement stmt = con.prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
 

@@ -13,6 +13,8 @@
 <BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#onMouseDraggedBorderPane" onMousePressed="#onMousePressedBorderPane" prefHeight="466.0" prefWidth="773.0" style="-fx-background-color: #454545;" stylesheets="@StartStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.StartGraphicsController">
 
 
+
+
    <top>
       <HBox alignment="TOP_RIGHT" prefHeight="21.0" prefWidth="773.0" style="-fx-background-color: #292929;" BorderPane.alignment="CENTER">
          <children>

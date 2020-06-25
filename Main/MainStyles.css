@@ -140,12 +140,14 @@
      -fx-text-alignment: center;
 
 	}
+
 #headline {
 	-fx-text-fill: #ed2849;
      -fx-font-weight: normal;
      -fx-font-size: 20.0pt ;
      -fx-text-alignment: center;
 }
+
 	
 /*-----------Felder mit Zahlenwerte-----------------------------*/
 
