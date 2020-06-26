@@ -140,6 +140,38 @@
      -fx-text-alignment: center;
 
 	}
+	#TodayCasesHeadField {
+	
+	-fx-text-fill: #ed2849;
+     -fx-font-weight: normal;
+     -fx-font-size: 15.0pt ;
+     -fx-text-alignment: center;
+
+	}
+	#TodayDeathsHeadField {
+	
+	-fx-text-fill: #ed2849;
+     -fx-font-weight: normal;
+     -fx-font-size: 15.0pt ;
+     -fx-text-alignment: center;
+
+	}
+	#CasesPerOneMillionHeadField {
+	
+	-fx-text-fill: #ed2849;
+     -fx-font-weight: normal;
+     -fx-font-size: 15.0pt ;
+     -fx-text-alignment: center;
+
+	}
+	#CriticalHeadField {
+	
+	-fx-text-fill: #ed2849;
+     -fx-font-weight: normal;
+     -fx-font-size: 15.0pt ;
+     -fx-text-alignment: center;
+
+	}
 
 #headline {
 	-fx-text-fill: #ed2849;
@@ -147,7 +179,13 @@
      -fx-font-size: 20.0pt ;
      -fx-text-alignment: center;
 }
-
+#infoTextLabel
+{
+	-fx-text-fill: white;
+     -fx-font-weight: normal;
+     -fx-font-size: 20.0pt ;
+     -fx-text-alignment: center;
+}
 	
 /*-----------Felder mit Zahlenwerte-----------------------------*/
 

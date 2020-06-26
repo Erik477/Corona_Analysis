@@ -77,7 +77,25 @@ public class MainController implements Initializable {
 	private Label ActiveNumberField;
 	@FXML
 	private Label RecoveredNumberField;
-
+	
+	@FXML
+	private Label CriticalHeadField;
+	@FXML
+	private Label TodayCasesHeadField;
+	@FXML
+	private Label TodayDeathsHeadField;
+	@FXML
+	private Label CasesPerOneMillionHeadField;
+	@FXML
+	private Label TodayCasesNumberField;
+	@FXML
+	private Label TodayDeathsNumberField;
+	@FXML
+	private Label CriticalNumberField;
+	@FXML 
+	private Label CasesPerOneMillionNumberField;
+	@FXML
+	private Label infoTextLabel;
 	// -----------------------------------------------
 	private String value = "cases";
 	private String output = "world";
@@ -101,15 +119,16 @@ public class MainController implements Initializable {
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
 
 		System.out.println("i should be there");
+		
 		try {
 			addButtons(); // fügt die Buttons zur ArrayList hinu
 			addList(); // fügt die ListView mit Ländernamen und infiziertenzahlen ein
-
+			
+			
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
 	}
-
 	public void addButtons() {
 
 		chartButtons = new ArrayList<>();
@@ -119,24 +138,12 @@ public class MainController implements Initializable {
 		chartButtons.add(Critical);
 		chartButtons.add(Active);
 		chartButtons.add(Deaths);
-		for (Button b : chartButtons) {
-			b.setOnAction(e -> {
-
-				value = b.getText(); // übergeben des Button Texts für den Graphen
-				try {
-					infoChart(value); // zeichnen vom Graphen 'value'
-
-				} catch (ClassNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			});
-		}
+		
+		Cases = new Button("cases");
+		Deaths = new Button("deaths");
 	}
 
+	
 	public void addList() throws ClassNotFoundException, SQLException {
 		mq = new Mysql();
 
@@ -151,6 +158,8 @@ public class MainController implements Initializable {
 		}
 
 		// mq.insertWorld();
+		
+		
 		countryList.getItems().addAll(list);
 
 	}
@@ -160,6 +169,7 @@ public class MainController implements Initializable {
 		mq = new Mysql();
 		lineChart.setAnimated(false);
 		lineChart.getData().clear();
+		
 
 		if (!output.equals("world")) {
 			XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
@@ -191,7 +201,7 @@ public class MainController implements Initializable {
 		}
 	}
 
-	public void countryClicked() throws SQLException { // Methode die aufgerufen wird wenn ein Column in der Länderliste
+	public void countryClicked() throws SQLException, ClassNotFoundException { // Methode die aufgerufen wird wenn ein Column in der Länderliste
 														// angeklickt
 		// wird --> Name vom Land wird für den Graphen übertragen
 
@@ -207,7 +217,7 @@ public class MainController implements Initializable {
 		output = output2.replaceAll("\\s+", "");
 
 		System.out.println(output);
-
+		infoChart(value);
 		addTextContent();
 		addImages();
 
@@ -221,7 +231,10 @@ public class MainController implements Initializable {
 		DeathsHeadField.setText("Deaths");
 		ActiveHeadField.setText("Active Cases");
 		RecoveredHeadField.setText("Recovered");
-
+		CriticalHeadField.setText("Critical");
+		TodayCasesHeadField.setText("Today Cases");
+		TodayDeathsHeadField.setText("Today Deaths");
+		CasesPerOneMillionHeadField.setText("CasesPerOneMillion");
 		int totalConfirmed = mq.totalInfo("cases");
 		totalConfirmedNumber.setText(Integer.toString(totalConfirmed));
 
@@ -230,6 +243,10 @@ public class MainController implements Initializable {
 			DeathsNumberField.setText(Integer.toString(mq.totalInfo("deaths")));
 			RecoveredNumberField.setText(Integer.toString(mq.totalInfo("recovered")));
 			ActiveNumberField.setText(Integer.toString(mq.totalInfo("active")));
+			TodayCasesNumberField.setText(Integer.toString(mq.totalInfo("Today Cases")));
+			TodayDeathsNumberField.setText(Integer.toString(mq.totalInfo("Today Deaths")));
+			CriticalNumberField.setText(Integer.toString(mq.totalInfo("Critical")));
+			CasesPerOneMillionNumberField.setText(Integer.toString(mq.totalInfo("CasesPerOneMillion")));
 		} else {
 			if (CasesNumberField.getText().equals("0") && DeathsNumberField.getText().equals("0")
 					&& RecoveredNumberField.getText().equals("0") && ActiveNumberField.getText().equals("0")) {
@@ -237,6 +254,10 @@ public class MainController implements Initializable {
 				DeathsNumberField.setText("no specific data");
 				RecoveredNumberField.setText("no specific data");
 				ActiveNumberField.setText("no specific data");
+				TodayCasesNumberField.setText("no specific data");
+				TodayDeathsNumberField.setText("no specific data");
+				CriticalNumberField.setText("no specific data");
+				CasesPerOneMillionNumberField.setText("no specific data");
 
 			} else {
 
@@ -244,6 +265,10 @@ public class MainController implements Initializable {
 				DeathsNumberField.setText(Integer.toString(mq.getInfo("deaths", output)));
 				RecoveredNumberField.setText(Integer.toString(mq.getInfo("recovered", output)));
 				ActiveNumberField.setText(Integer.toString(mq.getInfo("active", output)));
+				TodayCasesNumberField.setText(Integer.toString(mq.getInfo("TodayCases", output)));
+				TodayDeathsNumberField.setText(Integer.toString(mq.getInfo("TodayDeaths", output)));
+				CriticalNumberField.setText(Integer.toString(mq.getInfo("Critical", output)));
+				CasesPerOneMillionNumberField.setText(Integer.toString(mq.getInfo("CasesPerOneMillion", output)));
 			}
 		}
 	}
@@ -269,11 +294,6 @@ public class MainController implements Initializable {
 //		}
 //		});
 	}
-
-	public void minimize() {
-		ScenebuilderMain.getWindow().hide();
-	}
-
 	public void onMousePressedBorderPane() {
 //		bp.setOnMousePressed(new EventHandler<MouseEvent>() {
 //	         @Override
@@ -283,6 +303,12 @@ public class MainController implements Initializable {
 //	         }
 //	     });
 	}
+
+	public void minimize() {
+		ScenebuilderMain.getWindow().hide();
+	}
+
+	
 
 	public void addImages() throws SQLException {
 
@@ -298,4 +324,6 @@ public class MainController implements Initializable {
 		ig.setSmooth(true);
 	}
 
+	
+	
 }

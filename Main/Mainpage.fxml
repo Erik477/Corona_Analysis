@@ -9,6 +9,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
@@ -47,48 +48,78 @@
    <bottom>
       <HBox prefHeight="37.0" prefWidth="1800.0" style="-fx-background-color: #454545; -fx-border-color: black;" BorderPane.alignment="CENTER">
          <children>
-
-            <Button mnemonicParsing="false" text="FAQ">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></Button>
             <Region />
-            <Button fx:id="About" mnemonicParsing="false" text="About">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></Button>
             <Region />
-            <Button mnemonicParsing="false" text="Help">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></Button>
             <Region />
-            <Button mnemonicParsing="false" text="Privacy Policy">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></Button>
             <Region />
-            <Button mnemonicParsing="false" text="Contact us">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></Button>
             <Region />
-            <Button mnemonicParsing="false" text="Work for us">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></Button>
             <Region />
-            <Button fx:id="Claim" mnemonicParsing="false" text="Claim">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></Button>
          </children>
       </HBox>
    </bottom>
-   <center>
-      <Pane focusTraversable="true" prefHeight="814.0" prefWidth="918.0" style="-fx-background-color: #454545; -fx-border-color: black;" BorderPane.alignment="CENTER">
+   <left>
+      <FlowPane prefHeight="802.0" prefWidth="322.0" style="-fx-background-color: #41464f; -fx-border-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <FlowPane layoutX="-3.0" prefHeight="597.0" prefWidth="918.0">
+            <VBox prefHeight="191.0" prefWidth="320.0">
+               <children>
+                  <Label fx:id="totalConfirmed" prefHeight="113.0" prefWidth="320.0" style="-fx-background-color: #454545;" textAlignment="CENTER" />
+                  <Label fx:id="totalConfirmedNumber" prefHeight="100.0" prefWidth="324.0" style="-fx-background-color: #454545;" textAlignment="CENTER" textFill="#ed2849" />
+               </children>
+            </VBox>
+            <ListView fx:id="countryList" onMouseClicked="#countryClicked" prefHeight="612.0" prefWidth="321.0" style="-fx-background-color: #454545;" />
+         </children>
+      </FlowPane>
+   </left>
+   <right>
+      <FlowPane prefHeight="826.0" prefWidth="445.0" style="-fx-background-color: #454545; -fx-border-color: black;" BorderPane.alignment="CENTER">
+
+         <children>
+            <Button fx:id="Cases" mnemonicParsing="false" text="Cases">
+               <FlowPane.margin>
+                  <Insets right="5.0" />
+               </FlowPane.margin></Button>
+            <Button fx:id="casesPerOneMillion" mnemonicParsing="false" text="CasesPerOneMillion">
+               <FlowPane.margin>
+                  <Insets right="5.0" />
+               </FlowPane.margin></Button>
+            <Button fx:id="Recovered" mnemonicParsing="false" text="Recovered">
+               <FlowPane.margin>
+                  <Insets right="5.0" />
+               </FlowPane.margin></Button>
+            <Button fx:id="Critical" mnemonicParsing="false" text="Critical">
+               <FlowPane.margin>
+                  <Insets right="5.0" />
+               </FlowPane.margin></Button>
+            <Button fx:id="Active" mnemonicParsing="false" text="Active">
+               <FlowPane.margin>
+                  <Insets right="5.0" />
+               </FlowPane.margin></Button>
+            <Button fx:id="Deaths" mnemonicParsing="false" text="Deaths">
+               <FlowPane.margin>
+                  <Insets right="5.0" />
+               </FlowPane.margin></Button>
+
+            <LineChart fx:id="lineChart" alternativeRowFillVisible="false" prefHeight="456.0" prefWidth="574.0">
+
+              <xAxis>
+                <CategoryAxis side="BOTTOM" tickLabelFill="#ed2849" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" tickLabelFill="#ed2849" />
+              </yAxis>
+            </LineChart>
+            <Pane prefHeight="323.0" prefWidth="576.0">
+               <children>
+                  <ImageView fx:id="ig" fitHeight="190.0" fitWidth="275.0" layoutX="151.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+         </children>
+      </FlowPane>
+   </right>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #454545;" BorderPane.alignment="CENTER">
+         <children>
+            <FlowPane prefHeight="328.0" prefWidth="918.0" style="-fx-border-color: black;">
                <children>
                   <Label fx:id="CasesHeadField" prefHeight="39.0" prefWidth="217.0" style="-fx-background-color: #454545; -fx-border-color: #167178;">
                      <padding>
@@ -96,7 +127,8 @@
                      </padding>
                      <FlowPane.margin>
                         <Insets left="5.0" right="5.0" top="5.0" />
-                     </FlowPane.margin></Label>
+                     </FlowPane.margin>
+                  </Label>
                   <Label fx:id="DeathsHeadField" prefHeight="39.0" prefWidth="217.0" style="-fx-background-color: #454545; -fx-border-color: #167178;">
                      <padding>
                         <Insets left="5.0" right="5.0" />
@@ -153,67 +185,78 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </FlowPane.margin>
                   </Label>
+                  <Label fx:id="TodayCasesHeadField" prefHeight="39.0" prefWidth="217.0" style="-fx-background-color: #454545; -fx-border-color: #167178;">
+                     <padding>
+                        <Insets left="5.0" right="10.0" />
+                     </padding>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Label>
+                  <Label fx:id="TodayDeathsHeadField" prefHeight="39.0" prefWidth="217.0" style="-fx-background-color: #454545; -fx-border-color: #167178;">
+                     <padding>
+                        <Insets left="5.0" right="10.0" />
+                     </padding>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Label>
+                  <Label fx:id="CriticalHeadField" prefHeight="39.0" prefWidth="217.0" style="-fx-background-color: #454545; -fx-border-color: #167178;">
+                     <padding>
+                        <Insets left="5.0" right="10.0" />
+                     </padding>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Label>
+                  <Label fx:id="CasesPerOneMillionHeadField" prefHeight="39.0" prefWidth="217.0" style="-fx-background-color: #454545; -fx-border-color: #167178;">
+                     <padding>
+                        <Insets left="5.0" right="10.0" />
+                     </padding>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Label>
+                  <Label fx:id="TodayCasesNumberField" prefHeight="93.0" prefWidth="217.0" style="-fx-background-color: #454545; -fx-border-color: #167178;">
+                     <padding>
+                        <Insets left="5.0" right="10.0" />
+                     </padding>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Label>
+                  <Label fx:id="TodayDeathsNumberField" prefHeight="93.0" prefWidth="217.0" style="-fx-background-color: #454545; -fx-border-color: #167178;">
+                     <padding>
+                        <Insets left="5.0" right="10.0" />
+                     </padding>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Label>
+                  <Label fx:id="CriticalNumberField" prefHeight="93.0" prefWidth="217.0" style="-fx-background-color: #454545; -fx-border-color: #167178;">
+                     <padding>
+                        <Insets left="5.0" right="10.0" />
+                     </padding>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Label>
+                  <Label fx:id="CasesPerOneMillionNumberField" prefHeight="93.0" prefWidth="217.0" style="-fx-background-color: #454545; -fx-border-color: #167178;">
+                     <padding>
+                        <Insets left="5.0" right="10.0" />
+                     </padding>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Label>
                </children>
             </FlowPane>
-         </children></Pane>
+            <Label fx:id="infoTextLabel" layoutX="-1.0" layoutY="328.0" prefHeight="483.0" prefWidth="918.0" text="Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.The best way to prevent and slow down transmission is be well informed about the COVID-19 virus, the disease it causes and how it spreads. Protect yourself and others from infection by washing your hands or using an alcohol based rub frequently and not touching your face. The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or sneezes, so it’s important that you also practice respiratory etiquette (for example, by coughing into a flexed elbow).At this time, there are no specific vaccines or treatments for COVID-19. However, there are many ongoing clinical trials evaluating potential treatments. WHO will continue to provide updated information as soon as clinical findings become available." textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="328.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </center>
-   <left>
-      <FlowPane prefHeight="802.0" prefWidth="322.0" style="-fx-background-color: #41464f; -fx-border-color: black;" BorderPane.alignment="CENTER">
-         <children>
-            <VBox prefHeight="191.0" prefWidth="320.0">
-               <children>
-                  <Label fx:id="totalConfirmed" prefHeight="113.0" prefWidth="320.0" style="-fx-background-color: #454545;" textAlignment="CENTER" />
-                  <Label fx:id="totalConfirmedNumber" prefHeight="100.0" prefWidth="324.0" style="-fx-background-color: #454545;" textAlignment="CENTER" textFill="#ed2849" />
-               </children>
-            </VBox>
-            <ListView fx:id="countryList" onMouseClicked="#countryClicked" prefHeight="612.0" prefWidth="321.0" style="-fx-background-color: #454545;" />
-         </children>
-      </FlowPane>
-   </left>
-   <right>
-      <FlowPane prefHeight="826.0" prefWidth="445.0" style="-fx-background-color: #454545; -fx-border-color: black;" BorderPane.alignment="CENTER">
-
-         <children>
-            <Button fx:id="Cases" mnemonicParsing="false" text="Cases">
-               <FlowPane.margin>
-                  <Insets right="5.0" />
-               </FlowPane.margin></Button>
-            <Button fx:id="casesPerOneMillion" mnemonicParsing="false" text="CasesPerOneMillion">
-               <FlowPane.margin>
-                  <Insets right="5.0" />
-               </FlowPane.margin></Button>
-            <Button fx:id="Recovered" mnemonicParsing="false" text="Recovered">
-               <FlowPane.margin>
-                  <Insets right="5.0" />
-               </FlowPane.margin></Button>
-            <Button fx:id="Critical" mnemonicParsing="false" text="Critical">
-               <FlowPane.margin>
-                  <Insets right="5.0" />
-               </FlowPane.margin></Button>
-            <Button fx:id="Active" mnemonicParsing="false" text="Active">
-               <FlowPane.margin>
-                  <Insets right="5.0" />
-               </FlowPane.margin></Button>
-            <Button fx:id="Deaths" mnemonicParsing="false" text="Deaths">
-               <FlowPane.margin>
-                  <Insets right="5.0" />
-               </FlowPane.margin></Button>
-
-            <LineChart fx:id="lineChart" alternativeRowFillVisible="false" prefHeight="456.0" prefWidth="574.0">
-
-              <xAxis>
-                <CategoryAxis side="BOTTOM" tickLabelFill="#ed2849" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" tickLabelFill="#ed2849" />
-              </yAxis>
-            </LineChart>
-            <Pane prefHeight="330.0" prefWidth="576.0">
-               <children>
-                  <ImageView fx:id="ig" fitHeight="190.0" fitWidth="275.0" layoutX="151.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" />
-               </children>
-            </Pane>
-         </children>
-      </FlowPane>
-   </right>
 </BorderPane>
