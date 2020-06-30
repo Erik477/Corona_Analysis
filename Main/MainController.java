@@ -121,9 +121,8 @@ public class MainController implements Initializable {
 		System.out.println("i should be there");
 		
 		try {
-			addButtons(); // fügt die Buttons zur ArrayList hinu
 			addList(); // fügt die ListView mit Ländernamen und infiziertenzahlen ein
-			
+			addButtons(); // fügt die Buttons zur ArrayList hinu
 			
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -141,6 +140,16 @@ public class MainController implements Initializable {
 		
 		Cases = new Button("cases");
 		Deaths = new Button("deaths");
+		casesPerOneMillion = new Button("CasesPerOneMillion");
+		Recovered = new Button("Recovered");
+		Critical = new Button("Critical");
+		Active = new Button("Active");
+		
+		for(Button b: chartButtons)
+		{
+			value = b.getText();
+		}
+		
 	}
 
 	
@@ -164,7 +173,7 @@ public class MainController implements Initializable {
 
 	}
 
-	public void infoChart(String value) throws SQLException, ClassNotFoundException {
+	public void infoChart(String value, String output) throws SQLException, ClassNotFoundException {
 
 		mq = new Mysql();
 		lineChart.setAnimated(false);
@@ -177,7 +186,7 @@ public class MainController implements Initializable {
 			ArrayList<String> dateX = new ArrayList<String>();
 			chartButtons = new ArrayList<Button>();
 			ArrayList<Integer> info = mq.getInfoList(value, output);
-		lineChart.setCreateSymbols(false);
+			lineChart.setCreateSymbols(false);
 
 
 			lineChart.setCreateSymbols(false);
@@ -217,7 +226,7 @@ public class MainController implements Initializable {
 		output = output2.replaceAll("\\s+", "");
 
 		System.out.println(output);
-		infoChart(value);
+		infoChart(value, output);
 		addTextContent();
 		addImages();
 
@@ -324,6 +333,10 @@ public class MainController implements Initializable {
 		ig.setSmooth(true);
 	}
 
+	public void deathsClicked()
+	{
+		value = "Deaths";
+	}
 	
 	
 }
