@@ -34,7 +34,7 @@
          <children>
             <ImageView fitHeight="436.0" fitWidth="773.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../Desktop/SchulprojektSWP/StartPic.PNG" />
+                  <Image url="@../../../../Desktop/SchulprojektSWP/StartPic.png" />
                </image>
             </ImageView>
             <Button fx:id="startButton" layoutX="285.0" layoutY="137.0" mnemonicParsing="false" onMouseClicked="#startApplication" prefHeight="52.0" prefWidth="204.0" text="Start">

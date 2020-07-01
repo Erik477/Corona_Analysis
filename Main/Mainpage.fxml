@@ -74,27 +74,27 @@
       <FlowPane prefHeight="826.0" prefWidth="445.0" style="-fx-background-color: #454545; -fx-border-color: black;" BorderPane.alignment="CENTER">
 
          <children>
-            <Button fx:id="Cases" mnemonicParsing="false" text="Cases">
+            <Button fx:id="Cases" mnemonicParsing="false" onAction="#casesClicked" text="Cases">
                <FlowPane.margin>
                   <Insets right="5.0" />
                </FlowPane.margin></Button>
-            <Button fx:id="casesPerOneMillion" mnemonicParsing="false" text="CasesPerOneMillion">
+            <Button fx:id="casesPerOneMillion" mnemonicParsing="false" onAction="#casesPerOneMillionClicked" text="CasesPerOneMillion">
                <FlowPane.margin>
                   <Insets right="5.0" />
                </FlowPane.margin></Button>
-            <Button fx:id="Recovered" mnemonicParsing="false" text="Recovered">
+            <Button fx:id="Recovered" mnemonicParsing="false" onAction="#recoveredClicked" text="Recovered">
                <FlowPane.margin>
                   <Insets right="5.0" />
                </FlowPane.margin></Button>
-            <Button fx:id="Critical" mnemonicParsing="false" text="Critical">
+            <Button fx:id="Critical" mnemonicParsing="false" onAction="#criticalClicked" text="Critical">
                <FlowPane.margin>
                   <Insets right="5.0" />
                </FlowPane.margin></Button>
-            <Button fx:id="Active" mnemonicParsing="false" text="Active">
+            <Button fx:id="Active" mnemonicParsing="false" onAction="#activeClicked" text="Active">
                <FlowPane.margin>
                   <Insets right="5.0" />
                </FlowPane.margin></Button>
-            <Button fx:id="Deaths" mnemonicParsing="false" text="Deaths">
+            <Button fx:id="Deaths" mnemonicParsing="false" onAction="#deathsClicked" text="Deaths">
                <FlowPane.margin>
                   <Insets right="5.0" />
                </FlowPane.margin></Button>

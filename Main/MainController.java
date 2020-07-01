@@ -98,7 +98,7 @@ public class MainController implements Initializable {
 	private Label infoTextLabel;
 	// -----------------------------------------------
 	private String value = "cases";
-	private String output = "world";
+	private String output = "World";
 
 	// --------------------------------------------------
 
@@ -117,7 +117,19 @@ public class MainController implements Initializable {
 
 	@Override
 	public void initialize(java.net.URL arg0, ResourceBundle arg1) {
-
+		
+//		
+//		try {
+//			mq=new Mysql();
+//			mq.insertWorld();
+//		} catch (SQLException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
 		System.out.println("i should be there");
 		
 		try {
@@ -152,6 +164,36 @@ public class MainController implements Initializable {
 		
 	}
 
+	public void casesClicked() throws ClassNotFoundException, SQLException
+    {
+        value = "Cases";
+        infoChart(value,output);
+    }
+    public void deathsClicked() throws ClassNotFoundException, SQLException
+    {
+        value = "Deaths";
+        infoChart(value,output);
+    }
+    public void casesPerOneMillionClicked() throws ClassNotFoundException, SQLException
+    {
+        value = "casesPerOneMillion";
+        infoChart(value,output);
+    }
+    public void activeClicked() throws ClassNotFoundException, SQLException
+    {
+        value = "Active";
+        infoChart(value,output);
+    }
+    public void criticalClicked() throws ClassNotFoundException, SQLException
+    {
+        value = "Critical";
+        infoChart(value,output);
+    }
+    public void recoveredClicked() throws ClassNotFoundException, SQLException
+    {
+        value = "Recovered";
+        infoChart(value,output);
+    }
 	
 	public void addList() throws ClassNotFoundException, SQLException {
 		mq = new Mysql();
@@ -180,7 +222,7 @@ public class MainController implements Initializable {
 		lineChart.getData().clear();
 		
 
-		if (!output.equals("world")) {
+		if (!output.equals("World")) {
 			XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
 			ArrayList<Long> date = mq.getDate(output);
 			ArrayList<String> dateX = new ArrayList<String>();
@@ -247,13 +289,13 @@ public class MainController implements Initializable {
 		int totalConfirmed = mq.totalInfo("cases");
 		totalConfirmedNumber.setText(Integer.toString(totalConfirmed));
 
-		if (output.equals("world")) {
+		if (output.equals("World")) {
 			CasesNumberField.setText(Integer.toString(mq.totalInfo("cases")));
 			DeathsNumberField.setText(Integer.toString(mq.totalInfo("deaths")));
 			RecoveredNumberField.setText(Integer.toString(mq.totalInfo("recovered")));
 			ActiveNumberField.setText(Integer.toString(mq.totalInfo("active")));
-			TodayCasesNumberField.setText(Integer.toString(mq.totalInfo("Today Cases")));
-			TodayDeathsNumberField.setText(Integer.toString(mq.totalInfo("Today Deaths")));
+			TodayCasesNumberField.setText(Integer.toString(mq.totalInfo("TodayCases")));
+			TodayDeathsNumberField.setText(Integer.toString(mq.totalInfo("TodayDeaths")));
 			CriticalNumberField.setText(Integer.toString(mq.totalInfo("Critical")));
 			CasesPerOneMillionNumberField.setText(Integer.toString(mq.totalInfo("CasesPerOneMillion")));
 		} else {
@@ -314,7 +356,7 @@ public class MainController implements Initializable {
 	}
 
 	public void minimize() {
-		ScenebuilderMain.getWindow().hide();
+		ScenebuilderMain.getWindow().setIconified(true);
 	}
 
 	
@@ -322,7 +364,7 @@ public class MainController implements Initializable {
 	public void addImages() throws SQLException {
 
 		Image img;
-		if (output.equals("world")) {
+		if (output.equals("World")) {
 			img = new Image("/Images/world.png");
 
 		} else {
@@ -333,10 +375,6 @@ public class MainController implements Initializable {
 		ig.setSmooth(true);
 	}
 
-	public void deathsClicked()
-	{
-		value = "Deaths";
-	}
 	
 	
 }

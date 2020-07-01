@@ -30,8 +30,8 @@ public class Mysql {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
 		con = DriverManager.getConnection(
-				"jdbc:mysql://localhost/coronadata?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-				"root", "12345");
+				"jdbc:mysql://localhost/coronedb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+				"root", "admin");
 
 
 	}
@@ -59,12 +59,15 @@ public class Mysql {
 		while (rs.next()) {
 			Name = rs.getString("Country");
 			confirmed = rs.getInt("cases");
+			
 			if (confirmed < 10) {
 				format = String.format("%-6d     \t %-30s", confirmed, Name);
 			} else {
 				format = String.format("%-6d \t %-30s", confirmed, Name);
 			}
+			if (confirmed!=0) {
 			countr.add(format);
+			}
 		}
 		stmt.close();
 		rs.close();
@@ -155,42 +158,42 @@ public class Mysql {
 		return data;
 	}
 
-//	public void insertWorld() throws SQLException
-//	{
-//		String sql = "SELECT * FROM coronadata INNER JOIN (SELECT country, Max(cases) AS Maxscore FROM coronadata\r\n" + 
-//				"		GROUP BY\r\n" + 
-//				"			country) topscore ON coronadata.country = topscore.country and topscore.maxscore = coronadata.cases group by topscore.country order by cases desc;";
-//		
-//		int worldCases = 0;
-//		int worldCasesToday = 0;
-//		int worldDeaths = 0;
-//		int worldDeathsToday = 0;
-//		int worldActive = 0;
-//		int worldCritical = 0;
-//		int worldRecovered = 0;
-//		String country = "World";
-//		PreparedStatement stmt;
-//		ResultSet rs;
-//		stmt = con.prepareStatement(sql);
-//		rs = stmt.executeQuery();
-//		while (rs.next()) {
-//			worldCases = worldCases +rs.getInt("cases");
-//			worldCasesToday = worldCasesToday + rs.getInt("todayCases");
-//			worldDeaths =  worldDeaths +rs.getInt("deaths");
-//			worldDeathsToday = worldDeathsToday +rs.getInt("todayDeaths");
-//			worldActive =  worldActive + rs.getInt("active");
-//			worldCritical = worldCritical + rs.getInt("critical");
-//			worldRecovered = worldRecovered +rs.getInt("recovered");
-//		}
-//		
-//		String sql1 = "insert into coronadata(epoch,country, cases, todayCases, deaths, todayDeaths, recovered, active, critical) values (1585805755819, '" + country + "', '"+ worldCases + "', '" + worldCasesToday + "', '" + worldDeaths + "', '"+worldDeathsToday + "', '" + worldRecovered + "', '" +worldActive + "', '" + worldCritical + "')";
-//	stmt = con.prepareStatement(sql1);
-//	stmt.execute();
-//	stmt.close();
-//	
-//	System.out.println(worldCases);
-//	System.out.println(worldCasesToday);
-//	}
+	public void insertWorld() throws SQLException
+	{
+		String sql = "SELECT * FROM coronadata INNER JOIN (SELECT country, Max(cases) AS Maxscore FROM coronadata\r\n" + 
+				"		GROUP BY\r\n" + 
+				"			country) topscore ON coronadata.country = topscore.country and topscore.maxscore = coronadata.cases group by topscore.country order by cases desc;";
+		
+		int worldCases = 0;
+		int worldCasesToday = 0;
+		int worldDeaths = 0;
+		int worldDeathsToday = 0;
+		int worldActive = 0;
+		int worldCritical = 0;
+		int worldRecovered = 0;
+		String country = "World";
+		PreparedStatement stmt;
+		ResultSet rs;
+		stmt = con.prepareStatement(sql);
+		rs = stmt.executeQuery();
+		while (rs.next()) {
+			worldCases = worldCases +rs.getInt("cases");
+			worldCasesToday = worldCasesToday + rs.getInt("todayCases");
+			worldDeaths =  worldDeaths +rs.getInt("deaths");
+			worldDeathsToday = worldDeathsToday +rs.getInt("todayDeaths");
+			worldActive =  worldActive + rs.getInt("active");
+			worldCritical = worldCritical + rs.getInt("critical");
+			worldRecovered = worldRecovered +rs.getInt("recovered");
+		}
+		
+		String sql1 = "insert into coronadata(epoch,country, cases, todayCases, deaths, todayDeaths, recovered, active, critical) values (1585805755819, '" + country + "', '"+ worldCases + "', '" + worldCasesToday + "', '" + worldDeaths + "', '"+worldDeathsToday + "', '" + worldRecovered + "', '" +worldActive + "', '" + worldCritical + "')";
+	stmt = con.prepareStatement(sql1);
+	stmt.execute();
+	stmt.close();
+	
+	System.out.println(worldCases);
+	System.out.println(worldCasesToday);
+	}
 	public void close() throws SQLException {
 
 		con.close();
