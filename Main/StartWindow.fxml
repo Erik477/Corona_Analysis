@@ -37,7 +37,7 @@
                   <Image url="@../../../../Desktop/SchulprojektSWP/StartPic.png" />
                </image>
             </ImageView>
-            <Button fx:id="startButton" layoutX="285.0" layoutY="137.0" mnemonicParsing="false" onMouseClicked="#startApplication" prefHeight="52.0" prefWidth="204.0" text="Start">
+            <Button fx:id="startButton" layoutX="400.0" layoutY="137.0" mnemonicParsing="false" onMouseClicked="#startApplication" prefHeight="52.0" prefWidth="204.0" text="Overview">
                <font>
                   <Font size="21.0" />
                </font>
@@ -45,6 +45,11 @@
             <Button fx:id="closeButton" layoutX="285.0" layoutY="218.0" mnemonicParsing="false" onMouseClicked="#closeApplication" prefHeight="52.0" prefWidth="204.0" text="Close">
                <font>
                   <Font name="Gadugi" size="21.0" />
+               </font>
+            </Button>
+             <Button fx:id="VergleichButton" layoutX="170.0" layoutY="137.0" mnemonicParsing="false" onMouseClicked="#startApplication" prefHeight="52.0" prefWidth="204.0" text="Compare">
+               <font>
+                  <Font size="21.0" />
                </font>
             </Button>
          </children>

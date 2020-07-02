@@ -22,6 +22,8 @@ public class StartGraphicsController implements Initializable {
 	private Button exit;
 	@FXML
 	private Button minimize;
+	@FXML
+	private Button VergleichButton;
 	
 	private Stage window;
 
