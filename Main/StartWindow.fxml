@@ -47,7 +47,7 @@
                   <Font name="Gadugi" size="21.0" />
                </font>
             </Button>
-             <Button fx:id="VergleichButton" layoutX="170.0" layoutY="137.0" mnemonicParsing="false" onMouseClicked="#startApplication" prefHeight="52.0" prefWidth="204.0" text="Compare">
+             <Button fx:id="VergleichButton" layoutX="170.0" layoutY="137.0" mnemonicParsing="false" onMouseClicked="#VergleichApplication" prefHeight="52.0" prefWidth="204.0" text="Compare">
                <font>
                   <Font size="21.0" />
                </font>

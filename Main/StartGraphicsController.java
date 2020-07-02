@@ -34,6 +34,7 @@ public class StartGraphicsController implements Initializable {
 	private double yOffset = 0;
 	private StartGraphicsMain startScreen = new StartGraphicsMain();
 	private ScenebuilderMain mainScreen = new ScenebuilderMain();
+	private Vergleichmain compareScreen = new Vergleichmain();
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
@@ -46,6 +47,11 @@ public class StartGraphicsController implements Initializable {
 	
 	public void closeApplication() throws Exception{
 		startScreen.close();
+	}
+	public void VergleichApplication() throws Exception {
+		compareScreen.start(window);
+		StartGraphicsMain.getWindow().close();
+
 	}
 	public void minimizeApplication() {
 		StartGraphicsMain.getWindow().setIconified(true);
