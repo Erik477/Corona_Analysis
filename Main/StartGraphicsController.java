@@ -41,7 +41,7 @@ public class StartGraphicsController implements Initializable {
 
 	public void startApplication() throws Exception {
 		mainScreen.start();
-		StartGraphicsMain.getWindow().close();
+		//StartGraphicsMain.getWindow().close();
 
 	}
 	
@@ -50,7 +50,7 @@ public class StartGraphicsController implements Initializable {
 	}
 	public void VergleichApplication() throws Exception {
 		compareScreen.start(window);
-		StartGraphicsMain.getWindow().close();
+		//StartGraphicsMain.getWindow().close();
 
 	}
 	public void minimizeApplication() {
