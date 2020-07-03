@@ -27,7 +27,7 @@ import javafx.stage.StageStyle;
 public class StartGraphicsMain extends Application {
 
 	private static Stage window;
-	private static Scene scene;
+	private  Scene scene;
 	
 	public StartGraphicsMain() {
 		

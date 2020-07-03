@@ -33,7 +33,5 @@ public class Vergleichmain {
 		
 		window.setResizable(true);
 		window.show();
-
-		
 	}
 }

@@ -142,6 +142,13 @@ public class MainController implements Initializable {
 	}
 	public void addButtons() {
 
+		Cases = new Button("cases");
+		Deaths = new Button("deaths");
+		casesPerOneMillion = new Button("CasesPerOneMillion");
+		Recovered = new Button("Recovered");
+		Critical = new Button("Critical");
+		Active = new Button("Active");
+		
 		chartButtons = new ArrayList<>();
 		chartButtons.add(Cases);
 		chartButtons.add(casesPerOneMillion);
@@ -150,17 +157,12 @@ public class MainController implements Initializable {
 		chartButtons.add(Active);
 		chartButtons.add(Deaths);
 		
-		Cases = new Button("cases");
-		Deaths = new Button("deaths");
-		casesPerOneMillion = new Button("CasesPerOneMillion");
-		Recovered = new Button("Recovered");
-		Critical = new Button("Critical");
-		Active = new Button("Active");
-		
+
 		for(Button b: chartButtons)
 		{
 			value = b.getText();
 		}
+		
 		
 	}
 
