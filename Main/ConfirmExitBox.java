@@ -24,6 +24,8 @@ public class ConfirmExitBox {
 	private Button ok;
 	@FXML
 	private Button cancel;
+	@FXML
+	private Button swithScene;
 
 	private StartGraphicsMain sg = new StartGraphicsMain();
 	private static Stage window;
@@ -36,6 +38,7 @@ public class ConfirmExitBox {
 
 		ok = new Button();
 		cancel = new Button();
+		swithScene = new Button();
 
 		Image icon = new Image(getClass().getResourceAsStream("logo.jpg"));
 		window.getIcons().add(icon);

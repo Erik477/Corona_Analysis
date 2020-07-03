@@ -43,6 +43,8 @@ public class MainController implements Initializable {
 	// -----------------------------------------------
 	@FXML
 	private ListView<String> countryList;
+	@FXML
+	private ListView<String> countryList1;
 
 	// ----------------------------------------------------
 	@FXML
@@ -216,6 +218,25 @@ public class MainController implements Initializable {
 		countryList.getItems().addAll(list);
 
 	}
+	public void addList1() throws ClassNotFoundException, SQLException {
+		mq = new Mysql();
+
+		countryList1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+		list.removeAll(list);
+
+		ArrayList countries = mq.getCountry();
+		for (int i = 0; i < countries.size(); i++) {
+
+			list.addAll(countries.get(i));
+		}
+
+		// mq.insertWorld();
+		
+		
+		countryList1.getItems().addAll(list);
+
+	}
 
 	public void infoChart(String value, String output) throws SQLException, ClassNotFoundException {
 
@@ -262,6 +283,7 @@ public class MainController implements Initializable {
 		String output2 = "";
 		ObservableList<String> countries;
 		countries = countryList.getSelectionModel().getSelectedItems();
+
 
 		for (String s : countries) {
 			output1 = s;

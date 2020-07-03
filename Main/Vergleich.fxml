@@ -5,23 +5,23 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.MainController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.MainController">
    <left>
-      <ListView fx:id="countryList" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <ListView fx:id="countryList1" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </left>
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label text="Label" />
+                  <Label prefHeight="40.0" prefWidth="103.0" text="Label" />
                   <TextField />
                </children>
             </VBox>
-            <Region prefHeight="100.0" prefWidth="397.0" />
+            <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="397.0" HBox.hgrow="ALWAYS" />
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label text="Label" />
+                  <Label prefHeight="47.0" prefWidth="105.0" text="Label" />
                   <TextField />
                </children>
             </VBox>
