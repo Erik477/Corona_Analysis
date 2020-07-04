@@ -25,7 +25,7 @@ public class ConfirmExitBox {
 	@FXML
 	private Button cancel;
 	@FXML
-	private Button swithScene;
+	private Button switchScene;
 
 	private StartGraphicsMain sg = new StartGraphicsMain();
 	private static Stage window;
@@ -38,7 +38,7 @@ public class ConfirmExitBox {
 
 		ok = new Button();
 		cancel = new Button();
-		swithScene = new Button();
+		switchScene = new Button();
 
 		Image icon = new Image(getClass().getResourceAsStream("logo.jpg"));
 		window.getIcons().add(icon);
@@ -76,6 +76,13 @@ public class ConfirmExitBox {
 		window.close();
 		System.out.println("CANCEL CLOSING APPLICATION");
 	
+	}
+	
+	public void switchPressed() throws Exception {
+		window.close();
+		sg.start(window);	
+		System.out.println("Going to another Scene");
+
 	}
 
 }

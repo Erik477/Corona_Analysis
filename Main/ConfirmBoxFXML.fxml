@@ -41,7 +41,7 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <Button fx:id="swithScene" layoutX="98.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#okPressed" prefHeight="30.0" prefWidth="191.0" style="-fx-background-color: #303030; -fx-border-radius: 0; -fx-border-color: white; -fx-border-width: 2;" text="Go to the other Scene" textFill="WHITE">
+      <Button fx:id="switchScene" layoutX="98.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#switchPressed" prefHeight="30.0" prefWidth="191.0" style="-fx-background-color: #303030; -fx-border-radius: 0; -fx-border-color: white; -fx-border-width: 2;" text="Back to the launcher" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
