@@ -8,12 +8,7 @@ import javafx.application.Application;
 
 public class Main {
 
-
-
-
-
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-
 
 		StartGraphicsMain sg = new StartGraphicsMain();
 
